@@ -5,7 +5,7 @@
       <div class="scroll-menu">
         <div
           class="card-style shadow-sm"
-          v-for="(item, index) in getBalanceGeneral"
+          v-for="(item, index) in BalanceGeneral"
           :key="index"
         >
           <div class="row">
@@ -74,13 +74,18 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["getBalanceGeneral"]),
+    ...mapGetters(["BalanceGeneral"]),
   },
   methods: {
+    ...mapActions(["getBalanceGeneral"]),
     mostrarBalance(balance) {
       this.balanceGeneral = balance;
-      console.log(this.balanceGeneral);
     },
+  },
+
+  created() {
+    this.getBalanceGeneral();
+    console.log(this.BalanceGeneral);
   },
 };
 </script>
