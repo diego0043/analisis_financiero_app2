@@ -11,6 +11,7 @@
     "@babel/polyfill": "^7.11.5",
     "@lottiefiles/lottie-player": "^1.5.7",
     "bootstrap": "^4.5.2",
+    "bootstrap-icons": "^1.9.1",
     "bootstrap-vue": "^2.17.3",
     "core-js": "^3.8.3",
     "mutationobserver-shim": "^0.3.7",

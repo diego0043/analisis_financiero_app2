@@ -3,23 +3,45 @@
   <div class="row container-fluid">
     <div class="col-3">
       <div class="scroll-menu">
-        <div>
-          <p>Opciones disponibles:</p>
-            <button>Agregar nuevo</button>
+        <div
+          class="card-style shadow-sm"
+          v-for="(item, index) in getBalanceGeneral"
+          :key="index"
+        >
+          <div class="row">
+            <div class="col-8 mt-2 ml-3">BANDESAL</div>
+            <div class="col-3 mt-2">{{ item.anio }}</div>
+          </div>
+          <div class="row mt-3">
+            <div class="col">
+              <img
+                src="../assets/img_balance.svg"
+                class="img-fluid"
+                alt="Responsive image"
+              />
+            </div>
+            <div class="col mt-3">
+              <button @click="mostrarBalance(item)" class="btn-view mt-2">
+                Ver detalle
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-eye-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                  <path
+                    d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="card-style shadow" v-for="(item,index) in getBalanceGeneral" :key="index">
-            <div class="row">
-              <div class="col-8 mt-2 ml-3">BANDESAL</div>
-              <div class="col-3 mt-2">{{item.anio}}</div>
-            </div>
-            <div class="row mt-3">
-              <div class="col">
-                <img src="../assets/img_balance.svg" class="img-fluid" alt="Responsive image"/>
-              </div>
-              <div class="col mt-3">
-                Ver balance
-              </div>
-            </div>
+        <div>
+          <button class="btn-add shadow-sm mt-2 mb-2">Agregar</button>
         </div>
       </div>
     </div>
@@ -43,24 +65,30 @@
 </template>
 
 <script>
-  import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "BalanceGeneral",
   data() {
     return {
-      
-    }
+      balanceGeneral: [],
+    };
   },
   computed: {
     ...mapGetters(["getBalanceGeneral"]),
+  },
+  methods: {
+    mostrarBalance(balance) {
+      this.balanceGeneral = balance;
+      console.log(this.balanceGeneral);
+    },
   },
 };
 </script>
 
 <style scoped>
 .scroll-menu {
-  top: 80px;
-  height: 80vh;
+  top: 70px;
+  height: 87vh;
   overflow-y: scroll;
   scroll-behavior: smooth;
   position: fixed;
@@ -90,7 +118,7 @@ export default {
   margin-right: auto;
 }
 
-.text-inicial{
+.text-inicial {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -101,7 +129,7 @@ export default {
   color: gray;
 }
 
-.card-style{
+.card-style {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -110,4 +138,19 @@ export default {
   border-radius: 10px;
 }
 
+.btn-add {
+  background-color: #d4b499;
+  color: white;
+  border-radius: 10px;
+  border: 1px solid #d4b499;
+  width: 100px;
+  height: 40px;
+  margin-left: 18px;
+}
+
+.btn-view {
+  background-color: white;
+  color: #d4b499;
+  border: none;
+}
 </style>
