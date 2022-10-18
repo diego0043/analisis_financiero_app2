@@ -24,21 +24,21 @@
             >
               <b-nav-item
                 :to="{ name: 'balance' }"
-                class="text-center"
+                class="text-center text-item"
                 exact
               >
                 BALANCE GENERAL
               </b-nav-item>
               <b-nav-item
                 :to="{ name: 'estado' }"
-                class=" text-center "
+                class=" text-center text-item "
                 exact
               >
                 ESTADO DE RESULTADOS
               </b-nav-item>
               <b-nav-item
                 :to="{ name: 'balance' }"
-                class="text-center "
+                class="text-center text-item "
                 exact
               >
                 INDICADORES
@@ -52,21 +52,21 @@
 
             <b-nav-item
                 :to="{ name: 'vertical' }"
-                class="text-center"
+                class="text-center text-item"
                 exact
               >
               ANÁLISIS VERTICAL
               </b-nav-item>
               <b-nav-item
                 :to="{ name: 'horizontal' }"
-                class=" text-center "
+                class=" text-center text-item "
                 exact
               >
               ANÁLISIS HORIZONTAL
               </b-nav-item>
               <b-nav-item
                 :to="{ name: 'dupont' }"
-                class="text-center "
+                class="text-center text-item "
                 exact
               >
               ANÁLISIS DUPONT
@@ -111,5 +111,10 @@ export default {};
   font-weight: bold;
   color: var(--gray);
   margin-left: 20px;
+}
+
+.text-item{
+  font-size: 12px;
+  color: gray;
 }
 </style>
