@@ -11,7 +11,7 @@
         <b-navbar-nav class="ml-auto">
           <b-navbar-nav>
             <b-nav-item
-              :to="{ name: 'Home' }"
+              :to="{ name: 'home' }"
               class="mr-4 mb-1 text-center btn-style"
               exact
             >
@@ -22,18 +22,56 @@
               text="PRINCIPAL"
               right
             >
-              <b-dropdown-item href="#">BALANCE GENERAL</b-dropdown-item>
-              <b-dropdown-item href="#">ESTADO DE RESULTADOS </b-dropdown-item>
-              <b-dropdown-item href="#">INDICADORES</b-dropdown-item>
+              <b-nav-item
+                :to="{ name: 'balance' }"
+                class="text-center"
+                exact
+              >
+                BALANCE GENERAL
+              </b-nav-item>
+              <b-nav-item
+                :to="{ name: 'estado' }"
+                class=" text-center "
+                exact
+              >
+                ESTADO DE RESULTADOS
+              </b-nav-item>
+              <b-nav-item
+                :to="{ name: 'balance' }"
+                class="text-center "
+                exact
+              >
+                INDICADORES
+              </b-nav-item>
             </b-nav-item-dropdown>
             <b-nav-item-dropdown
               class="text-center btn-style mr-5 mb-1"
               text="SECUNDARIO"
               right
             >
-              <b-dropdown-item href="#">ANÁLISIS VERTICAL</b-dropdown-item>
-              <b-dropdown-item href="#">ANÁLISIS HORIZONTAL</b-dropdown-item>
-              <b-dropdown-item href="#">ANÁLISIS DUPONT</b-dropdown-item>
+
+            <b-nav-item
+                :to="{ name: 'vertical' }"
+                class="text-center"
+                exact
+              >
+              ANÁLISIS VERTICAL
+              </b-nav-item>
+              <b-nav-item
+                :to="{ name: 'horizontal' }"
+                class=" text-center "
+                exact
+              >
+              ANÁLISIS HORIZONTAL
+              </b-nav-item>
+              <b-nav-item
+                :to="{ name: 'dupont' }"
+                class="text-center "
+                exact
+              >
+              ANÁLISIS DUPONT
+              </b-nav-item>
+
             </b-nav-item-dropdown>
           </b-navbar-nav>
         </b-navbar-nav>
