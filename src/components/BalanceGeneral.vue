@@ -4,16 +4,7 @@
 </template>
 <script>
 // eslint-disable-next-line prettier/prettier
-import { db } from "../db";
 export default {
   name: "BalanceGeneral",
-  data() {
-    return {
-      balance: [],
-    };
-  },
-  firestore: {
-    publicaciones: db.collection("Estados de resultados"),
-  },
 };
 </script>
