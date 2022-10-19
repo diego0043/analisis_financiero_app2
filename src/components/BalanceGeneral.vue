@@ -41,24 +41,37 @@
           </div>
         </div>
         <div>
-          <button class="btn-add shadow-sm mt-2 mb-2">Agregar</button>
+          <div class="row text-center container">
+            <div class="col">
+            <button class="btn-add shadow-sm mt-4 mb-1">Agregar</button>
+          </div>
+          <div class="col">
+            <button class="btn-add-2 shadow-sm mt-4 mb-1">Ver todos</button>
+          </div>
+          </div>
+          
         </div>
       </div>
     </div>
     <div class="col-9 contenedor-principal">
-      <div class="row">
-        <lottie-player
-          autoplay
-          loop
-          mode="normal"
-          src="https://assets7.lottiefiles.com/private_files/lf30_ghysqmiq.json"
-          style="width: 400px"
-          class="img mt-3"
-        >
-        </lottie-player>
+      <div v-show="report === false">
+        <div class="row">
+          <lottie-player
+            autoplay
+            loop
+            mode="normal"
+            src="https://assets7.lottiefiles.com/private_files/lf30_ghysqmiq.json"
+            style="width: 400px"
+            class="img mt-3"
+          >
+          </lottie-player>
+        </div>
+        <div class="row text-inicial">
+          Seleccione una cuenta para ver su balance general
+        </div>
       </div>
-      <div class="row text-inicial">
-        Seleccione una cuenta para ver su balance general
+      <div v-if="report === true">
+        <TablaBalance :report="balanceGeneral" />
       </div>
     </div>
   </div>
@@ -66,13 +79,16 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import TablaBalance from "./TablaBalance.vue";
 export default {
   name: "BalanceGeneral",
   data() {
     return {
-      balanceGeneral: [],
+      balanceGeneral: {},
+      report: false,
     };
   },
+
   computed: {
     ...mapGetters(["BalanceGeneral"]),
   },
@@ -80,13 +96,14 @@ export default {
     ...mapActions(["getBalanceGeneral"]),
     mostrarBalance(balance) {
       this.balanceGeneral = balance;
+      this.report = true;
     },
   },
-
-  created() {
-    this.getBalanceGeneral();
-    console.log(this.BalanceGeneral);
+  async created() {
+    await this.getBalanceGeneral();
+    setTimeout(() => {}, 1000);
   },
+  components: { TablaBalance },
 };
 </script>
 
@@ -148,14 +165,28 @@ export default {
   color: white;
   border-radius: 10px;
   border: 1px solid #d4b499;
-  width: 100px;
+  width: 100%;
   height: 40px;
-  margin-left: 18px;
 }
 
 .btn-view {
   background-color: white;
   color: #d4b499;
   border: none;
+}
+
+.btn-view:active {
+  background-color: white;
+  color: #d4b499;
+  border: none;
+}
+
+.btn-add-2 {
+  background-color: #d4b499;
+  color: white;
+  border-radius: 10px;
+  border: 1px solid #d4b499;
+  width: 100%;
+  height: 40px;
 }
 </style>

@@ -19,7 +19,7 @@ export default new Vuex.Store({
   actions: {
     async getBalanceGeneral({ commit }) {
       let balances = [];
-      const doc = await db.collection("balances").get();
+      const doc = await (await db.collection("Estados de situacion financiera").get());
       doc.forEach((balance) => {
        balances.push(balance.data());
       });

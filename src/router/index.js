@@ -15,6 +15,31 @@ const routes = [
     name: "balance",
     component: () => import("../views/BalanceView.vue"),
   },
+  {
+    path: "/estado",
+    name: "estado",
+    component: () => import("../views/EstadoView.vue"),
+  },
+  {
+    path: "/indicadores",
+    name: "indicadores",
+    component: () => import("../views/IndicadoresView.vue"),
+  },  
+  {
+    path: "/vertical",
+    name: "vertical",
+    component: () => import("../views/VerticalView.vue"),
+  },
+  {
+    path: "/horizontal",
+    name: "horizontal",
+    component: () => import("../views/HorizontalView.vue"),
+  },
+  {
+    path: "/dupont",
+    name: "dupont",
+    component: () => import("../views/DupontView.vue"),
+  },
 ];
 
 const router = new VueRouter({

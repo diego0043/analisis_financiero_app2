@@ -37,7 +37,7 @@
                 ESTADO DE RESULTADOS
               </b-nav-item>
               <b-nav-item
-                :to="{ name: 'balance' }"
+                :to="{ name: 'indicadores' }"
                 class="text-center text-item "
                 exact
               >
