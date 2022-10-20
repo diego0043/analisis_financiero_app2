@@ -1,10 +1,11 @@
 <!-- eslint-disable prettier/prettier -->
-<template>
+<template style="background-color: #f8f8f8">
   <div class="row container-fluid">
     <div class="col-3">
       <div class="scroll-menu">
+        <br />
         <div
-          class="card-style shadow-sm"
+          class="card-style"
           v-for="(item, index) in BalanceGeneral"
           :key="index"
         >
@@ -41,15 +42,10 @@
           </div>
         </div>
         <div>
-          <div class="row text-center container">
-            <div class="col">
-            <button class="btn-add shadow-sm mt-4 mb-1">Agregar</button>
+          <div class="row">
+              <button @click="newBalance()" class="btn-add shadow-sm mt-4 mb-3">Agregar nuevo balance</button>
+              <button class="btn-view-all shadow-sm mb-1">Ver todos los balances</button>
           </div>
-          <div class="col">
-            <button class="btn-add-2 shadow-sm mt-4 mb-1">Ver todos</button>
-          </div>
-          </div>
-          
         </div>
       </div>
     </div>
@@ -70,8 +66,8 @@
           Seleccione una cuenta para ver su balance general
         </div>
       </div>
-      <div v-if="report === true">
-        <TablaBalance :report="balanceGeneral" />
+      <div class="bl" v-if="report === true">
+        <TablaBalance class="shadow-sm" :report="balanceGeneral" />
       </div>
     </div>
   </div>
@@ -98,6 +94,11 @@ export default {
       this.balanceGeneral = balance;
       this.report = true;
     },
+    newBalance() {
+      this.$router.push({
+        name: "n_balance",
+      });
+    },
   },
   async created() {
     await this.getBalanceGeneral();
@@ -110,11 +111,14 @@ export default {
 <style scoped>
 .scroll-menu {
   top: 70px;
-  height: 87vh;
+  height: 90vh;
   overflow-y: scroll;
   scroll-behavior: smooth;
   position: fixed;
   width: 300px;
+  background-color: white;
+  margin-left: -14px;
+  margin-top: -14px;
 }
 
 ::-webkit-scrollbar {
@@ -122,16 +126,29 @@ export default {
   height: 40px;
 }
 ::-webkit-scrollbar-track {
-  background: #f6f6f6;
+  background: #f8f8f8;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d4b499;
+  background: #f8f8f8;
   border-radius: 20px;
 }
 
+.container-fluid {
+  widows: 100vw;
+  height: 100vh;
+  background-color: #f8f8f8;
+}
+
+.bl {
+  background-color: #f8f8f8;
+}
+
 .contenedor-principal {
-  height: 85vh;
   margin-top: 60px;
+  width: 100%;
+  height: 89vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 
 .img {
@@ -157,22 +174,45 @@ export default {
   margin-right: auto;
   height: 120px;
   margin-top: 20px;
+  transform: scale(1);
+    transition: 0.2s linear;
   border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.12);
+}
+
+.card-style:hover {
+  transform: scale(1.02);
+    transition: 0.2s linear;
 }
 
 .btn-add {
-  background-color: #d4b499;
-  color: white;
-  border-radius: 10px;
-  border: 1px solid #d4b499;
-  width: 100%;
+  display: block;
+  background-color: #f8f8f8;
+  color: gray;
+  font-weight: 500;
+  width: 82%;
   height: 40px;
+  border: 1px solid #d8d7d7;
+  border-radius: 10px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.btn-add:hover {
+  background-color: #d8d7d7;
 }
 
 .btn-view {
   background-color: white;
-  color: #d4b499;
+  color: gray;
+  font-weight: 400;
   border: none;
+}
+
+.btn-view:hover {
+  color: black;
 }
 
 .btn-view:active {
@@ -181,12 +221,21 @@ export default {
   border: none;
 }
 
-.btn-add-2 {
-  background-color: #d4b499;
-  color: white;
-  border-radius: 10px;
-  border: 1px solid #d4b499;
-  width: 100%;
+.btn-view-all {
+  display: block;
+  background-color: #f8f8f8;
+  color: gray;
+  font-weight: 500;
+  width: 82%;
   height: 40px;
+  border: 1px solid #d8d7d7;
+  border-radius: 10px;
+  margin-right: auto;
+  margin-left: auto;
 }
+
+.btn-view-all:hover {
+  background-color: #d8d7d7;
+}
+
 </style>

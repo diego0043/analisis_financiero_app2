@@ -16,6 +16,11 @@ const routes = [
     component: () => import("../views/BalanceView.vue"),
   },
   {
+    path: "/nuevo_balance",
+    name: "n_balance",
+    component: () => import("../views/AddBalanceView.vue"),
+  },
+  {
     path: "/estado",
     name: "estado",
     component: () => import("../views/EstadoView.vue"),

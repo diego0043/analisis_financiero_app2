@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="container-bl">
     <NavBar />
-    <BalanceGeneral />
+    <BalanceGeneral class="bl" />
   </div>
 </template>
 
@@ -18,3 +18,12 @@ export default {
   },
 };
 </script>
+<style scoped>
+.container-bl {
+  background-color: #F8F8F8;
+}
+
+.bl{
+  background-color: #F8F8F8;
+}
+</style>

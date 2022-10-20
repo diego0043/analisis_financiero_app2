@@ -1,7 +1,7 @@
 <!-- eslint-disable prettier/prettier -->
 <template>
   <div>
-    <b-navbar class="fixed-top" toggleable="lg" type="light" variant="white">
+    <b-navbar class="fixed-top shadow-sm" toggleable="lg" type="light" variant="white">
       <label class="mt-2 mr-2 d-none d-xl-block d-xxl-block title"
         >ANÁLISIS FINANCIERO</label
       >
@@ -94,14 +94,13 @@ export default {};
 }
 .btn-style {
   background: white;
+  font-weight: bold;
   color: #6c757d;
   border: none;
-  border-bottom: 3px solid white;
 }
 .btn-style:hover {
   background: white;
   color: var(--gray-dark);
-  border-bottom: 3px solid #7c5cfc;
 }
 .btn-style:focus {
   box-shadow: none;
