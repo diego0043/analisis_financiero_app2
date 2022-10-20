@@ -19,11 +19,22 @@ export default new Vuex.Store({
   actions: {
     async getBalanceGeneral({ commit }) {
       let balances = [];
-      const doc = await (await db.collection("Estados de situacion financiera").get());
+      const doc = await await db
+        .collection("Estados de situacion financiera")
+        .get();
       doc.forEach((balance) => {
-       balances.push(balance.data());
+        balances.push(balance.data());
       });
       commit("setBalanceGeneral", balances);
+    },
+
+    async setBalanceGeneral({ commit }, payload) {
+      try {
+        await db.collection("Estados de situacion financiera").add(payload);
+        return true;
+      } catch (error) {
+        return false;
+      }
     },
   },
   modules: {},

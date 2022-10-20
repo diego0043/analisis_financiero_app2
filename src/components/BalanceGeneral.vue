@@ -1,8 +1,8 @@
 <!-- eslint-disable prettier/prettier -->
-<template style="background-color: #f8f8f8">
-  <div class="row container-fluid">
-    <div class="col-3">
-      <div class="scroll-menu">
+<template>
+  <div class="row bl container-fluid">
+    <div class="col-3 bl">
+      <div class="scroll-menu ">
         <br />
         <div
           class="card-style"
@@ -110,8 +110,8 @@ export default {
 
 <style scoped>
 .scroll-menu {
-  top: 70px;
-  height: 90vh;
+  top: 80px;
+  height: 95vh;
   overflow-y: scroll;
   scroll-behavior: smooth;
   position: fixed;

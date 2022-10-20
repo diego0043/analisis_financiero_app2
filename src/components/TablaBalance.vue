@@ -49,7 +49,7 @@
     <div class="row">
       <div class="col cuenta">Bienes inmuebles y otros (Neto)</div>
       <div class="col numeros">
-        {{ report.activo_fijo.bienes_inmuebles }}
+        {{ report.activos_fijos.bienes_inmuebles }}
       </div>
     </div>
     <div class="row mb-2">
