@@ -3,10 +3,10 @@
     <div class="row p-3">
       <div class="col-12 card-principal shadow-sm">
         <div class="row">
-          <div class="col-3">
+          <div class="col-7 scroll-form">
             <div class="row title">Activos:</div>
             <div class="row">
-              <div class="col-8 row-item">Activos de intermediación:</div>
+              <div class="col-7 row-item">Activos de intermediación:</div>
               <div class="col row-item2">
                 <b-form-input
                   v-model="doc.activos.activos_de_intermediacion"
@@ -15,7 +15,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-8 row-item">Caja y bancos:</div>
+              <div class="col-7 row-item">Caja y bancos:</div>
               <div class="col row-item2">
                 <b-form-input
                   v-model="doc.activos.caja_y_bancos"
@@ -24,7 +24,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-8 row-item">Inversiones financieras:</div>
+              <div class="col-7 row-item">Inversiones financieras:</div>
               <div class="col row-item2">
                 <b-form-input
                   v-model="doc.activos.inversiones_financieras"
@@ -33,7 +33,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-8 row-item">Cartera de prestamos:</div>
+              <div class="col-7 row-item">Cartera de prestamos:</div>
               <div class="col row-item2">
                 <b-form-input
                   v-model="doc.activos.carteira_de_prestamos"
@@ -42,7 +42,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-8 row-item">Operaciones bursatiles:</div>
+              <div class="col-7 row-item">Operaciones bursatiles:</div>
               <div class="col row-item2">
                 <b-form-input
                   v-model="doc.activos.operaciones_bursatiles"
@@ -51,7 +51,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-8 row-item">Diversos (Neto):</div>
+              <div class="col-7 row-item">Diversos (Neto):</div>
               <div class="col row-item2">
                 <b-form-input
                   v-model="doc.otros_activos.diversos"
@@ -60,7 +60,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-8 row-item">Bienes inmuebles y otros:</div>
+              <div class="col-7 row-item">Bienes inmuebles y otros:</div>
               <div class="col row-item2">
                 <b-form-input
                   v-model="doc.activos_fijos.bienes_inmuebles"
@@ -69,7 +69,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-8 row-item">Total activos:</div>
+              <div class="col-7 row-item">Total activos:</div>
               <div class="col row-item2">
                 <b-form-input
                   v-model="doc.total_activos"
@@ -77,11 +77,9 @@
                 ></b-form-input>
               </div>
             </div>
-          </div>
-          <div class="col-4">
             <div class="row title">Pasivo y patrimonio :</div>
             <div class="row">
-              <div class="col-8 row-item">Pasivos de intermediación:</div>
+              <div class="col-7 row-item">Pasivos de intermediación:</div>
               <div class="col row-item2">
                 <b-form-input
                   v-model="doc.pasivos.pasivos_de_intermediacion"
@@ -90,7 +88,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-8 row-item">
+              <div class="col-7 row-item">
                 Prestamos del Banco central de la República de El Salvador:
               </div>
               <div class="col row-item2">
@@ -102,7 +100,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-8 row-item">Prestamos de otros bancos:</div>
+              <div class="col-7 row-item">Prestamos de otros bancos:</div>
               <div class="col row-item2">
                 <b-form-input
                   :v-model="doc.pasivos.prestamos_bancos"
@@ -111,7 +109,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-8 row-item">Titulos de emisión propia:</div>
+              <div class="col-7 row-item">Titulos de emisión propia:</div>
               <div class="col row-item2">
                 <b-form-input
                   v-model="doc.pasivos.titulos_de_emision_propia"
@@ -120,7 +118,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-8 row-item">Otros pasivos:</div>
+              <div class="col-7 row-item">Otros pasivos:</div>
               <div class="col row-item2">
                 <b-form-input
                   v-model="doc.pasivos.otros_pasivos"
@@ -129,7 +127,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-8 row-item">Fondos de administración:</div>
+              <div class="col-7 row-item">Fondos de administración:</div>
               <div class="col row-item2">
                 <b-form-input
                   v-model="doc.pasivos.fondos_de_administracion"
@@ -138,7 +136,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-8 row-item">Provisiones:</div>
+              <div class="col-7 row-item">Provisiones:</div>
               <div class="col row-item2">
                 <b-form-input
                   v-model="doc.pasivos.provisiones"
@@ -147,7 +145,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-8 row-item">Diversos:</div>
+              <div class="col-7 row-item">Diversos:</div>
               <div class="col row-item2">
                 <b-form-input
                   v-model="doc.pasivos.diversos"
@@ -155,10 +153,8 @@
                 ></b-form-input>
               </div>
             </div>
-          </div>
-          <div class="col-3">
-            <div class="row row-cont">
-              <div class="col-8 row-item">Total pasivos:</div>
+            <div class="row">
+              <div class="col-7 row-item">Total pasivos:</div>
               <div class="col row-item2">
                 <b-form-input
                   v-model="doc.total_pasivos"
@@ -166,9 +162,9 @@
                 ></b-form-input>
               </div>
             </div>
-            <div class="row title-patrimonio">Patrimonio:</div>
+            <div class="row ">Patrimonio:</div>
             <div class="row">
-              <div class="col-8 row-item">Aportes del estado:</div>
+              <div class="col-7 row-item">Aportes del estado:</div>
               <div class="col row-item2">
                 <b-form-input
                   v-model="doc.patrimonio.aportes_del_estado"
@@ -177,7 +173,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-8 row-item">
+              <div class="col-7 row-item">
                 Reservas de capital, resultados acumulados y patrimonio ganado:
               </div>
               <div class="col row-item2">
@@ -188,7 +184,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-8 row-item">Total patrimonio:</div>
+              <div class="col-7 row-item">Total patrimonio:</div>
               <div class="col row-item2">
                 <b-form-input
                   v-model="doc.total_patrimonio"
@@ -197,7 +193,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-8 row-item">Total pasivos y patrimonio:</div>
+              <div class="col-7 row-item">Total pasivos y patrimonio:</div>
               <div class="col row-item2">
                 <b-form-input
                   v-model="doc.total_pasivos_patrimonio"
@@ -205,25 +201,30 @@
                 ></b-form-input>
               </div>
             </div>
-          </div>
-          <div class="col-2">
             <div class="row title">Datos generales:</div>
             <div class="row">
-              <div class="col row-item">Año:</div>
+              <div class="col-7 row-item">Año:</div>
               <div class="col row-item2">
                 <b-form-input v-model="doc.anio" type="text"></b-form-input>
               </div>
             </div>
+          </div>
+
+          <div class="col-5 form-save">
             <div class="row">
               <lottie-player
                 autoplay
                 loop
                 mode="normal"
                 src="https://assets2.lottiefiles.com/packages/lf20_GtqlRg.json"
-                style="width: 450px"
+                style="width: 400px"
                 class="img"
               >
               </lottie-player>
+            </div>
+            <div class="row text-tip">
+              Llena los campos y luego presiona el boton guardar, y luego
+              regresa a la pagina de balance general
             </div>
             <button @click="save" class="btn-save shadow-sm mb-1">
               Guardar balance
@@ -381,7 +382,6 @@ export default {
       };
 
       let guardo = this.setBalanceGeneral(balance);
-      console.log(guardo);
     },
   },
 };
@@ -419,24 +419,11 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 15px;
+  margin-left: 30px;
 }
 
 .row-item2 {
   margin-top: 10px;
-}
-
-.row-cont {
-  margin-top: 68px;
-}
-
-.title-patrimonio {
-  display: block;
-  margin-top: 50px;
-  margin-bottom: 20px;
-  font-size: 20px;
-  font-weight: bold;
-  color: gray;
-  text-align: center;
 }
 
 .btn-save {
@@ -445,13 +432,25 @@ export default {
   background-color: #f8f8f8;
   color: gray;
   font-weight: 500;
-  width: 82%;
+  width: 50%;
   height: 40px;
   border: 1px solid #d8d7d7;
   border-radius: 10px;
-  margin-right: auto;
-  margin-left: auto;
-  bottom: -30px;
+  margin-left: 22%;
+  bottom: 0px;
+}
+
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 40px;
+}
+::-webkit-scrollbar-track {
+  background: white;
+}
+::-webkit-scrollbar-thumb {
+  background: #f8f8f8;
+  border-radius: 20px;
 }
 
 .btn-save:hover {
@@ -459,6 +458,32 @@ export default {
 }
 
 .img {
-  margin-top: 35%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
 }
+
+.scroll-form {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  height: 80vh;
+  margin-top: 8px;
+}
+
+.form-save {
+  height: 80vh;
+}
+
+.text-tip {
+  display: block;
+  padding: 10px;
+  font-size: 17px;
+  color: gray;
+  font-weight: bold;
+  margin-left: auto;
+  margin-top: auto;
+  text-align: center;
+}
+
 </style>

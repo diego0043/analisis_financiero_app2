@@ -7,7 +7,7 @@
     <div class="row rows-principal">
       Del 01 de enero al 31 de Diciembre de {{ report.anio }}
     </div>
-    <div class="row sub-title rows-subtitulo mt-3">Activos</div>
+    <div class="row sub-title rows-subtitulo mt-4">Activos</div>
     <div class="row">
       <div class="col cuenta">Activos de intermediación</div>
       <div class="col numeros">

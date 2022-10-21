@@ -11,7 +11,7 @@ const routes = [
     component: HomeView,
   },
   {
-    path: "/balance",
+    path: "/balance_general",
     name: "balance",
     component: () => import("../views/BalanceView.vue"),
   },
@@ -21,9 +21,14 @@ const routes = [
     component: () => import("../views/AddBalanceView.vue"),
   },
   {
-    path: "/estado",
+    path: "/estado_resultados",
     name: "estado",
     component: () => import("../views/EstadoView.vue"),
+  },
+  {
+    path: "/nuevo_estado",
+    name: "n_estado",
+    component: () => import("../views/AddEstadoView.vue"),
   },
   {
     path: "/indicadores",
