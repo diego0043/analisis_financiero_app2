@@ -24,7 +24,7 @@ export default new Vuex.Store({
   actions: {
     async getBalanceGeneral({ commit }) {
       let balances = [];
-      const doc = await await db
+      const doc = await db
         .collection("Estados de situacion financiera")
         .get();
       doc.forEach((balance) => {
@@ -33,9 +33,10 @@ export default new Vuex.Store({
       commit("setBalanceGeneral", balances);
     },
 
+
     async getEstadoResultados({ commit }) {
       let estados = [];
-      const doc = await await db
+      const doc = await db
         .collection("Estados de resultados")
         .get();
       doc.forEach((estado) => {

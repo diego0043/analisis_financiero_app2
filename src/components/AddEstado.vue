@@ -248,6 +248,44 @@
                 ></b-form-input>
               </div>
             </div>
+            <div class="row title">Impuesto sobre la renta( si > 150 = 30%):</div>
+            <div class="row">
+              <div class="col-7 row-item">Utilidad neta:</div>
+              <div class="col row-item2">
+                <b-form-input
+                  v-model="doc.impuesto_sobre_la_renta"
+                  type="text"
+                ></b-form-input>
+              </div>
+            </div>
+            <div class="row title">Efecto fiscal de:</div>
+            <div class="row">
+              <div class="col-7 row-item">gastos no deducibles:</div>
+              <div class="col row-item2">
+                <b-form-input
+                  v-model="doc.efecto_fiscal.gastos_no_deducibles"
+                  type="text"
+                ></b-form-input>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-7 row-item">Ingresos no gravables:</div>
+              <div class="col row-item2">
+                <b-form-input
+                  v-model="doc.efecto_fiscal.ingresos_no_gravables"
+                  type="text"
+                ></b-form-input>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-7 row-item">Impuesto sobre la renta:</div>
+              <div class="col row-item2">
+                <b-form-input
+                  v-model="doc.efecto_fiscal.impuesto_sobre_la_renta"
+                  type="text"
+                ></b-form-input>
+              </div>
+            </div>  
             <div class="row title">Datos generales:</div>
             <div class="row">
               <div class="col-7 row-item">Año:</div>
@@ -327,6 +365,12 @@ export default {
           contribucion_especial_plan_de_seguridad_ciudada: "",
         },
         utilidad_neta: "",
+        impuesto_sobre_la_renta: "",
+        efecto_fiscal: {
+          gastos_no_deducibles: "",
+          ingresos_no_gravables: "",
+          impuesto_sobre_la_renta: "",
+        },
       },
     };
   },
@@ -442,9 +486,16 @@ export default {
         },
         utilidad_neta:
           copiaEstado.utilidad_neta === "" ? 0 : copiaEstado.utilidad_neta,
+          impuesto_sobre_la_renta: copiaEstado.impuesto_sobre_la_renta === "" ? 0 : copiaEstado.impuesto_sobre_la_renta,
+          efecto_fiscal: {
+            gastos_no_deducibles: copiaEstado.efecto_fiscal.gastos_no_deducibles === "" ? 0 : copiaEstado.efecto_fiscal.gastos_no_deducibles,
+            ingresos_no_gravables: copiaEstado.efecto_fiscal.ingresos_no_gravables === "" ? 0 : copiaEstado.efecto_fiscal.ingresos_no_gravables,
+            impuesto_sobre_la_renta: copiaEstado.efecto_fiscal.impuesto_sobre_la_renta === "" ? 0 : copiaEstado.efecto_fiscal.impuesto_sobre_la_renta,
+          }
       };
 
       let guardo = this.setEstadoResultados(estado);
+      
     },
   },
 };

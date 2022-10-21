@@ -208,6 +208,8 @@
                 <b-form-input v-model="doc.anio" type="text"></b-form-input>
               </div>
             </div>
+
+            <div class="row title"></div>
           </div>
 
           <div class="col-5 form-save">
