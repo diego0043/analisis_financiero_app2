@@ -162,7 +162,7 @@
                 ></b-form-input>
               </div>
             </div>
-            <div class="row ">Patrimonio:</div>
+            <div class="row title">Patrimonio:</div>
             <div class="row">
               <div class="col-7 row-item">Aportes del estado:</div>
               <div class="col row-item2">
