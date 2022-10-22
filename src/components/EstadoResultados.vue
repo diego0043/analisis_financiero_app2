@@ -71,7 +71,7 @@
         </div>
       </div>
       <div class="bl" v-if="report === true">
-        <TablaEstado class="shadow-sm" :report="estadoResultado" />
+        <TablaEstado :report="estadoResultado" />
       </div>
     </div>
   </div>

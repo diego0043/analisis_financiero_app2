@@ -36,7 +36,7 @@
               <div class="col-7 row-item">Cartera de prestamos:</div>
               <div class="col row-item2">
                 <b-form-input
-                  v-model="doc.activos.carteira_de_prestamos"
+                  v-model="doc.activos.cartera_de_prestamos"
                   type="text"
                 ></b-form-input>
               </div>
@@ -249,7 +249,7 @@ export default {
         activos: {
           activos_de_intermediacion: "",
           caja_y_bancos: "",
-          carteira_de_prestamos: "",
+          cartera_de_prestamos: "",
           inversiones_financieras: "",
           operaciones_bursatiles: "",
         },
@@ -296,10 +296,10 @@ export default {
             copiaBalance.activos.caja_y_bancos === ""
               ? 0
               : parseInt(copiaBalance.activos.caja_y_bancos),
-          carteira_de_prestamos:
-            copiaBalance.activos.carteira_de_prestamos === ""
+          cartera_de_prestamos:
+            copiaBalance.activos.cartera_de_prestamos === ""
               ? 0
-              : parseInt(copiaBalance.activos.carteira_de_prestamos),
+              : parseInt(copiaBalance.activos.cartera_de_prestamos),
           inversiones_financieras:
             copiaBalance.activos.inversiones_financieras === ""
               ? 0

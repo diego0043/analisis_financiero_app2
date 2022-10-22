@@ -67,7 +67,7 @@
         </div>
       </div>
       <div class="bl" v-if="report === true">
-        <TablaBalance class="shadow-sm" :report="balanceGeneral" />
+        <TablaBalance  :report="balanceGeneral" />
       </div>
     </div>
   </div>
