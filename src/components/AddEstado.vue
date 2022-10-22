@@ -66,7 +66,7 @@
             </div>
             <div class="row">
               <div class="col-7 row-item">
-                Intereses sobre títulos de emisión propia:
+                comisiones sobre títulos de emisión propia:
               </div>
               <div class="col row-item2">
                 <b-form-input
@@ -248,7 +248,9 @@
                 ></b-form-input>
               </div>
             </div>
-            <div class="row title">Impuesto sobre la renta( si > 150 = 30%):</div>
+            <div class="row title">
+              Impuesto sobre la renta( si > 150 = 30%):
+            </div>
             <div class="row">
               <div class="col-7 row-item">Utilidad neta:</div>
               <div class="col row-item2">
@@ -285,7 +287,7 @@
                   type="text"
                 ></b-form-input>
               </div>
-            </div>  
+            </div>
             <div class="row title">Datos generales:</div>
             <div class="row">
               <div class="col-7 row-item">Año:</div>
@@ -405,6 +407,7 @@ export default {
               : copiaEstado.ingreso_de_operaciones.total_ingresos_operacion,
         },
         costos_operacion: {
+          intereses_sobre_prestamos: copiaEstado.costos_operacion.intereses_sobre_prestamos === "" ? 0 : copiaEstado.costos_operacion.intereses_sobre_prestamos,
           comisiones_sobre_titulos:
             copiaEstado.costos_operacion.comisiones_sobre_titulos === ""
               ? 0
@@ -486,16 +489,27 @@ export default {
         },
         utilidad_neta:
           copiaEstado.utilidad_neta === "" ? 0 : copiaEstado.utilidad_neta,
-          impuesto_sobre_la_renta: copiaEstado.impuesto_sobre_la_renta === "" ? 0 : copiaEstado.impuesto_sobre_la_renta,
-          efecto_fiscal: {
-            gastos_no_deducibles: copiaEstado.efecto_fiscal.gastos_no_deducibles === "" ? 0 : copiaEstado.efecto_fiscal.gastos_no_deducibles,
-            ingresos_no_gravables: copiaEstado.efecto_fiscal.ingresos_no_gravables === "" ? 0 : copiaEstado.efecto_fiscal.ingresos_no_gravables,
-            impuesto_sobre_la_renta: copiaEstado.efecto_fiscal.impuesto_sobre_la_renta === "" ? 0 : copiaEstado.efecto_fiscal.impuesto_sobre_la_renta,
-          }
+        impuesto_sobre_la_renta:
+          copiaEstado.impuesto_sobre_la_renta === ""
+            ? 0
+            : copiaEstado.impuesto_sobre_la_renta,
+        efecto_fiscal: {
+          gastos_no_deducibles:
+            copiaEstado.efecto_fiscal.gastos_no_deducibles === ""
+              ? 0
+              : copiaEstado.efecto_fiscal.gastos_no_deducibles,
+          ingresos_no_gravables:
+            copiaEstado.efecto_fiscal.ingresos_no_gravables === ""
+              ? 0
+              : copiaEstado.efecto_fiscal.ingresos_no_gravables,
+          impuesto_sobre_la_renta:
+            copiaEstado.efecto_fiscal.impuesto_sobre_la_renta === ""
+              ? 0
+              : copiaEstado.efecto_fiscal.impuesto_sobre_la_renta,
+        },
       };
 
       let guardo = this.setEstadoResultados(estado);
-      
     },
   },
 };
@@ -539,7 +553,6 @@ export default {
 .row-item2 {
   margin-top: 10px;
 }
-
 
 .btn-save {
   display: block;
