@@ -9,6 +9,7 @@
               <div class="col-7 row-item">Intereses de préstamos:</div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="doc.ingreso_de_operaciones.interes_prestamos"
                   type="text"
                 ></b-form-input>
@@ -20,6 +21,7 @@
               </div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="
                     doc.ingreso_de_operaciones.comisiones_y_otros_ingresos
                   "
@@ -31,6 +33,7 @@
               <div class="col-7 row-item">Intereses de inversiones:</div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="doc.ingreso_de_operaciones.intereses_inversiones"
                   type="text"
                 ></b-form-input>
@@ -40,6 +43,7 @@
               <div class="col-7 row-item">Intereses sobre depósitos:</div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="doc.ingreso_de_operaciones.intereses_depositos"
                   type="text"
                 ></b-form-input>
@@ -49,6 +53,7 @@
               <div class="col-7 row-item">Total ingresos de operación:</div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="doc.ingreso_de_operaciones.total_ingresos_operacion"
                   type="text"
                 ></b-form-input>
@@ -59,6 +64,7 @@
               <div class="col-7 row-item">Intereses sobre préstamos :</div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="doc.costos_operacion.intereses_sobre_prestamos"
                   type="text"
                 ></b-form-input>
@@ -70,6 +76,7 @@
               </div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="doc.costos_operacion.comisiones_sobre_titulos"
                   type="text"
                 ></b-form-input>
@@ -79,6 +86,7 @@
               <div class="col-7 row-item">Comisiones y otros:</div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="doc.costos_operacion.comisiones_y_otros"
                   type="text"
                 ></b-form-input>
@@ -88,8 +96,8 @@
               <div class="col-7 row-item">Total costo de operación:</div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="doc.costos_operacion.total_costos_operacion"
-                  class=""
                   type="text"
                 ></b-form-input>
               </div>
@@ -98,6 +106,7 @@
               <div class="col-7 row-item">Reservas de saneamiento:</div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   :v-model="doc.costos_operacion.reservas_de_saneamiento"
                   type="text"
                 ></b-form-input>
@@ -107,6 +116,7 @@
               <div class="col-7 row-item">Utilidad antes de gastos:</div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="doc.costos_operacion.utilidad_antes_gastos"
                   type="text"
                 ></b-form-input>
@@ -117,6 +127,7 @@
               <div class="col-7 row-item">De funcionarios y empleados:</div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="doc.gastos_operacion.funcionarios_y_empleados"
                   type="text"
                 ></b-form-input>
@@ -126,6 +137,7 @@
               <div class="col-7 row-item">Generales:</div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="doc.gastos_operacion.generales"
                   type="text"
                 ></b-form-input>
@@ -135,6 +147,7 @@
               <div class="col-7 row-item">Depresiaciones y amortizaciones:</div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="doc.gastos_operacion.depresiaciones_y_amortizaciones"
                   type="text"
                 ></b-form-input>
@@ -144,6 +157,7 @@
               <div class="col-7 row-item">Total gastos de operaciones:</div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="doc.gastos_operacion.total_gastos_operacion"
                   type="text"
                 ></b-form-input>
@@ -153,6 +167,7 @@
               <div class="col-7 row-item">Utilidad de operación:</div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="doc.gastos_operacion.utilidad_operacional"
                   type="text"
                 ></b-form-input>
@@ -162,6 +177,7 @@
               <div class="col-7 row-item">Dividendos:</div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="doc.gastos_operacion.dividendos"
                   type="text"
                 ></b-form-input>
@@ -172,6 +188,7 @@
               <div class="col-7 row-item">Otros ingresos:</div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="doc.otros_ingreso_y_gastos.otros_ingresos"
                   type="text"
                 ></b-form-input>
@@ -181,6 +198,7 @@
               <div class="col-7 row-item">Otros gastos:</div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="doc.otros_ingreso_y_gastos.otros_gastos"
                   type="text"
                 ></b-form-input>
@@ -192,6 +210,7 @@
               </div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="
                     doc.otros_ingreso_y_gastos.total_otros_ingresos_y_gastos
                   "
@@ -208,6 +227,7 @@
               </div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="
                     doc.utilidad_antes_impuestos.utilidad_antes_impuestos
                   "
@@ -219,6 +239,7 @@
               <div class="col-7 row-item">Impuesto sobre la renta:</div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="doc.utilidad_antes_impuestos.impuesto_sobre_la_renta"
                   type="text"
                 ></b-form-input>
@@ -230,6 +251,7 @@
               </div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="
                     doc.utilidad_antes_impuestos
                       .contribucion_especial_plan_de_seguridad_ciudada
@@ -243,6 +265,7 @@
               <div class="col-7 row-item">Utilidad neta:</div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="doc.utilidad_neta"
                   type="text"
                 ></b-form-input>
@@ -255,6 +278,7 @@
               <div class="col-7 row-item">Utilidad neta:</div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="doc.impuesto_sobre_la_renta"
                   type="text"
                 ></b-form-input>
@@ -265,6 +289,7 @@
               <div class="col-7 row-item">gastos no deducibles:</div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="doc.efecto_fiscal.gastos_no_deducibles"
                   type="text"
                 ></b-form-input>
@@ -274,6 +299,7 @@
               <div class="col-7 row-item">Ingresos no gravables:</div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="doc.efecto_fiscal.ingresos_no_gravables"
                   type="text"
                 ></b-form-input>
@@ -283,6 +309,7 @@
               <div class="col-7 row-item">Impuesto sobre la renta:</div>
               <div class="col row-item2">
                 <b-form-input
+                  class="inp"
                   v-model="doc.efecto_fiscal.impuesto_sobre_la_renta"
                   type="text"
                 ></b-form-input>
@@ -292,7 +319,11 @@
             <div class="row">
               <div class="col-7 row-item">Año:</div>
               <div class="col row-item2">
-                <b-form-input v-model="doc.anio" type="text"></b-form-input>
+                <b-form-input
+                  class="inp"
+                  v-model="doc.anio"
+                  type="text"
+                ></b-form-input>
               </div>
             </div>
 
@@ -312,11 +343,10 @@
               </lottie-player>
             </div>
             <div class="row text-tip">
-              Llena los campos y luego presiona el boton guardar, y luego
-              regresa a la pagina de estado de resultados
+              Llena los campos y luego presiona el boton guardar
             </div>
             <button @click="save" class="btn-save shadow-sm mb-1">
-              Guardar Estado de Resultados
+              Guardar Estado de Resultado
             </button>
           </div>
         </div>
@@ -382,130 +412,133 @@ export default {
       let year = new Date().getFullYear();
       let copiaEstado = { ...this.doc };
       let estado = {
-        anio: copiaEstado.anio === "" ? year : copiaEstado.anio,
+        anio: copiaEstado.anio === "" ? parseInt(year) : parseInt(copiaEstado.anio),
         ingreso_de_operaciones: {
           interes_prestamos:
             copiaEstado.ingreso_de_operaciones.interes_prestamos === ""
               ? 0
-              : copiaEstado.ingreso_de_operaciones.interes_prestamos,
+              : parseFloat(copiaEstado.ingreso_de_operaciones.interes_prestamos),
           comisiones_y_otros_ingresos:
             copiaEstado.ingreso_de_operaciones.comisiones_y_otros_ingresos ===
             ""
               ? 0
-              : copiaEstado.ingreso_de_operaciones.comisiones_y_otros_ingresos,
+              : parseFloat( copiaEstado.ingreso_de_operaciones.comisiones_y_otros_ingresos),
           intereses_inversiones:
             copiaEstado.ingreso_de_operaciones.intereses_inversiones === ""
               ? 0
-              : copiaEstado.ingreso_de_operaciones.intereses_inversiones,
+              : parseFloat(copiaEstado.ingreso_de_operaciones.intereses_inversiones),
           intereses_depositos:
             copiaEstado.ingreso_de_operaciones.intereses_depositos === ""
               ? 0
-              : copiaEstado.ingreso_de_operaciones.intereses_depositos,
+              : parseFloat(copiaEstado.ingreso_de_operaciones.intereses_depositos),
           total_ingresos_operacion:
             copiaEstado.ingreso_de_operaciones.total_ingresos_operacion === ""
               ? 0
-              : copiaEstado.ingreso_de_operaciones.total_ingresos_operacion,
+              : parseFloat(copiaEstado.ingreso_de_operaciones.total_ingresos_operacion),
         },
         costos_operacion: {
-          intereses_sobre_prestamos: copiaEstado.costos_operacion.intereses_sobre_prestamos === "" ? 0 : copiaEstado.costos_operacion.intereses_sobre_prestamos,
+          intereses_sobre_prestamos:
+            copiaEstado.costos_operacion.intereses_sobre_prestamos === ""
+              ? 0
+              : parseFloat(copiaEstado.costos_operacion.intereses_sobre_prestamos),
           comisiones_sobre_titulos:
             copiaEstado.costos_operacion.comisiones_sobre_titulos === ""
               ? 0
-              : copiaEstado.costos_operacion.comisiones_sobre_titulos,
+              : parseFloat(copiaEstado.costos_operacion.comisiones_sobre_titulos),
           comisiones_y_otros:
             copiaEstado.costos_operacion.comisiones_y_otros === ""
               ? 0
-              : copiaEstado.costos_operacion.comisiones_y_otros,
+              : parseFloat(copiaEstado.costos_operacion.comisiones_y_otros),
           total_costos_operacion:
             copiaEstado.costos_operacion.total_costos_operacion === ""
               ? 0
-              : copiaEstado.costos_operacion.total_costos_operacion,
+              : parseFloat(copiaEstado.costos_operacion.total_costos_operacion),
           reservas_de_saneamiento:
             copiaEstado.costos_operacion.reservas_de_saneamiento === ""
               ? 0
-              : copiaEstado.costos_operacion.reservas_de_saneamiento,
+              : parseFloat(copiaEstado.costos_operacion.reservas_de_saneamiento),
           utilidad_antes_gastos:
             copiaEstado.costos_operacion.utilidad_antes_gastos === ""
               ? 0
-              : copiaEstado.costos_operacion.utilidad_antes_gastos,
+              : parseFloat(copiaEstado.costos_operacion.utilidad_antes_gastos),
         },
         gastos_operacion: {
           funcionarios_y_empleados:
             copiaEstado.gastos_operacion.funcionarios_y_empleados === ""
               ? 0
-              : copiaEstado.gastos_operacion.funcionarios_y_empleados,
+              : parseFloat(copiaEstado.gastos_operacion.funcionarios_y_empleados),
           generales:
             copiaEstado.gastos_operacion.generales === ""
               ? 0
-              : copiaEstado.gastos_operacion.generales,
+              : parseFloat(copiaEstado.gastos_operacion.generales),
           depresiaciones_y_amortizaciones:
             copiaEstado.gastos_operacion.depresiaciones_y_amortizaciones === ""
               ? 0
-              : copiaEstado.gastos_operacion.depresiaciones_y_amortizaciones,
+              : parseFloat(copiaEstado.gastos_operacion.depresiaciones_y_amortizaciones),
           total_gastos_operacion:
             copiaEstado.gastos_operacion.total_gastos_operacion === ""
               ? 0
-              : copiaEstado.gastos_operacion.total_gastos_operacion,
+              : parseFloat(copiaEstado.gastos_operacion.total_gastos_operacion),
           utilidad_operacional:
             copiaEstado.gastos_operacion.utilidad_operacional === ""
               ? 0
-              : copiaEstado.gastos_operacion.utilidad_operacional,
+              : parseFloat(copiaEstado.gastos_operacion.utilidad_operacional),
           dividendos:
             copiaEstado.gastos_operacion.dividendos === ""
               ? 0
-              : copiaEstado.gastos_operacion.dividendos,
+              : parseFloat(copiaEstado.gastos_operacion.dividendos),
         },
         otros_ingreso_y_gastos: {
           otros_ingresos:
             copiaEstado.otros_ingreso_y_gastos.otros_ingresos === ""
               ? 0
-              : copiaEstado.otros_ingreso_y_gastos.otros_ingresos,
+              : parseFloat(copiaEstado.otros_ingreso_y_gastos.otros_ingresos),
           otros_gastos:
             copiaEstado.otros_ingreso_y_gastos.otros_gastos === ""
               ? 0
-              : copiaEstado.otros_ingreso_y_gastos.otros_gastos,
+              : parseFloat(copiaEstado.otros_ingreso_y_gastos.otros_gastos),
           total_otros_ingresos_y_gastos:
             copiaEstado.otros_ingreso_y_gastos.total_otros_ingresos_y_gastos ===
             ""
               ? 0
-              : copiaEstado.otros_ingreso_y_gastos
-                  .total_otros_ingresos_y_gastos,
+              : parseFloat(copiaEstado.otros_ingreso_y_gastos
+                  .total_otros_ingresos_y_gastos),
         },
         utilidad_antes_impuestos: {
           utilidad_antes_impuestos:
             copiaEstado.utilidad_antes_impuestos.utilidad_antes_impuestos === ""
               ? 0
-              : copiaEstado.utilidad_antes_impuestos.utilidad_antes_impuestos,
+              : parseFloat(copiaEstado.utilidad_antes_impuestos.utilidad_antes_impuestos),
           impuesto_sobre_la_renta:
             copiaEstado.utilidad_antes_impuestos.impuesto_sobre_la_renta === ""
               ? 0
-              : copiaEstado.utilidad_antes_impuestos.impuesto_sobre_la_renta,
+              : parseFloat(copiaEstado.utilidad_antes_impuestos.impuesto_sobre_la_renta),
           contribucion_especial_plan_de_seguridad_ciudada:
             copiaEstado.utilidad_antes_impuestos
               .contribucion_especial_plan_de_seguridad_ciudada === ""
               ? 0
-              : copiaEstado.utilidad_antes_impuestos
-                  .contribucion_especial_plan_de_seguridad_ciudada,
+              : parseFloat(copiaEstado.utilidad_antes_impuestos
+                  .contribucion_especial_plan_de_seguridad_ciudada),
         },
         utilidad_neta:
-          copiaEstado.utilidad_neta === "" ? 0 : copiaEstado.utilidad_neta,
+          copiaEstado.utilidad_neta === "" ? 0 : parseFloat(copiaEstado.utilidad_neta),
         impuesto_sobre_la_renta:
           copiaEstado.impuesto_sobre_la_renta === ""
             ? 0
-            : copiaEstado.impuesto_sobre_la_renta,
+            : parseFloat(copiaEstado.impuesto_sobre_la_renta),
         efecto_fiscal: {
           gastos_no_deducibles:
             copiaEstado.efecto_fiscal.gastos_no_deducibles === ""
               ? 0
-              : copiaEstado.efecto_fiscal.gastos_no_deducibles,
+              : parseFloat(copiaEstado.efecto_fiscal.gastos_no_deducibles),
           ingresos_no_gravables:
             copiaEstado.efecto_fiscal.ingresos_no_gravables === ""
               ? 0
-              : copiaEstado.efecto_fiscal.ingresos_no_gravables,
+              : parseFloat(copiaEstado.efecto_fiscal.ingresos_no_gravables),
           impuesto_sobre_la_renta:
             copiaEstado.efecto_fiscal.impuesto_sobre_la_renta === ""
               ? 0
-              : copiaEstado.efecto_fiscal.impuesto_sobre_la_renta,
+              : parseFloat(copiaEstado.efecto_fiscal.impuesto_sobre_la_renta),
         },
       };
 
@@ -517,8 +550,8 @@ export default {
           confirmButtonText: "Aceptar",
         });
         this.$router.push({
-        name: "estado",
-      });
+          name: "estado",
+        });
       } else {
         await this.$swal.fire({
           title: "No se pudo guardar",
@@ -564,6 +597,7 @@ export default {
   text-overflow: ellipsis;
   font-size: 15px;
   margin-left: 30px;
+  color: gray;
 }
 
 .row-item2 {
@@ -627,5 +661,8 @@ export default {
   margin-left: auto;
   margin-top: auto;
   text-align: center;
+}
+.inp:focus {
+  box-shadow: none;
 }
 </style>

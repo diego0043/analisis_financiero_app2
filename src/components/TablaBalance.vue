@@ -180,11 +180,25 @@ export default {
     report: Object,
   },
   methods: {
-    exportToPDF() {
+    async exportToPDF() {
       let name = "Balance-general-" + this.report.anio;
       html2pdf(document.getElementById("element-to-convert"), {
         filename: name,
         margin: 1,
+      });
+
+      await this.$swal.fire({
+        icon: "success",
+        title: 'Se ha exportado el balance general a PDF',
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3500,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener("mouseenter", Swal.stopTimer);
+          toast.addEventListener("mouseleave", Swal.resumeTimer);
+        },
       });
     },
   },
