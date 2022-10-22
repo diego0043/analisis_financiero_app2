@@ -7,7 +7,10 @@ import router from "./router";
 import store from "./store";
 import "@lottiefiles/lottie-player";
 import { firestorePlugin } from 'vuefire'
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
 
+Vue.use(VueSweetalert2);
 Vue.use(firestorePlugin)
 
 Vue.config.productionTip = false;

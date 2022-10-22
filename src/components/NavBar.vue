@@ -2,8 +2,10 @@
 <template>
   <div>
     <b-navbar class="fixed-top shadow-sm" toggleable="lg" type="light" variant="white">
+      
+      <b-img class="icon-bandesal" src="../assets/LogoBANDESAL_.png"></b-img>
       <label class="mt-2 mr-2 d-none d-xl-block d-xxl-block title"
-        >ANÁLISIS FINANCIERO</label
+        >BANDESAL</label
       >
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
@@ -19,7 +21,7 @@
             </b-nav-item>
             <b-nav-item-dropdown
               class="text-center btn-style mr-3 mb-1"
-              text="PRINCIPAL"
+              text="ESTADOS FINANCIEROS"
               right
             >
               <b-nav-item
@@ -46,7 +48,7 @@
             </b-nav-item-dropdown>
             <b-nav-item-dropdown
               class="text-center btn-style mr-5 mb-1"
-              text="SECUNDARIO"
+              text="ANÁLISIS FINANCIERO" 
               right
             >
 
@@ -109,11 +111,19 @@ export default {};
   font-size: 20px;
   font-weight: bold;
   color: var(--gray);
-  margin-left: 20px;
+  margin-left: 60px;
 }
 
 .text-item{
   font-size: 12px;
   color: gray;
+}
+
+.icon-bandesal{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 25px;
+  top: 10px;
 }
 </style>

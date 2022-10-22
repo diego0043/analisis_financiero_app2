@@ -282,7 +282,7 @@ export default {
   },
   methods: {
     ...mapActions(["setBalanceGeneral"]),
-    save() {
+    async save() {
       let year = new Date().getFullYear();
       let copiaBalance = { ...this.doc };
       let balance = {
@@ -383,7 +383,23 @@ export default {
             : parseInt(copiaBalance.total_patrimonio),
       };
 
-      let guardo = this.setBalanceGeneral(balance);
+      let guardo = await this.setBalanceGeneral(balance);
+      if (guardo) {
+        await this.$swal.fire({
+          title: "Se guardo correctamente",
+          icon: "success",
+          confirmButtonText: "Aceptar",
+        });
+        this.$router.push({
+        name: "balance",
+      });
+      } else {
+        await this.$swal.fire({
+          title: "No se pudo guardar",
+          icon: "error",
+          confirmButtonText: "Aceptar",
+        });
+      }
     },
   },
 };
@@ -442,7 +458,6 @@ export default {
   bottom: 0px;
 }
 
-
 ::-webkit-scrollbar {
   width: 5px;
   height: 40px;
@@ -487,5 +502,4 @@ export default {
   margin-top: auto;
   text-align: center;
 }
-
 </style>

@@ -378,7 +378,7 @@ export default {
   },
   methods: {
     ...mapActions(["setEstadoResultados"]),
-    save() {
+    async save() {
       let year = new Date().getFullYear();
       let copiaEstado = { ...this.doc };
       let estado = {
@@ -509,7 +509,23 @@ export default {
         },
       };
 
-      let guardo = this.setEstadoResultados(estado);
+      let guardo = await this.setEstadoResultados(estado);
+      if (guardo) {
+        await this.$swal.fire({
+          title: "Se guardo correctamente",
+          icon: "success",
+          confirmButtonText: "Aceptar",
+        });
+        this.$router.push({
+        name: "estado",
+      });
+      } else {
+        await this.$swal.fire({
+          title: "No se pudo guardar",
+          icon: "error",
+          confirmButtonText: "Aceptar",
+        });
+      }
     },
   },
 };
