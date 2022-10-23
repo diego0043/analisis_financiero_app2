@@ -87,63 +87,70 @@ export default new Vuex.Store({
         let estado = estados[i];
 
         if (balance.anio === estado.anio) {
-          indicadores.push({
-            anio: balance.anio,
-            indicadores_liquidez: {
-              razon_corriente: (
-                balance.activos.activos_de_intermediacion /
-                balance.pasivos.pasivos_de_intermediacion
-              ).toFixed(2),
-              prueba_acida: (
-                (balance.activos.activos_de_intermediacion -
-                  balance.activos.inversiones_financieras) /
-                balance.pasivos.pasivos_de_intermediacion
-              ).toFixed(2),
-              capital_trabajo: (
-                balance.activos.activos_de_intermediacion -
-                balance.pasivos.pasivos_de_intermediacion
-              ).toFixed(2),
+          indicadores.push([
+            {
+              anio: balance.anio,
+              indicadores_liquidez: {
+                razon_corriente: (
+                  balance.activos.activos_de_intermediacion /
+                  balance.pasivos.pasivos_de_intermediacion
+                ).toFixed(2),
+                prueba_acida: (
+                  (balance.activos.activos_de_intermediacion -
+                    balance.activos.inversiones_financieras) /
+                  balance.pasivos.pasivos_de_intermediacion
+                ).toFixed(2),
+                capital_trabajo: (
+                  balance.activos.activos_de_intermediacion -
+                  balance.pasivos.pasivos_de_intermediacion
+                ).toFixed(2),
+              },
+              indicadores_de_actividad: {
+                generadores_de_ingresos_financieros: (
+                  (balance.activos.activos_de_intermediacion /
+                    4 /
+                    balance.total_activos) *
+                  100
+                ).toFixed(2),
+              },
+              indicadores_de_endeudamiento: {
+                indice_de_endeudamiento: (
+                  (balance.total_pasivos / balance.total_activos) *
+                  100
+                ).toFixed(2),
+              },
+              indicadores_de_rentabilidad: {
+                roa: (
+                  (estado.utilidad_neta / balance.total_activos) *
+                  100
+                ).toFixed(2),
+                roe: (
+                  (estado.utilidad_neta / balance.total_patrimonio) *
+                  100
+                ).toFixed(2),
+              },
+              analisis_dupong: {
+                margen_utilidad_neta: (
+                  estado.utilidad_neta /
+                  estado.ingreso_de_operaciones.total_ingresos_operacion
+                ).toFixed(2),
+                rotacion_activos_totales: (
+                  estado.ingreso_de_operaciones.total_ingresos_operacion /
+                  balance.total_activos
+                ).toFixed(2),
+                rendimientos_sobre_los_activos_totales: (
+                  estado.utilidad_neta / balance.total_activos
+                ).toFixed(2),
+                multiplicador_de_apalancamiento_financiero: (
+                  balance.total_activos / balance.total_patrimonio
+                ).toFixed(2),
+              },
             },
-            indicadores_de_actividad: {
-              generadores_de_ingresos_financieros: (
-                (balance.activos.activos_de_intermediacion /
-                  4 /
-                  balance.total_activos) *
-                100
-              ).toFixed(2),
-            },
-            indicadores_de_endeudamiento: {
-              indice_de_endeudamiento: (
-                (balance.total_pasivos / balance.total_activos) *
-                100
-              ).toFixed(2),
-            },
-            indicadores_de_rentabilidad: {
-              roa: ((estado.utilidad_neta / balance.total_activos)*100).toFixed(2),
-              roe: ((estado.utilidad_neta / balance.total_patrimonio)*100).toFixed(2),
-            },
-            analisis_dupong: {
-              margen_utilidad_neta: (
-                estado.utilidad_neta /
-                estado.ingreso_de_operaciones.total_ingresos_operacion
-              ).toFixed(2),
-              rotacion_activos_totales: (
-                estado.ingreso_de_operaciones.total_ingresos_operacion /
-                balance.total_activos
-              ).toFixed(2),
-              rendimientos_sobre_los_activos_totales: (
-                estado.utilidad_neta / balance.total_activos
-              ).toFixed(2),
-              multiplicador_de_apalancamiento_financiero: (
-                balance.total_activos / balance.total_patrimonio
-              ).toFixed(2),
-            },
-          });
+            balance,
+            estado,
+          ]);
         }
       }
-
-      console.log(indicadores);
-
       commit("setIndicadores", indicadores);
     },
   },

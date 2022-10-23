@@ -11,7 +11,7 @@
           >
             <div class="row">
               <div class="col-8 mt-2 ml-3">BANDESAL</div>
-              <div class="col-3 mt-2">{{ item.anio }}</div>
+              <div class="col-3 mt-2">{{ item[0].anio }}</div>
             </div>
             <div class="row mt-3">
               <div class="col-5">
@@ -22,7 +22,7 @@
                 />
               </div>
               <div class="col mt-3">
-                <button @click="mostrarBalance(item)" class="btn-view mt-2">
+                <button @click="mostrarIndicadores(item)" class="btn-view mt-2">
                   Ver indicadores
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -66,6 +66,7 @@
           </div>
         </div>
         <div class="bl" v-if="report === true">
+          <TablaIndicadores :report="indicadores" :balance="balance" :estado="estado"/>
         </div>
       </div>
     </div>
@@ -73,12 +74,15 @@
   
   <script>
   import { mapGetters, mapActions } from "vuex";
+import TablaIndicadores from "./TablaIndicadores.vue";
   export default {
     name: "IndicadorComponent",
     data() {
       return {
         indicadores: {},
         report: false,
+        balance: {},
+        estado: {},
       };
     },
   
@@ -88,7 +92,9 @@
     methods: {
       ...mapActions(["getIndicadores"]),
       mostrarIndicadores(indicador) {
-        this.indicadores = indicador;
+        this.indicadores = indicador[0];
+        this.balance = indicador[1];
+        this.estado = indicador[2];
         this.report = true;
       },
     },
@@ -96,7 +102,7 @@
       await this.getIndicadores();
 
     },
-    components: {  },
+    components: { TablaIndicadores },
   };
   </script>
   
@@ -219,6 +225,5 @@
     margin-left: 15px;
     margin-top: -4px;
   }
-  
   </style>
   
