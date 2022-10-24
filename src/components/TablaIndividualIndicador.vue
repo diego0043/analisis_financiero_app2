@@ -20,18 +20,27 @@
           {{ results[1] }}
         </div>
         <div class="row">
-          <span v-if="results[2] > conditions[0]" class="good">{{ results[2] }}</span>
+          <span v-if="results[2] > conditions[0] && tipe === 0" class="good">{{ results[2] }}</span>
+          <span v-if="results[2] > conditions[0] && tipe === 1" class="danger">{{ results[2] }}</span>
         </div>
         <div class="row">
-          <span v-if="results[2] < conditions[1]" class="danger">{{ results[2] }}</span>
+          <span v-if="results[2] <= conditions[1] && tipe === 0" class="danger">{{ results[2] }}</span>
+          <span v-if="results[2] <= conditions[1] && tipe === 1" class="good">{{ results[2] }}</span>
+
         </div>
       </div>
       <div class="col-5">
         <div class="row">
-          <p class="msg-table" v-if="results[2] > 1">
+          <p class="msg-table" v-if="results[2] > conditions[0] && tipe === 0">
             {{ interpretation[0] }}
           </p>
-          <p class="msg-table" v-if="results[2] < 1">
+          <p class="msg-table" v-if="results[2] > conditions[0] && tipe === 1">
+            {{ interpretation[0] }}
+          </p>
+          <p class="msg-table" v-if="results[2] < conditions[1]  && tipe === 0">
+            {{ interpretation[1] }}
+          </p>
+          <p class="msg-table" v-if="results[2] < conditions[1] && tipe === 1">
             {{ interpretation[1] }}
           </p>
         </div>
@@ -50,6 +59,7 @@ export default {
     anio: Number,
     interpretation: Array,
     conditions: Array,
+    tipe: {Number, default: 0}
   },
   data() {
     return {};

@@ -56,6 +56,47 @@
         :interpretation="item.interpretation"
         :conditions="item.conditions"
       />
+      <div class="row sub-title rows-subtitulo mt-4 mb-4">
+        Indicadores de endeudamiento:
+      </div>
+      <TablaIndividualIndicador
+        v-for="(item, index) in datos_endeudamiento"
+        :key="index + 30"
+        :title="item.title"
+        :labels="item.labels"
+        :results="item.results"
+        :anio="item.anio"
+        :interpretation="item.interpretation"
+        :conditions="item.conditions"
+        :tipe="item.tipe"
+      />
+      <div class="row sub-title rows-subtitulo mt-4 mb-4">
+        Indicadores de rentabilidad:
+      </div>
+      <TablaIndividualIndicador
+        v-for="(item, index) in datos_rentabilidad"
+        :key="index + 40"
+        :title="item.title"
+        :labels="item.labels"
+        :results="item.results"
+        :anio="item.anio"
+        :interpretation="item.interpretation"
+        :conditions="item.conditions"
+      />
+      <div class="row sub-title rows-subtitulo mt-4 mb-4">
+        Otros indicadores:
+      </div>
+      <TablaIndividualIndicador
+        v-for="(item, index) in datos_dupong"
+        :key="index + 80"
+        :title="item.title"
+        :labels="item.labels"
+        :results="item.results"
+        :anio="item.anio"
+        :interpretation="item.interpretation"
+        :conditions="item.conditions"
+        
+      />
       <div class="row mt-4"></div>
     </div>
   </div>
@@ -69,6 +110,9 @@ export default {
   data: () => ({
     datos_liquidez: [],
     datos_actividad: [],
+    datos_endeudamiento: [],
+    datos_rentabilidad: [],
+    datos_dupong: [],
   }),
   props: {
     report: Object,
@@ -163,7 +207,8 @@ export default {
         results: [
           this.balance.activos.activos_de_intermediacion / 4,
           this.balance.total_activos,
-          this.report.indicadores_de_actividad.generadores_de_ingresos_financieros,
+          this.report.indicadores_de_actividad
+            .generadores_de_ingresos_financieros,
         ],
         anio: this.report.anio,
         interpretation: [
@@ -174,8 +219,130 @@ export default {
       },
     ];
 
+    const volcadoData3 = [
+      {
+        title: "Indice de endeudamiento = Total pasivos / Total activos",
+        labels: ["Total pasivos", "Total activos"],
+        results: [
+          this.balance.total_pasivos,
+          this.balance.total_activos,
+          this.report.indicadores_de_endeudamiento.indice_de_endeudamiento,
+        ],
+        anio: this.report.anio,
+        interpretation: [
+          "La empresa ha asumido una gran cantidad de riesgo, la mayoría de sus activos se han financiado mediante deuda",
+          "El resultado muestra que la mayoría de sus activos son de propiedad total.",
+        ],
+        conditions: [50, 50],
+        tipe: 1,
+      },
+    ];
+
+    const volcadoData4 = [
+      {
+        title: "ROA = Utilidad neta / Total activos",
+        labels: ["Utilidad neta", "Total activos"],
+        results: [
+          this.estado.utilidad_neta,
+          this.balance.total_activos,
+          this.report.indicadores_de_rentabilidad.roa,
+        ],
+        anio: this.report.anio,
+        interpretation: [
+          "El resultado nos indica qué la empresa es rentable",
+          "El resultado nos indica qué la empresa no es rentable",
+        ],
+        conditions: [5, 5],
+      },
+      {
+        title: "ROE = Utilidad neta / Total patrimonio",
+        labels: ["Utilidad neta", "Total patrimonio"],
+        results: [
+          this.estado.utilidad_neta,
+          this.balance.total_patrimonio,
+          this.report.indicadores_de_rentabilidad.roe,
+        ],
+        anio: this.report.anio,
+        interpretation: [
+          "El resultado nos indica que el valor es superior a la rentabilidad esperada",
+          "El resultado nos indica que el valor es inferior a la rentabilidad esperada",
+        ],
+        conditions: [5, 5],
+      },
+    ];
+
+    const volcadoData5 = [
+      {
+        title: "Margen utilidad neta = Utilidad neta / Total ingreso de operación",
+        labels: ["Utilidad neta", "Total ingreso de operación"],
+        results: [
+          this.estado.utilidad_neta,
+          this.estado.ingreso_de_operaciones.total_ingresos_operacion,
+          this.report.analisis_dupong.margen_utilidad_neta,
+        ],
+        anio: this.report.anio,
+        interpretation: [
+          "El resultado nos indica qué la empresa tiene una buena eficiencia en la utilización de sus activos",
+          "El resultado nos indica qué la empresa no tiene una buena eficiencia en la utilización de sus activos",
+        ],
+        conditions: [0, 0],
+      },
+      {
+        title:
+          "Rotación activos totales = Total ingresos de operación / Total activos",
+        labels: ["Total ingresos de operación", "Total activos"],
+        results: [
+          this.estado.ingreso_de_operaciones.total_ingresos_operacion,
+          this.balance.total_activos,
+          this.report.analisis_dupong.rotacion_activos_totales,
+        ],
+        anio: this.report.anio,
+        interpretation: [
+        "El resultado nos indica que la forma en que se ha utilizado los activos es eficiente",
+          "El resultado nos indica que la forma en que se ha utilizado los activos no es eficiente",
+        ],
+        conditions: [10, 10],
+      },
+      {
+        title:
+          "Rendimiento sobre activos totales = Utilidad neta / Total activos",
+        labels: ["Total ingresos de operación", "Total activos"],
+        results: [
+          this.estado.utilidad_neta,
+          this.balance.total_activos,
+          this.report.analisis_dupong.rendimientos_sobre_los_activos_totales,
+        ],
+        anio: this.report.anio,
+        interpretation: [
+          "El resultado nos indica qué la empresa esta ganando más de 10 centavos por cada dólar invertido",
+          "El resultado nos indica qué la empresa esta ganando menos de 10 centavos por cada dólar invertido",
+        ],
+        conditions: [0.001, 0.001],
+      },
+      {
+        title:
+          "Multiplicador de apalancamiento financiero = Total activos / Total patriomonio",
+        labels: ["Total activos", "Total patriomonio"],
+        results: [
+          this.balance.total_activos,
+          this.balance.total_patrimonio,
+          this.report.analisis_dupong.multiplicador_de_apalancamiento_financiero,
+        ],
+        anio: this.report.anio,
+        interpretation: [
+          "Aca no se que poner",
+          "Aca no se que poner",
+        ],
+        conditions: [5, 5 ],
+        
+      },
+    ];
+
     this.datos_liquidez = volcadoData1;
     this.datos_actividad = volcadoData2;
+    this.datos_endeudamiento = volcadoData3;
+    this.datos_rentabilidad = volcadoData4;
+    this.datos_dupong = volcadoData5;
   },
   components: { TablaIndividualIndicador },
 };

@@ -9,11 +9,13 @@ export default new Vuex.Store({
     balance_general: [],
     estado_resultados: [],
     indicadores: [],
+    analisis_horizontales: [],
   },
   getters: {
     BalanceGeneral: (state) => state.balance_general,
     EstadoResultados: (state) => state.estado_resultados,
     Indicadores: (state) => state.indicadores,
+    AnalisisHorizontales: (state) => state.analisis_horizontales,
   },
   mutations: {
     setBalanceGeneral(state, payload) {
@@ -24,6 +26,9 @@ export default new Vuex.Store({
     },
     setIndicadores(state, payload) {
       state.indicadores = payload;
+    },
+    setAnalisisHorizontales(state, payload) {
+      state.analisis_horizontales = payload;
     },
   },
   actions: {
@@ -152,6 +157,16 @@ export default new Vuex.Store({
         }
       }
       commit("setIndicadores", indicadores);
+    },
+
+    async getAnalisisHorizontal({ commit }) {
+      let balances = [];
+      const doc = await db.collection("Estados de situacion financiera").get();
+      doc.forEach((balance) => {
+        balances.push(balance.data());
+      });
+      
+      
     },
   },
   modules: {},

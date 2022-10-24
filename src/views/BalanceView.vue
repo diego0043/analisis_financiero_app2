@@ -6,7 +6,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import NavBar from "../components/NavBar.vue";
 import BalanceGeneral from "../components/BalanceGeneral.vue";
 
@@ -20,10 +19,10 @@ export default {
 </script>
 <style scoped>
 .container-bl {
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
 }
 
-.bl{
-  background-color: #F8F8F8;
+.bl {
+  background-color: #f8f8f8;
 }
 </style>
