@@ -161,12 +161,30 @@ export default new Vuex.Store({
 
     async getAnalisisHorizontal({ commit }) {
       let balances = [];
+      let periodos = [];
+      let contador = 0;
       const doc = await db.collection("Estados de situacion financiera").get();
       doc.forEach((balance) => {
         balances.push(balance.data());
       });
+
       
-      
+      balances.map((balance) => {
+        if (balances[contador] && balances[contador + 1]) {
+          console.log("si")
+          periodos.push([{
+            activos_de_intermediacion: {
+              anio_uno: balances[contador].anio,
+              anion_dos: balances[contador + 1].anio,
+              variacion_relativa: balances[contador].activos.activos_de_intermediacion - balances[contador + 1].activos.activos_de_intermediacion,
+            }
+          }, balances[contador], balances[contador + 1]]);
+          contador++;
+        } else {
+          console.log("No es posible");
+        }
+      });
+      commit("setAnalisisHorizontales", periodos);
     },
   },
   modules: {},
