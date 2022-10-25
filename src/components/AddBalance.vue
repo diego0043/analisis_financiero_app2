@@ -4,7 +4,7 @@
       <div class="col-12 card-principal shadow-sm">
         <div class="row">
           <div class="col-7 scroll-form">
-            <div class="row title">Activos:</div>
+            <div class="row title">ACTIVOS:</div>
             <div class="row">
               <div class="col-7 row-item">Activos de intermediación:</div>
               <div class="col row-item2">
@@ -26,7 +26,17 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-7 row-item">Inversiones financieras:</div>
+              <div class="col-7 row-item">Reportes y otras operaciones bursatiles:</div>
+              <div class="col row-item2">
+                <b-form-input
+                  class="inp"
+                  v-model="doc.activos.operaciones_bursatiles"
+                  type="text"
+                ></b-form-input>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-7 row-item">Inversiones financieras (Neto):</div>
               <div class="col row-item2">
                 <b-form-input
                   class="inp"
@@ -36,21 +46,11 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-7 row-item">Cartera de prestamos:</div>
+              <div class="col-7 row-item">Cartera de préstamo, neta de reservas de saneamiento:</div>
               <div class="col row-item2">
                 <b-form-input
                   class="inp"
                   v-model="doc.activos.cartera_de_prestamos"
-                  type="text"
-                ></b-form-input>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-7 row-item">Operaciones bursatiles:</div>
-              <div class="col row-item2">
-                <b-form-input
-                  class="inp"
-                  v-model="doc.activos.operaciones_bursatiles"
                   type="text"
                 ></b-form-input>
               </div>
@@ -85,7 +85,7 @@
                 ></b-form-input>
               </div>
             </div>
-            <div class="row title">Pasivo y patrimonio :</div>
+            <div class="row title">PASIVOS:</div>
             <div class="row mt-2">
               <div class="col-7 row-item">Pasivos de intermediación:</div>
               <div class="col row-item2">
@@ -113,7 +113,7 @@
               <div class="col row-item2">
                 <b-form-input
                   class="inp"
-                  :v-model="doc.pasivos.prestamos_bancos"
+                  v-model="doc.pasivos.prestamo_bancos"
                   type="text"
                 ></b-form-input>
               </div>
@@ -178,7 +178,7 @@
                 ></b-form-input>
               </div>
             </div>
-            <div class="row title">Patrimonio:</div>
+            <div class="row title">PATRIMONIO:</div>
             <div class="row">
               <div class="col-7 row-item">Aportes del estado:</div>
               <div class="col row-item2">
@@ -221,7 +221,7 @@
                 ></b-form-input>
               </div>
             </div>
-            <div class="row title">Datos generales:</div>
+            <div class="row title">DATOS GENERALES:</div>
             <div class="row">
               <div class="col-7 row-item">Año:</div>
               <div class="col row-item2">
