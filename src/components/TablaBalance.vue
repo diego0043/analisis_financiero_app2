@@ -295,9 +295,9 @@ export default {
 }
 
 .btn-export {
-  position: absolute;
-  top: 30px;
-  right: 10px;
+  position: fixed;
+  top: 90px;
+  right: 45px;
   background-color: #f8f8f8;
   border: none;
   color: gray;
@@ -308,9 +308,9 @@ export default {
 }
 
 .btn-edit {
-  position: absolute;
-  top: 80px;
-  right: 10px;
+  position: fixed;
+  top: 140px;
+  right: 45px;
   background-color: #f8f8f8;
   border: none;
   color: gray;
@@ -321,9 +321,9 @@ export default {
 }
 
 .btn-del {
-  position: absolute;
-  top: 130px;
-  right: 10px;
+  position: fixed;
+  top: 190px;
+  right: 45px;
   background-color: #f8f8f8;
   border: none;
   color: gray;

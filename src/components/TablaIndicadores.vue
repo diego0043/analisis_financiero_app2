@@ -379,9 +379,9 @@ export default {
 }
 
 .btn-export {
-  position: absolute;
-  top: 30px;
-  right: 10px;
+  position: fixed;
+  top: 90px;
+  right: 45px;
   background-color: #f8f8f8;
   border: none;
   color: gray;
