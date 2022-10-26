@@ -34,20 +34,57 @@ export default new Vuex.Store({
   actions: {
     async getBalanceGeneral({ commit }) {
       let balances = [];
+      let anios = [];
+      let aniosOrden = [];
+      let dataFiltrada = [];
       const doc = await db.collection("Estados de situacion financiera").get();
       doc.forEach((balance) => {
         balances.push(balance.data());
       });
-      commit("setBalanceGeneral", balances);
+
+      balances.map((item) => {
+        anios.push(item.anio);
+      });
+
+      aniosOrden = anios.sort((a, b) => a - b).reverse();
+
+      aniosOrden.map((item) => {
+        balances.map((balance) => {
+          if (balance.anio === item) {
+            dataFiltrada.push(balance);
+          }
+        });
+      });
+
+      commit("setBalanceGeneral", dataFiltrada);
     },
 
     async getEstadoResultados({ commit }) {
       let estados = [];
+      let anios = [];
+      let aniosOrden = [];
+      let dataFiltrada = [];
+
       const doc = await db.collection("Estados de resultados").get();
       doc.forEach((estado) => {
         estados.push(estado.data());
       });
-      commit("setEstadoResultados", estados);
+
+      estados.map((item) => {
+        anios.push(item.anio);
+      });
+
+      aniosOrden = anios.sort((a, b) => a - b).reverse();
+
+      aniosOrden.map((item) => {
+        estados.map((estado) => {
+          if (estado.anio === item) {
+            dataFiltrada.push(estado);
+          }
+        });
+      });
+
+      commit("setEstadoResultados", dataFiltrada);
     },
 
     async setBalanceGeneral({ commit }, payload) {
@@ -73,6 +110,10 @@ export default new Vuex.Store({
       let indicadores = [];
       let balances = [];
       let estados = [];
+      let anios = [];
+      let aniosOrden = [];
+      let dataFiltradaBalance = [];
+      let dataFiltradaEstado = [];
 
       const doc_bl = await db
         .collection("Estados de situacion financiera")
@@ -81,15 +122,46 @@ export default new Vuex.Store({
         balances.push(balance.data());
       });
 
+      balances.map((item) => {
+        anios.push(item.anio);
+      });
+
+      aniosOrden = anios.sort((a, b) => a - b).reverse();
+
+      aniosOrden.map((item) => {
+        balances.map((balance) => {
+          if (balance.anio === item) {
+            dataFiltradaBalance.push(balance);
+          }
+        });
+      });
+
+      anios = [];
+      aniosOrden = [];
+
       const doc_er = await db.collection("Estados de resultados").get();
       doc_er.forEach((estado) => {
         estados.push(estado.data());
       });
 
+      estados.map((item) => {
+        anios.push(item.anio);
+      });
+
+      aniosOrden = anios.sort((a, b) => a - b).reverse();
+
+      aniosOrden.map((item) => {
+        estados.map((estado) => {
+          if (estado.anio === item) {
+            dataFiltradaEstado.push(estado);
+          }
+        });
+      });
+
       const largo = balances.length;
       for (let i = 0; i < largo; i++) {
-        let balance = balances[i];
-        let estado = estados[i];
+        let balance = dataFiltradaBalance[i];
+        let estado = dataFiltradaEstado[i];
 
         if (balance.anio === estado.anio) {
           indicadores.push([
@@ -161,24 +233,49 @@ export default new Vuex.Store({
 
     async getAnalisisHorizontal({ commit }) {
       let balances = [];
-      let periodos = [];
+      let anios = [];
+      let aniosOrden = [];
+      let dataFiltrada = [];
       let contador = 0;
+      let periodos = [];
       const doc = await db.collection("Estados de situacion financiera").get();
+     
       doc.forEach((balance) => {
         balances.push(balance.data());
       });
 
-      
-      balances.map((balance) => {
-        if (balances[contador] && balances[contador + 1]) {
-          console.log("si")
-          periodos.push([{
-            activos_de_intermediacion: {
-              anio_uno: balances[contador].anio,
-              anion_dos: balances[contador + 1].anio,
-              variacion_relativa: balances[contador].activos.activos_de_intermediacion - balances[contador + 1].activos.activos_de_intermediacion,
-            }
-          }, balances[contador], balances[contador + 1]]);
+      balances.map((item) => {
+        anios.push(item.anio);
+      });
+
+      aniosOrden = anios.sort((a, b) => a - b).reverse();
+
+      aniosOrden.map((item) => {
+        balances.map((balance) => {
+          if (balance.anio === item) {
+            dataFiltrada.push(balance);
+          }
+        });
+      });
+
+
+
+      dataFiltrada.map((balance) => {
+        if (dataFiltrada[contador] && dataFiltrada[contador + 1]) {
+          console.log("si");
+          periodos.push([
+            {
+              activos_de_intermediacion: {
+                anio_uno: dataFiltrada[contador].anio,
+                anion_dos: dataFiltrada[contador + 1].anio,
+                variacion_relativa:
+                  balances[contador].activos.activos_de_intermediacion -
+                  balances[contador + 1].activos.activos_de_intermediacion,
+              },
+            },
+            dataFiltrada[contador],
+            dataFiltrada[contador + 1],
+          ]);
           contador++;
         } else {
           console.log("No es posible");

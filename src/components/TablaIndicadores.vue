@@ -1,6 +1,7 @@
 <template>
   <div class="ctn">
-    <button
+    <div class="right-menu">
+      <button
       class="btn-export"
       @click="exportToPDF()"
       data-bs-toggle="tooltip"
@@ -12,7 +13,7 @@
         width="20"
         height="20"
         fill="currentColor"
-        class="bi bi-download"
+        class="bi bi-download icon-export"
         viewBox="0 0 16 16"
       >
         <path
@@ -23,6 +24,7 @@
         />
       </svg>
     </button>
+    </div>
     <div id="element-to-convert" class="container mt-4 mb-3">
       <br />
       <div class="row rows-principal">BANCO DE DESAROLLO DE EL SALVADOR</div>
@@ -381,13 +383,29 @@ export default {
 .btn-export {
   position: fixed;
   top: 90px;
-  right: 45px;
-  background-color: #f8f8f8;
+  background-color: transparent;
   border: none;
   color: gray;
+  border-radius: 0px;
+  width: 55px;
+  height: 50px;
 }
 
 .btn-export:hover {
+  background-color: #f8f8f8;
   color: black;
+}
+
+.icon-export{
+ margin-top: -9px;
+}
+
+.right-menu{
+  position: fixed;
+  top: 40px;
+  right: 0px;
+  background-color: white;
+  width: 55px;
+  height: 100vh;
 }
 </style>

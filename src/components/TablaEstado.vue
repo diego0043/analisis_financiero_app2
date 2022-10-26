@@ -1,6 +1,7 @@
 <template>
   <div class="ctn">
-    <button
+    <div class="right-menu shadow-sm">
+      <button
       class="btn-export"
       @click="exportToPDF()"
       data-bs-toggle="tooltip"
@@ -12,7 +13,7 @@
         width="20"
         height="20"
         fill="currentColor"
-        class="bi bi-download"
+        class="bi bi-download icon-export"
         viewBox="0 0 16 16"
       >
         <path
@@ -35,7 +36,7 @@
         width="20"
         height="20"
         fill="currentColor"
-        class="bi bi-pencil-square"
+        class="bi bi-pencil-square icon-edit"
         viewBox="0 0 16 16"
       >
         <path
@@ -59,7 +60,7 @@
         width="22"
         height="22"
         fill="currentColor"
-        class="bi bi-trash"
+        class="bi bi-trash icon-del"
         viewBox="0 0 16 16"
       >
         <path
@@ -71,6 +72,7 @@
         />
       </svg>
     </button>
+    </div>
     
     <div id="element-to-convert" class="container mb-3 mt-4">
       <br />
@@ -331,6 +333,7 @@ export default {
 .container {
   width: 85%;
   background-color: white;
+  margin-left: 35px;
 }
 
 .ctn {
@@ -351,40 +354,70 @@ export default {
 .btn-export {
   position: fixed;
   top: 90px;
-  right: 45px;
-  background-color: #f8f8f8;
+  background-color: transparent;
   border: none;
   color: gray;
+  border-radius: 0px;
+  width: 55px;
+  height: 50px;
 }
 
 .btn-export:hover {
+  background-color: #f8f8f8;
   color: black;
 }
+
+.icon-export{
+ margin-top: -9px;
+}
+
 
 .btn-edit {
   position: fixed;
   top: 140px;
-  right: 45px;
-  background-color: #f8f8f8;
+  background-color: transparent;
   border: none;
   color: gray;
+  border-radius: 0px;
+  width: 55px;
+  height: 50px;
 }
 
 .btn-edit:hover {
   color: black;
+  background-color: #f8f8f8;
 }
+
+.icon-edit{
+ margin-top: -3px;
+}
+
 
 .btn-del {
   position: fixed;
-  top: 190px;
-  right: 45px;
-  background-color: #f8f8f8;
+  top: 195px;
+  background-color: transparent;
   border: none;
   color: gray;
+  border-radius: 0px;
+  width: 55px;
+  height: 50px;
 }
 
 .btn-del:hover {
+  background-color: #f8f8f8;
   color: black;
-} 
+}
+.icon-del{
+ margin-top: -3px;
+}
 
+.right-menu{
+  position: fixed;
+  top: 40px;
+  right: 0px;
+  background-color: white;
+  width: 55px;
+  height: 100vh;
+}
 </style>

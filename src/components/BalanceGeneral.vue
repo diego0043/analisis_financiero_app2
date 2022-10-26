@@ -42,10 +42,8 @@
           </div>
         </div>
         <div>
-          <div class="row">
               <button @click="newBalance()" class="btn-add shadow-sm mt-4 mb-3">Agregar nuevo balance</button>
-              <button class="btn-view-all shadow-sm mb-1">Ver todos los balances</button>
-          </div>
+              <button class="btn-view-all shadow-sm">Ver todos los balances</button>
         </div>
       </div>
     </div>
@@ -123,7 +121,7 @@ export default {
 
 ::-webkit-scrollbar {
   width: 5px;
-  height: 40px;
+  height: 20px !important;
 }
 ::-webkit-scrollbar-track {
   background: #f8f8f8;
@@ -169,7 +167,7 @@ export default {
 }
 
 .card-style {
-  width: 90%;
+  width: 85%;
   margin-left: auto;
   margin-right: auto;
   height: 120px;
@@ -180,6 +178,7 @@ export default {
   -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.12);
   -moz-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.12);
+  margin-bottom: 20px;
 }
 
 .card-style:hover {
@@ -232,6 +231,7 @@ export default {
   border-radius: 10px;
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 60px;
 }
 
 .btn-view-all:hover {

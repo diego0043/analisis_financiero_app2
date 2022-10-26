@@ -107,7 +107,7 @@
               <div class="col row-item2">
                 <b-form-input
                   class="inp"
-                  :v-model="doc.costos_operacion.reservas_de_saneamiento"
+                  v-model="doc.costos_operacion.reservas_de_saneamiento"
                   type="text"
                 ></b-form-input>
               </div>
