@@ -38,9 +38,16 @@ export default new Vuex.Store({
       let aniosOrden = [];
       let dataFiltrada = [];
       const doc = await db.collection("Estados de situacion financiera").get();
+      /*doc.forEach((item) => {
+        console.log(item.id)
+      });
+      */
+
       doc.forEach((balance) => {
         balances.push(balance.data());
       });
+
+
 
       balances.map((item) => {
         anios.push(item.anio);

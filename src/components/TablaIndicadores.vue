@@ -1,6 +1,6 @@
 <template>
   <div class="ctn">
-    <div class="right-menu">
+    <div class="right-menu shadow-sm">
       <button
       class="btn-export"
       @click="exportToPDF()"

@@ -42,8 +42,7 @@
           </div>
         </div>
         <div>
-              <button @click="newBalance()" class="btn-add shadow-sm mt-4 mb-3">Agregar nuevo balance</button>
-              <button class="btn-view-all shadow-sm">Ver todos los balances</button>
+              <button @click="newBalance()" class="btn-view-all shadow-sm">Agregar nuevo balance</button>
         </div>
       </div>
     </div>

@@ -26,7 +26,9 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-7 row-item">Reportes y otras operaciones bursatiles:</div>
+              <div class="col-7 row-item">
+                Reportes y otras operaciones bursatiles:
+              </div>
               <div class="col row-item2">
                 <b-form-input
                   class="inp"
@@ -46,7 +48,9 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-7 row-item">Cartera de préstamo, neta de reservas de saneamiento:</div>
+              <div class="col-7 row-item">
+                Cartera de préstamo, neta de reservas de saneamiento:
+              </div>
               <div class="col row-item2">
                 <b-form-input
                   class="inp"
@@ -225,7 +229,11 @@
             <div class="row">
               <div class="col-7 row-item">Año:</div>
               <div class="col row-item2">
-                <b-form-input class="inp" v-model="doc.anio" type="text"></b-form-input>
+                <b-form-input
+                  class="inp"
+                  v-model="doc.anio"
+                  type="text"
+                ></b-form-input>
               </div>
             </div>
 
@@ -304,13 +312,25 @@ export default {
     async save() {
       let year = new Date().getFullYear();
       let copiaBalance = { ...this.doc };
+
+      let totales = {
+        activos: 0,
+        pasivos: 0,
+        patrimonio: 0,
+        activos_de_intermediacion: 0,
+        pasivos_de_intermediacion: 0,
+        otros_pasivos: 0,
+        otros_activos: 0,
+        activos_fijo: 0,
+      };
+
       let balance = {
-        anio: copiaBalance.anio === "" ? parseInt(year) : parseInt(copiaBalance.anio),
+        anio:
+          copiaBalance.anio === ""
+            ? parseInt(year)
+            : parseInt(copiaBalance.anio),
         activos: {
-          activos_de_intermediacion:
-            copiaBalance.activos.activos_de_intermediacion === ""
-              ? 0
-              : parseFloat(copiaBalance.activos.activos_de_intermediacion),
+          activos_de_intermediacion: 0,
           caja_y_bancos:
             copiaBalance.activos.caja_y_bancos === ""
               ? 0
@@ -349,10 +369,7 @@ export default {
             copiaBalance.pasivos.fondos_de_administracion === ""
               ? 0
               : parseFloat(copiaBalance.pasivos.fondos_de_administracion),
-          otros_pasivos:
-            copiaBalance.pasivos.otros_pasivos === ""
-              ? 0
-              : parseFloat(copiaBalance.pasivos.otros_pasivos),
+          otros_pasivos: 0,
           pasivos_de_intermediacion:
             copiaBalance.pasivos.pasivos_de_intermediacion === ""
               ? 0
@@ -384,25 +401,55 @@ export default {
               ? 0
               : parseFloat(copiaBalance.patrimonio.reservas_del_capital),
         },
-        total_activos:
-          copiaBalance.total_activos === ""
-            ? 0
-            : parseFloat(copiaBalance.total_activos),
-        total_pasivos:
-          copiaBalance.total_pasivos === ""
-            ? 0
-            : parseFloat(copiaBalance.total_pasivos),
-        total_pasivos_patrimonio:
-          copiaBalance.total_pasivos_patrimonio === ""
-            ? 0
-            : parseFloat(copiaBalance.total_pasivos_patrimonio),
-        total_patrimonio:
-          copiaBalance.total_patrimonio === ""
-            ? 0
-            : parseFloat(copiaBalance.total_patrimonio),
+        total_activos: 0,
+        total_pasivos: 0,
+        total_pasivos_patrimonio: 0,
+        total_patrimonio: 0,
       };
 
-      let guardo = await this.setBalanceGeneral(balance);
+      // total activo
+      totales.activos =
+        balance.activos.caja_y_bancos +
+        balance.activos.cartera_de_prestamos +
+        balance.activos.inversiones_financieras +
+        balance.activos.operaciones_bursatiles +
+        balance.activos_fijos.bienes_inmuebles +
+        balance.otros_activos.diversos;
+
+      // total pasivo
+      totales.pasivos =
+        balance.pasivos.diversos +
+        balance.pasivos.fondos_de_administracion +
+        balance.pasivos.prestamo_bancos +
+        balance.pasivos.provisiones +
+        balance.pasivos.titulos_de_emision_propia;
+      balance.pasivos.prestamos_del_banco;
+
+      // activo de intermediacion
+      totales.activos_de_intermediacion =
+        balance.activos.caja_y_bancos +
+        balance.activos.operaciones_bursatiles +
+        balance.activos.inversiones_financieras +
+        balance.activos.cartera_de_prestamos;
+
+      // pasivo de intermediacion
+
+      totales.pasivos_de_intermediacion =
+        balance.pasivos.prestamos_del_banco +
+        balance.pasivos.prestamo_bancos +
+        balance.pasivos.titulos_de_emision_propia;
+
+      totales.otros_pasivos =
+        balance.pasivos.fondos_de_administracion +
+        balance.pasivos.provisiones +
+        balance.pasivos.diversos +
+        console.log(totales);
+
+      totales.patrimonio =
+        balance.patrimonio.aportes_del_estado +
+        balance.patrimonio.reservas_del_capital;
+
+      let guardo = false;
       if (guardo) {
         await this.$swal.fire({
           title: "Se guardo correctamente",
@@ -458,7 +505,6 @@ export default {
   font-size: 16px;
   margin-left: 30px;
   color: gray;
-
 }
 
 .row-item2 {
