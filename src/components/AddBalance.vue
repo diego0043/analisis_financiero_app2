@@ -6,22 +6,13 @@
           <div class="col-7 scroll-form">
             <div class="row title">ACTIVOS:</div>
             <div class="row">
-              <div class="col-7 row-item">Activos de intermediación:</div>
-              <div class="col row-item2">
-                <b-form-input
-                  class="inp"
-                  v-model="doc.activos.activos_de_intermediacion"
-                  type="text"
-                ></b-form-input>
-              </div>
-            </div>
-            <div class="row">
               <div class="col-7 row-item">Caja y bancos:</div>
               <div class="col row-item2">
                 <b-form-input
+                  v-model.lazy="doc.activos.caja_y_bancos"
                   class="inp"
-                  v-model="doc.activos.caja_y_bancos"
                   type="text"
+                  v-money="caja_y_bancos"
                 ></b-form-input>
               </div>
             </div>
@@ -34,6 +25,7 @@
                   class="inp"
                   v-model="doc.activos.operaciones_bursatiles"
                   type="text"
+                  v-money="operaciones_bursatiles"
                 ></b-form-input>
               </div>
             </div>
@@ -44,6 +36,7 @@
                   class="inp"
                   v-model="doc.activos.inversiones_financieras"
                   type="text"
+                  v-money="inversiones_financieras"
                 ></b-form-input>
               </div>
             </div>
@@ -56,6 +49,7 @@
                   class="inp"
                   v-model="doc.activos.cartera_de_prestamos"
                   type="text"
+                  v-money="cartera_de_prestamos"
                 ></b-form-input>
               </div>
             </div>
@@ -66,6 +60,7 @@
                   class="inp"
                   v-model="doc.otros_activos.diversos"
                   type="text"
+                  v-money="diversos_a"
                 ></b-form-input>
               </div>
             </div>
@@ -76,30 +71,11 @@
                   class="inp"
                   v-model="doc.activos_fijos.bienes_inmuebles"
                   type="text"
-                ></b-form-input>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-7 row-item">Total activos:</div>
-              <div class="col row-item2">
-                <b-form-input
-                  class="inp"
-                  v-model="doc.total_activos"
-                  type="text"
+                  v-money="bienes_inmuebles"
                 ></b-form-input>
               </div>
             </div>
             <div class="row title">PASIVOS:</div>
-            <div class="row mt-2">
-              <div class="col-7 row-item">Pasivos de intermediación:</div>
-              <div class="col row-item2">
-                <b-form-input
-                  class="inp"
-                  v-model="doc.pasivos.pasivos_de_intermediacion"
-                  type="text"
-                ></b-form-input>
-              </div>
-            </div>
             <div class="row">
               <div class="col-7 row-item">
                 Prestamos del Banco central de la República de El Salvador:
@@ -109,6 +85,7 @@
                   v-model="doc.pasivos.prestamos_del_banco"
                   class="inp"
                   type="text"
+                  v-money="prestamos_del_banco"
                 ></b-form-input>
               </div>
             </div>
@@ -119,6 +96,7 @@
                   class="inp"
                   v-model="doc.pasivos.prestamo_bancos"
                   type="text"
+                  v-money="prestamo_bancos"
                 ></b-form-input>
               </div>
             </div>
@@ -129,16 +107,7 @@
                   class="inp"
                   v-model="doc.pasivos.titulos_de_emision_propia"
                   type="text"
-                ></b-form-input>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-7 row-item">Otros pasivos:</div>
-              <div class="col row-item2">
-                <b-form-input
-                  class="inp"
-                  v-model="doc.pasivos.otros_pasivos"
-                  type="text"
+                  v-money="titulos_de_emision_propia"
                 ></b-form-input>
               </div>
             </div>
@@ -149,6 +118,7 @@
                   class="inp"
                   v-model="doc.pasivos.fondos_de_administracion"
                   type="text"
+                  v-money="fondos_de_administracion"
                 ></b-form-input>
               </div>
             </div>
@@ -159,6 +129,7 @@
                   class="inp"
                   v-model="doc.pasivos.provisiones"
                   type="text"
+                  v-money="provisiones"
                 ></b-form-input>
               </div>
             </div>
@@ -169,16 +140,7 @@
                   class="inp"
                   v-model="doc.pasivos.diversos"
                   type="text"
-                ></b-form-input>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-7 row-item">Total pasivos:</div>
-              <div class="col row-item2">
-                <b-form-input
-                  class="inp"
-                  v-model="doc.total_pasivos"
-                  type="text"
+                  v-money="diversos_p"
                 ></b-form-input>
               </div>
             </div>
@@ -190,6 +152,7 @@
                   class="inp"
                   v-model="doc.patrimonio.aportes_del_estado"
                   type="text"
+                  v-money="aportes_del_estado"
                 ></b-form-input>
               </div>
             </div>
@@ -202,26 +165,7 @@
                   class="inp"
                   v-model="doc.patrimonio.reservas_del_capital"
                   type="text"
-                ></b-form-input>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-7 row-item">Total patrimonio:</div>
-              <div class="col row-item2">
-                <b-form-input
-                  class="inp"
-                  v-model="doc.total_patrimonio"
-                  type="text"
-                ></b-form-input>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-7 row-item">Total pasivos y patrimonio:</div>
-              <div class="col row-item2">
-                <b-form-input
-                  class="inp"
-                  v-model="doc.total_pasivos_patrimonio"
-                  type="text"
+                  v-money="reservas_del_capital"
                 ></b-form-input>
               </div>
             </div>
@@ -271,6 +215,142 @@ export default {
   name: "AddBalance",
   data() {
     return {
+      doc_cp: {
+        anio: "",
+        activos: {
+          activos_de_intermediacion: "",
+          caja_y_bancos: "",
+          cartera_de_prestamos: "",
+          inversiones_financieras: "",
+          operaciones_bursatiles: "",
+        },
+        activos_fijos: {
+          bienes_inmuebles: "",
+        },
+        otros_activos: {
+          diversos: "",
+        },
+        pasivos: {
+          diversos: "",
+          fondos_de_administracion: "",
+          otros_pasivos: "",
+          pasivos_de_intermediacion: "",
+          prestamo_bancos: "",
+          prestamos_del_banco: "",
+          provisiones: "",
+          titulos_de_emision_propia: "",
+        },
+        patrimonio: {
+          aportes_del_estado: "",
+          reservas_del_capital: "",
+        },
+        total_activos: "",
+        total_pasivos: "",
+        total_pasivos_patrimonio: "",
+        total_patrimonio: "",
+      },
+
+      caja_y_bancos: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.activos.caja_y_bancos",
+      },
+      cartera_de_prestamos: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.activos.cartera_de_prestamos",
+      },
+      inversiones_financieras: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.activos.inversiones_financieras",
+      },
+      operaciones_bursatiles: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.activos.operaciones_bursatiles",
+      },
+      diversos_a: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.otros_activos.diversos",
+      },
+      bienes_inmuebles: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.activos_fijos.bienes_inmuebles",
+      },
+
+      prestamos_del_banco: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.pasivos.prestamos_del_banco",
+      },
+      prestamo_bancos: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.pasivos.prestamo_bancos",
+      },
+      titulos_de_emision_propia: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.pasivos.titulos_de_emision_propia",
+      },
+      fondos_de_administracion: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.pasivos.fondos_de_administracion",
+      },
+      provisiones: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.pasivos.provisiones",
+      },
+      diversos_p: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.pasivos.diversos",
+      },
+
+      aportes_del_estado: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.patrimonio.aportes_del_estado",
+      },
+      reservas_del_capital: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.patrimonio.reservas_del_capital",
+      },
+
       doc: {
         anio: "",
         activos: {
@@ -310,161 +390,92 @@ export default {
   methods: {
     ...mapActions(["setBalanceGeneral"]),
     async save() {
-      let year = new Date().getFullYear();
-      let copiaBalance = { ...this.doc };
+      let balance = { ...this.doc_cp };
+      balance.anio = this.doc.anio;
 
       let totales = {
-        activos: 0,
-        pasivos: 0,
-        patrimonio: 0,
-        activos_de_intermediacion: 0,
-        pasivos_de_intermediacion: 0,
-        otros_pasivos: 0,
-        otros_activos: 0,
-        activos_fijo: 0,
+        activos:
+          balance.activos.caja_y_bancos +
+          balance.activos.cartera_de_prestamos +
+          balance.activos.inversiones_financieras +
+          balance.activos.operaciones_bursatiles +
+          balance.otros_activos.diversos +
+          balance.activos_fijos.bienes_inmuebles,
+
+        pasivos:
+          balance.pasivos.prestamos_del_banco +
+          balance.pasivos.prestamo_bancos +
+          balance.pasivos.titulos_de_emision_propia +
+          balance.pasivos.fondos_de_administracion +
+          balance.pasivos.provisiones +
+          balance.pasivos.diversos,
+
+        patrimonio:
+          balance.patrimonio.aportes_del_estado +
+          balance.patrimonio.reservas_del_capital,
+        pasivo_y_patrimonio:
+          balance.pasivos.prestamos_del_banco +
+          balance.pasivos.prestamo_bancos +
+          balance.pasivos.titulos_de_emision_propia +
+          balance.pasivos.fondos_de_administracion +
+          balance.pasivos.provisiones +
+          balance.pasivos.diversos +
+          balance.patrimonio.aportes_del_estado +
+          balance.patrimonio.reservas_del_capital,
+
+        activos_de_intermediacion:
+          balance.activos.caja_y_bancos +
+          balance.activos.cartera_de_prestamos +
+          balance.activos.inversiones_financieras +
+          balance.activos.operaciones_bursatiles,
+
+        pasivos_de_intermediacion:
+          balance.pasivos.prestamos_del_banco +
+          balance.pasivos.prestamo_bancos +
+          balance.pasivos.titulos_de_emision_propia,
+
+        otros_pasivos:
+          balance.pasivos.fondos_de_administracion +
+          balance.pasivos.provisiones +
+          balance.pasivos.diversos,
       };
 
-      let balance = {
-        anio:
-          copiaBalance.anio === ""
-            ? parseInt(year)
-            : parseInt(copiaBalance.anio),
-        activos: {
-          activos_de_intermediacion: 0,
-          caja_y_bancos:
-            copiaBalance.activos.caja_y_bancos === ""
-              ? 0
-              : parseFloat(copiaBalance.activos.caja_y_bancos),
-          cartera_de_prestamos:
-            copiaBalance.activos.cartera_de_prestamos === ""
-              ? 0
-              : parseFloat(copiaBalance.activos.cartera_de_prestamos),
-          inversiones_financieras:
-            copiaBalance.activos.inversiones_financieras === ""
-              ? 0
-              : parseFloat(copiaBalance.activos.inversiones_financieras),
-          operaciones_bursatiles:
-            copiaBalance.activos.operaciones_bursatiles === ""
-              ? 0
-              : parseFloat(copiaBalance.activos.operaciones_bursatiles),
-        },
-        activos_fijos: {
-          bienes_inmuebles:
-            copiaBalance.activos_fijos.bienes_inmuebles === ""
-              ? 0
-              : parseFloat(copiaBalance.activos_fijos.bienes_inmuebles),
-        },
-        otros_activos: {
-          diversos:
-            copiaBalance.otros_activos.diversos === ""
-              ? 0
-              : parseFloat(copiaBalance.otros_activos.diversos),
-        },
-        pasivos: {
-          diversos:
-            copiaBalance.pasivos.diversos === ""
-              ? 0
-              : parseFloat(copiaBalance.pasivos.diversos),
-          fondos_de_administracion:
-            copiaBalance.pasivos.fondos_de_administracion === ""
-              ? 0
-              : parseFloat(copiaBalance.pasivos.fondos_de_administracion),
-          otros_pasivos: 0,
-          pasivos_de_intermediacion:
-            copiaBalance.pasivos.pasivos_de_intermediacion === ""
-              ? 0
-              : parseFloat(copiaBalance.pasivos.pasivos_de_intermediacion),
-          prestamo_bancos:
-            copiaBalance.pasivos.prestamo_bancos === ""
-              ? 0
-              : parseFloat(copiaBalance.pasivos.prestamo_bancos),
-          prestamos_del_banco:
-            copiaBalance.pasivos.prestamos_del_banco === ""
-              ? 0
-              : parseFloat(copiaBalance.pasivos.prestamos_del_banco),
-          provisiones:
-            copiaBalance.pasivos.provisiones === ""
-              ? 0
-              : parseFloat(copiaBalance.pasivos.provisiones),
-          titulos_de_emision_propia:
-            copiaBalance.pasivos.titulos_de_emision_propia === ""
-              ? 0
-              : parseFloat(copiaBalance.pasivos.titulos_de_emision_propia),
-        },
-        patrimonio: {
-          aportes_del_estado:
-            copiaBalance.patrimonio.aportes_del_estado === ""
-              ? 0
-              : parseFloat(copiaBalance.patrimonio.aportes_del_estado),
-          reservas_del_capital:
-            copiaBalance.patrimonio.reservas_del_capital === ""
-              ? 0
-              : parseFloat(copiaBalance.patrimonio.reservas_del_capital),
-        },
-        total_activos: 0,
-        total_pasivos: 0,
-        total_pasivos_patrimonio: 0,
-        total_patrimonio: 0,
-      };
+      balance.total_activos = totales.activos;
+      balance.total_pasivos = totales.pasivos;
+      balance.total_pasivos_patrimonio = totales.pasivo_y_patrimonio;
+      balance.total_patrimonio = totales.patrimonio;
+      balance.activos.activos_de_intermediacion =
+        totales.activos_de_intermediacion;
+      balance.pasivos.pasivos_de_intermediacion =
+        totales.pasivos_de_intermediacion;
+      balance.pasivos.otros_pasivos = totales.otros_pasivos;
 
-      // total activo
-      totales.activos =
-        balance.activos.caja_y_bancos +
-        balance.activos.cartera_de_prestamos +
-        balance.activos.inversiones_financieras +
-        balance.activos.operaciones_bursatiles +
-        balance.activos_fijos.bienes_inmuebles +
-        balance.otros_activos.diversos;
-
-      // total pasivo
-      totales.pasivos =
-        balance.pasivos.diversos +
-        balance.pasivos.fondos_de_administracion +
-        balance.pasivos.prestamo_bancos +
-        balance.pasivos.provisiones +
-        balance.pasivos.titulos_de_emision_propia;
-      balance.pasivos.prestamos_del_banco;
-
-      // activo de intermediacion
-      totales.activos_de_intermediacion =
-        balance.activos.caja_y_bancos +
-        balance.activos.operaciones_bursatiles +
-        balance.activos.inversiones_financieras +
-        balance.activos.cartera_de_prestamos;
-
-      // pasivo de intermediacion
-
-      totales.pasivos_de_intermediacion =
-        balance.pasivos.prestamos_del_banco +
-        balance.pasivos.prestamo_bancos +
-        balance.pasivos.titulos_de_emision_propia;
-
-      totales.otros_pasivos =
-        balance.pasivos.fondos_de_administracion +
-        balance.pasivos.provisiones +
-        balance.pasivos.diversos +
-        console.log(totales);
-
-      totales.patrimonio =
-        balance.patrimonio.aportes_del_estado +
-        balance.patrimonio.reservas_del_capital;
-
-      let guardo = false;
-      if (guardo) {
-        await this.$swal.fire({
-          title: "Se guardo correctamente",
-          icon: "success",
-          confirmButtonText: "Aceptar",
-        });
-        this.$router.push({
-          name: "balance",
-        });
+      if (balance.anio != "") {
+        let guardo = await this.setBalanceGeneral(balance);
+        if (guardo) {
+          await this.$swal.fire({
+            title: "Se guardo correctamente",
+            icon: "success",
+            confirmButtonText: "Aceptar",
+          });
+          this.$router.push({
+            name: "balance",
+          });
+        } else {
+          await this.$swal.fire({
+            title: "No se pudo guardar",
+            icon: "error",
+            confirmButtonText: "Aceptar",
+          });
+        }
       } else {
-        await this.$swal.fire({
-          title: "No se pudo guardar",
-          icon: "error",
-          confirmButtonText: "Aceptar",
-        });
+        if (balance.anio === "") {
+          await this.$swal.fire({
+            title: "¡Ups! Parece que te falta el año",
+            icon: "info",
+            confirmButtonText: "Aceptar",
+          });
+        }
       }
     },
   },

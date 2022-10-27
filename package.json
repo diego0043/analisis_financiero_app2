@@ -10,6 +10,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.11.5",
     "@lottiefiles/lottie-player": "^1.5.7",
+    "@titou10/v-money": "^1.0.3",
     "bootstrap": "^4.5.2",
     "bootstrap-icons": "^1.9.1",
     "bootstrap-vue": "^2.17.3",
