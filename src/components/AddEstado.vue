@@ -12,6 +12,7 @@
                   class="inp"
                   v-model="doc.ingreso_de_operaciones.interes_prestamos"
                   type="text"
+                  v-money="interes_prestamos"
                 ></b-form-input>
               </div>
             </div>
@@ -26,6 +27,7 @@
                     doc.ingreso_de_operaciones.comisiones_y_otros_ingresos
                   "
                   type="text"
+                  v-money="comisiones_y_otros_ingresos"
                 ></b-form-input>
               </div>
             </div>
@@ -36,6 +38,7 @@
                   class="inp"
                   v-model="doc.ingreso_de_operaciones.intereses_inversiones"
                   type="text"
+                  v-money="intereses_inversiones"
                 ></b-form-input>
               </div>
             </div>
@@ -46,16 +49,7 @@
                   class="inp"
                   v-model="doc.ingreso_de_operaciones.intereses_depositos"
                   type="text"
-                ></b-form-input>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-7 row-item">Total ingresos de operación:</div>
-              <div class="col row-item2">
-                <b-form-input
-                  class="inp"
-                  v-model="doc.ingreso_de_operaciones.total_ingresos_operacion"
-                  type="text"
+                  v-money="intereses_depositos"
                 ></b-form-input>
               </div>
             </div>
@@ -67,18 +61,20 @@
                   class="inp"
                   v-model="doc.costos_operacion.intereses_sobre_prestamos"
                   type="text"
+                  v-money="intereses_sobre_prestamos"
                 ></b-form-input>
               </div>
             </div>
             <div class="row">
               <div class="col-7 row-item">
-                comisiones sobre títulos de emisión propia:
+                Intereses sobre títulos de emisión propia:
               </div>
               <div class="col row-item2">
                 <b-form-input
                   class="inp"
                   v-model="doc.costos_operacion.comisiones_sobre_titulos"
                   type="text"
+                  v-money="comisiones_sobre_titulos"
                 ></b-form-input>
               </div>
             </div>
@@ -89,16 +85,7 @@
                   class="inp"
                   v-model="doc.costos_operacion.comisiones_y_otros"
                   type="text"
-                ></b-form-input>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-7 row-item">Total costo de operación:</div>
-              <div class="col row-item2">
-                <b-form-input
-                  class="inp"
-                  v-model="doc.costos_operacion.total_costos_operacion"
-                  type="text"
+                  v-money="comisiones_y_otros"
                 ></b-form-input>
               </div>
             </div>
@@ -109,16 +96,7 @@
                   class="inp"
                   v-model="doc.costos_operacion.reservas_de_saneamiento"
                   type="text"
-                ></b-form-input>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-7 row-item">Utilidad antes de gastos:</div>
-              <div class="col row-item2">
-                <b-form-input
-                  class="inp"
-                  v-model="doc.costos_operacion.utilidad_antes_gastos"
-                  type="text"
+                  v-money="reservas_de_saneamiento"
                 ></b-form-input>
               </div>
             </div>
@@ -130,6 +108,7 @@
                   class="inp"
                   v-model="doc.gastos_operacion.funcionarios_y_empleados"
                   type="text"
+                  v-money="funcionarios_y_empleados"
                 ></b-form-input>
               </div>
             </div>
@@ -140,6 +119,7 @@
                   class="inp"
                   v-model="doc.gastos_operacion.generales"
                   type="text"
+                  v-money="generales"
                 ></b-form-input>
               </div>
             </div>
@@ -150,26 +130,7 @@
                   class="inp"
                   v-model="doc.gastos_operacion.depresiaciones_y_amortizaciones"
                   type="text"
-                ></b-form-input>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-7 row-item">Total gastos de operaciones:</div>
-              <div class="col row-item2">
-                <b-form-input
-                  class="inp"
-                  v-model="doc.gastos_operacion.total_gastos_operacion"
-                  type="text"
-                ></b-form-input>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-7 row-item">Utilidad de operación:</div>
-              <div class="col row-item2">
-                <b-form-input
-                  class="inp"
-                  v-model="doc.gastos_operacion.utilidad_operacional"
-                  type="text"
+                  v-money="depresiaciones_y_amortizaciones"
                 ></b-form-input>
               </div>
             </div>
@@ -180,6 +141,7 @@
                   class="inp"
                   v-model="doc.gastos_operacion.dividendos"
                   type="text"
+                  v-money="dividendos"
                 ></b-form-input>
               </div>
             </div>
@@ -191,6 +153,7 @@
                   class="inp"
                   v-model="doc.otros_ingreso_y_gastos.otros_ingresos"
                   type="text"
+                  v-money="otros_ingresos"
                 ></b-form-input>
               </div>
             </div>
@@ -201,39 +164,12 @@
                   class="inp"
                   v-model="doc.otros_ingreso_y_gastos.otros_gastos"
                   type="text"
-                ></b-form-input>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-7 row-item">
-                Total otros ingresos y otros gastos:
-              </div>
-              <div class="col row-item2">
-                <b-form-input
-                  class="inp"
-                  v-model="
-                    doc.otros_ingreso_y_gastos.total_otros_ingresos_y_gastos
-                  "
-                  type="text"
+                  v-money="otros_gastos"
                 ></b-form-input>
               </div>
             </div>
             <div class="row title">
               Utilidad antes de impuesto sobre la renta:
-            </div>
-            <div class="row">
-              <div class="col-7 row-item">
-                Utilidad antes de impuesto sobre la renta
-              </div>
-              <div class="col row-item2">
-                <b-form-input
-                  class="inp"
-                  v-model="
-                    doc.utilidad_antes_impuestos.utilidad_antes_impuestos
-                  "
-                  type="text"
-                ></b-form-input>
-              </div>
             </div>
             <div class="row">
               <div class="col-7 row-item">Impuesto sobre la renta:</div>
@@ -242,6 +178,7 @@
                   class="inp"
                   v-model="doc.utilidad_antes_impuestos.impuesto_sobre_la_renta"
                   type="text"
+                  v-money="impuesto_sobre_la_renta"
                 ></b-form-input>
               </div>
             </div>
@@ -257,30 +194,7 @@
                       .contribucion_especial_plan_de_seguridad_ciudada
                   "
                   type="text"
-                ></b-form-input>
-              </div>
-            </div>
-            <div class="row title">Utilidad neta:</div>
-            <div class="row">
-              <div class="col-7 row-item">Utilidad neta:</div>
-              <div class="col row-item2">
-                <b-form-input
-                  class="inp"
-                  v-model="doc.utilidad_neta"
-                  type="text"
-                ></b-form-input>
-              </div>
-            </div>
-            <div class="row title">
-              Impuesto sobre la renta( si > 150 = 30%):
-            </div>
-            <div class="row">
-              <div class="col-7 row-item">Utilidad neta:</div>
-              <div class="col row-item2">
-                <b-form-input
-                  class="inp"
-                  v-model="doc.impuesto_sobre_la_renta"
-                  type="text"
+                  v-money="contribucion_especial_plan_de_seguridad_ciudada"
                 ></b-form-input>
               </div>
             </div>
@@ -292,6 +206,7 @@
                   class="inp"
                   v-model="doc.efecto_fiscal.gastos_no_deducibles"
                   type="text"
+                  v-money="gastos_no_deducibles"
                 ></b-form-input>
               </div>
             </div>
@@ -302,16 +217,7 @@
                   class="inp"
                   v-model="doc.efecto_fiscal.ingresos_no_gravables"
                   type="text"
-                ></b-form-input>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-7 row-item">Impuesto sobre la renta:</div>
-              <div class="col row-item2">
-                <b-form-input
-                  class="inp"
-                  v-model="doc.efecto_fiscal.impuesto_sobre_la_renta"
-                  type="text"
+                  v-money="ingresos_no_gravables"
                 ></b-form-input>
               </div>
             </div>
@@ -404,160 +310,309 @@ export default {
           impuesto_sobre_la_renta: "",
         },
       },
+      doc_cp: {
+        anio: "",
+        ingreso_de_operaciones: {
+          interes_prestamos: "",
+          comisiones_y_otros_ingresos: "",
+          intereses_inversiones: "",
+          intereses_depositos: "",
+          total_ingresos_operacion: "",
+        },
+        costos_operacion: {
+          intereses_sobre_prestamos: "",
+          comisiones_sobre_titulos: "",
+          comisiones_y_otros: "",
+          total_costos_operacion: "",
+          reservas_de_saneamiento: "",
+          utilidad_antes_gastos: "",
+        },
+        gastos_operacion: {
+          funcionarios_y_empleados: "",
+          generales: "",
+          depresiaciones_y_amortizaciones: "",
+          total_gastos_operacion: "",
+          utilidad_operacional: "",
+          dividendos: "",
+        },
+        otros_ingreso_y_gastos: {
+          otros_ingresos: "",
+          otros_gastos: "",
+          total_otros_ingresos_y_gastos: "",
+        },
+        utilidad_antes_impuestos: {
+          utilidad_antes_impuestos: "",
+          impuesto_sobre_la_renta: "",
+          contribucion_especial_plan_de_seguridad_ciudada: "",
+        },
+        utilidad_neta: "",
+        impuesto_sobre_la_renta: "",
+        efecto_fiscal: {
+          gastos_no_deducibles: "",
+          ingresos_no_gravables: "",
+          impuesto_sobre_la_renta: "",
+        },
+      },
+
+      interes_prestamos: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.ingreso_de_operaciones.interes_prestamos",
+      },
+      comisiones_y_otros_ingresos: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar:
+          "doc_cp.ingreso_de_operaciones.comisiones_y_otros_ingresos",
+      },
+      intereses_inversiones: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.ingreso_de_operaciones.intereses_inversiones",
+      },
+      intereses_depositos: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.ingreso_de_operaciones.intereses_depositos",
+      },
+
+      intereses_sobre_prestamos: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.costos_operacion.intereses_sobre_prestamos",
+      },
+      comisiones_sobre_titulos: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.costos_operacion.comisiones_sobre_titulos",
+      },
+      comisiones_y_otros: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.costos_operacion.comisiones_y_otros",
+      },
+      reservas_de_saneamiento: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.costos_operacion.reservas_de_saneamiento",
+      },
+      utilidad_antes_gastos: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.gastos_operacion.utilidad_antes_gastos",
+      },
+
+      funcionarios_y_empleados: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.gastos_operacion.funcionarios_y_empleados",
+      },
+      generales: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.gastos_operacion.generales",
+      },
+      depresiaciones_y_amortizaciones: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.gastos_operacion.depresiaciones_y_amortizaciones",
+      },
+      dividendos: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.gastos_operacion.dividendos",
+      },
+
+      otros_ingresos: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.otros_ingreso_y_gastos.otros_ingresos",
+      },
+      otros_gastos: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.otros_ingreso_y_gastos.otros_gastos",
+      },
+
+      impuesto_sobre_la_renta: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.utilidad_antes_impuestos.impuesto_sobre_la_renta",
+      },
+      contribucion_especial_plan_de_seguridad_ciudada: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar:
+          "doc_cp.utilidad_antes_impuestos.contribucion_especial_plan_de_seguridad_ciudada",
+      },
+      gastos_no_deducibles: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.efecto_fiscal.gastos_no_deducibles",
+      },
+      ingresos_no_gravables: {
+        decimal: ".",
+        thousands: ",",
+        prefix: "$ ",
+        precision: 2,
+        unmaskedVar: "doc_cp.efecto_fiscal.ingresos_no_gravables",
+      },
     };
   },
   methods: {
     ...mapActions(["setEstadoResultados"]),
     async save() {
-      let year = new Date().getFullYear();
-      let copiaEstado = { ...this.doc };
-      let estado = {
-        anio: copiaEstado.anio === "" ? parseInt(year) : parseInt(copiaEstado.anio),
-        ingreso_de_operaciones: {
-          interes_prestamos:
-            copiaEstado.ingreso_de_operaciones.interes_prestamos === ""
-              ? 0
-              : parseFloat(copiaEstado.ingreso_de_operaciones.interes_prestamos),
-          comisiones_y_otros_ingresos:
-            copiaEstado.ingreso_de_operaciones.comisiones_y_otros_ingresos ===
-            ""
-              ? 0
-              : parseFloat( copiaEstado.ingreso_de_operaciones.comisiones_y_otros_ingresos),
-          intereses_inversiones:
-            copiaEstado.ingreso_de_operaciones.intereses_inversiones === ""
-              ? 0
-              : parseFloat(copiaEstado.ingreso_de_operaciones.intereses_inversiones),
-          intereses_depositos:
-            copiaEstado.ingreso_de_operaciones.intereses_depositos === ""
-              ? 0
-              : parseFloat(copiaEstado.ingreso_de_operaciones.intereses_depositos),
-          total_ingresos_operacion:
-            copiaEstado.ingreso_de_operaciones.total_ingresos_operacion === ""
-              ? 0
-              : parseFloat(copiaEstado.ingreso_de_operaciones.total_ingresos_operacion),
-        },
-        costos_operacion: {
-          intereses_sobre_prestamos:
-            copiaEstado.costos_operacion.intereses_sobre_prestamos === ""
-              ? 0
-              : parseFloat(copiaEstado.costos_operacion.intereses_sobre_prestamos),
-          comisiones_sobre_titulos:
-            copiaEstado.costos_operacion.comisiones_sobre_titulos === ""
-              ? 0
-              : parseFloat(copiaEstado.costos_operacion.comisiones_sobre_titulos),
-          comisiones_y_otros:
-            copiaEstado.costos_operacion.comisiones_y_otros === ""
-              ? 0
-              : parseFloat(copiaEstado.costos_operacion.comisiones_y_otros),
-          total_costos_operacion:
-            copiaEstado.costos_operacion.total_costos_operacion === ""
-              ? 0
-              : parseFloat(copiaEstado.costos_operacion.total_costos_operacion),
-          reservas_de_saneamiento:
-            copiaEstado.costos_operacion.reservas_de_saneamiento === ""
-              ? 0
-              : parseFloat(copiaEstado.costos_operacion.reservas_de_saneamiento),
-          utilidad_antes_gastos:
-            copiaEstado.costos_operacion.utilidad_antes_gastos === ""
-              ? 0
-              : parseFloat(copiaEstado.costos_operacion.utilidad_antes_gastos),
-        },
-        gastos_operacion: {
-          funcionarios_y_empleados:
-            copiaEstado.gastos_operacion.funcionarios_y_empleados === ""
-              ? 0
-              : parseFloat(copiaEstado.gastos_operacion.funcionarios_y_empleados),
-          generales:
-            copiaEstado.gastos_operacion.generales === ""
-              ? 0
-              : parseFloat(copiaEstado.gastos_operacion.generales),
-          depresiaciones_y_amortizaciones:
-            copiaEstado.gastos_operacion.depresiaciones_y_amortizaciones === ""
-              ? 0
-              : parseFloat(copiaEstado.gastos_operacion.depresiaciones_y_amortizaciones),
-          total_gastos_operacion:
-            copiaEstado.gastos_operacion.total_gastos_operacion === ""
-              ? 0
-              : parseFloat(copiaEstado.gastos_operacion.total_gastos_operacion),
-          utilidad_operacional:
-            copiaEstado.gastos_operacion.utilidad_operacional === ""
-              ? 0
-              : parseFloat(copiaEstado.gastos_operacion.utilidad_operacional),
-          dividendos:
-            copiaEstado.gastos_operacion.dividendos === ""
-              ? 0
-              : parseFloat(copiaEstado.gastos_operacion.dividendos),
-        },
-        otros_ingreso_y_gastos: {
-          otros_ingresos:
-            copiaEstado.otros_ingreso_y_gastos.otros_ingresos === ""
-              ? 0
-              : parseFloat(copiaEstado.otros_ingreso_y_gastos.otros_ingresos),
-          otros_gastos:
-            copiaEstado.otros_ingreso_y_gastos.otros_gastos === ""
-              ? 0
-              : parseFloat(copiaEstado.otros_ingreso_y_gastos.otros_gastos),
-          total_otros_ingresos_y_gastos:
-            copiaEstado.otros_ingreso_y_gastos.total_otros_ingresos_y_gastos ===
-            ""
-              ? 0
-              : parseFloat(copiaEstado.otros_ingreso_y_gastos
-                  .total_otros_ingresos_y_gastos),
-        },
-        utilidad_antes_impuestos: {
-          utilidad_antes_impuestos:
-            copiaEstado.utilidad_antes_impuestos.utilidad_antes_impuestos === ""
-              ? 0
-              : parseFloat(copiaEstado.utilidad_antes_impuestos.utilidad_antes_impuestos),
-          impuesto_sobre_la_renta:
-            copiaEstado.utilidad_antes_impuestos.impuesto_sobre_la_renta === ""
-              ? 0
-              : parseFloat(copiaEstado.utilidad_antes_impuestos.impuesto_sobre_la_renta),
-          contribucion_especial_plan_de_seguridad_ciudada:
-            copiaEstado.utilidad_antes_impuestos
-              .contribucion_especial_plan_de_seguridad_ciudada === ""
-              ? 0
-              : parseFloat(copiaEstado.utilidad_antes_impuestos
-                  .contribucion_especial_plan_de_seguridad_ciudada),
-        },
-        utilidad_neta:
-          copiaEstado.utilidad_neta === "" ? 0 : parseFloat(copiaEstado.utilidad_neta),
-        impuesto_sobre_la_renta:
-          copiaEstado.impuesto_sobre_la_renta === ""
-            ? 0
-            : parseFloat(copiaEstado.impuesto_sobre_la_renta),
-        efecto_fiscal: {
-          gastos_no_deducibles:
-            copiaEstado.efecto_fiscal.gastos_no_deducibles === ""
-              ? 0
-              : parseFloat(copiaEstado.efecto_fiscal.gastos_no_deducibles),
-          ingresos_no_gravables:
-            copiaEstado.efecto_fiscal.ingresos_no_gravables === ""
-              ? 0
-              : parseFloat(copiaEstado.efecto_fiscal.ingresos_no_gravables),
-          impuesto_sobre_la_renta:
-            copiaEstado.efecto_fiscal.impuesto_sobre_la_renta === ""
-              ? 0
-              : parseFloat(copiaEstado.efecto_fiscal.impuesto_sobre_la_renta),
-        },
+      let estado = { ...this.doc_cp };
+      estado.anio = this.doc.anio;
+
+      let totales = {
+        total_ingresos_operacion:
+          estado.ingreso_de_operaciones.intereses_inversiones +
+          estado.ingreso_de_operaciones.intereses_depositos +
+          estado.ingreso_de_operaciones.interes_prestamos +
+          estado.ingreso_de_operaciones.comisiones_y_otros_ingresos,
+
+        total_gastos_operacional:
+          estado.gastos_operacion.generales +
+          estado.gastos_operacion.funcionarios_y_empleados +
+          estado.gastos_operacion.depresiaciones_y_amortizaciones,
+
+        total_costos_operacion:
+          estado.costos_operacion.intereses_sobre_prestamos +
+          estado.costos_operacion.comisiones_sobre_titulos +
+          estado.costos_operacion.comisiones_y_otros,
+
+        total_utilidad_antes_de_gastos:
+          estado.ingreso_de_operaciones.intereses_inversiones +
+          estado.ingreso_de_operaciones.intereses_depositos +
+          estado.ingreso_de_operaciones.interes_prestamos +
+          estado.ingreso_de_operaciones.comisiones_y_otros_ingresos -
+          (estado.costos_operacion.intereses_sobre_prestamos +
+            estado.costos_operacion.comisiones_sobre_titulos +
+            estado.costos_operacion.comisiones_y_otros) -
+          estado.costos_operacion.reservas_de_saneamiento,
+
+        total_utilidad_de_operacion:
+          estado.ingreso_de_operaciones.intereses_inversiones +
+          estado.ingreso_de_operaciones.intereses_depositos +
+          estado.ingreso_de_operaciones.interes_prestamos +
+          estado.ingreso_de_operaciones.comisiones_y_otros_ingresos -
+          (estado.costos_operacion.intereses_sobre_prestamos +
+            estado.costos_operacion.comisiones_sobre_titulos +
+            estado.costos_operacion.comisiones_y_otros) -
+          estado.costos_operacion.reservas_de_saneamiento -
+          (estado.gastos_operacion.generales +
+            estado.gastos_operacion.funcionarios_y_empleados +
+            estado.gastos_operacion.depresiaciones_y_amortizaciones),
+
+        total_otros_ingresos_y_gastos:
+          estado.otros_ingreso_y_gastos.otros_ingresos -
+          estado.otros_ingreso_y_gastos.otros_gastos,
+
+        total_utilidad_antes_de_impuestos:
+          estado.ingreso_de_operaciones.intereses_inversiones +
+          estado.ingreso_de_operaciones.intereses_depositos +
+          estado.ingreso_de_operaciones.interes_prestamos +
+          estado.ingreso_de_operaciones.comisiones_y_otros_ingresos -
+          (estado.costos_operacion.intereses_sobre_prestamos +
+            estado.costos_operacion.comisiones_sobre_titulos +
+            estado.costos_operacion.comisiones_y_otros) -
+          estado.costos_operacion.reservas_de_saneamiento -
+          (estado.gastos_operacion.generales +
+            estado.gastos_operacion.funcionarios_y_empleados +
+            estado.gastos_operacion.depresiaciones_y_amortizaciones) +
+          (estado.otros_ingreso_y_gastos.otros_ingresos -
+            estado.otros_ingreso_y_gastos.otros_gastos),
+
+        total_utilidad_neta:
+          estado.ingreso_de_operaciones.intereses_inversiones +
+          estado.ingreso_de_operaciones.intereses_depositos +
+          estado.ingreso_de_operaciones.interes_prestamos +
+          estado.ingreso_de_operaciones.comisiones_y_otros_ingresos -
+          (estado.costos_operacion.intereses_sobre_prestamos +
+            estado.costos_operacion.comisiones_sobre_titulos +
+            estado.costos_operacion.comisiones_y_otros) -
+          estado.costos_operacion.reservas_de_saneamiento -
+          (estado.gastos_operacion.generales +
+            estado.gastos_operacion.funcionarios_y_empleados +
+            estado.gastos_operacion.depresiaciones_y_amortizaciones) +
+          (estado.otros_ingreso_y_gastos.otros_ingresos -
+            estado.otros_ingreso_y_gastos.otros_gastos) -
+          (estado.utilidad_antes_impuestos.impuesto_sobre_la_renta +
+            estado.utilidad_antes_impuestos
+              .contribucion_especial_plan_de_seguridad_ciudada),
+
+          total_impuesto_sobre_la_renta: 0,
+
+
       };
 
-      let guardo = await this.setEstadoResultados(estado);
-      if (guardo) {
-        await this.$swal.fire({
-          title: "Se guardo correctamente",
-          icon: "success",
-          confirmButtonText: "Aceptar",
-        });
-        this.$router.push({
-          name: "estado",
-        });
+      let impuesto_sobre_la_renta = (totales.total_utilidad_antes_de_impuestos * 1000) > 150000 ? totales.total_utilidad_antes_de_impuestos * 0.3 : totales.total_utilidad_antes_de_impuestos * 0.25;
+      totales.total_impuesto_sobre_la_renta = impuesto_sobre_la_renta;
+      console.log(totales);
+
+      if (estado.anio != "") {
+        let guardo = await this.setEstadoResultados(estado);
+        if (guardo) {
+          await this.$swal.fire({
+            title: "Se guardo correctamente",
+            icon: "success",
+            confirmButtonText: "Aceptar",
+          });
+          this.$router.push({
+            name: "estado",
+          });
+        } else {
+          await this.$swal.fire({
+            title: "No se pudo guardar",
+            icon: "error",
+            confirmButtonText: "Aceptar",
+          });
+        }
       } else {
-        await this.$swal.fire({
-          title: "No se pudo guardar",
-          icon: "error",
-          confirmButtonText: "Aceptar",
-        });
+        if (estado.anio === "") {
+          await this.$swal.fire({
+            title: "¡Ups! Parece que te falta el año",
+            icon: "info",
+            confirmButtonText: "Aceptar",
+          });
+        }
       }
     },
   },
