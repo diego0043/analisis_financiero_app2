@@ -558,33 +558,33 @@ export default {
             estado.gastos_operacion.funcionarios_y_empleados +
             estado.gastos_operacion.depresiaciones_y_amortizaciones) +
           (estado.otros_ingreso_y_gastos.otros_ingresos -
-            estado.otros_ingreso_y_gastos.otros_gastos),
+            estado.otros_ingreso_y_gastos.otros_gastos) +
+          estado.gastos_operacion.dividendos,
 
-        total_utilidad_neta:
-          estado.ingreso_de_operaciones.intereses_inversiones +
-          estado.ingreso_de_operaciones.intereses_depositos +
-          estado.ingreso_de_operaciones.interes_prestamos +
-          estado.ingreso_de_operaciones.comisiones_y_otros_ingresos -
-          (estado.costos_operacion.intereses_sobre_prestamos +
-            estado.costos_operacion.comisiones_sobre_titulos +
-            estado.costos_operacion.comisiones_y_otros) -
-          estado.costos_operacion.reservas_de_saneamiento -
-          (estado.gastos_operacion.generales +
-            estado.gastos_operacion.funcionarios_y_empleados +
-            estado.gastos_operacion.depresiaciones_y_amortizaciones) +
-          (estado.otros_ingreso_y_gastos.otros_ingresos -
-            estado.otros_ingreso_y_gastos.otros_gastos) -
-          (estado.utilidad_antes_impuestos.impuesto_sobre_la_renta +
-            estado.utilidad_antes_impuestos
-              .contribucion_especial_plan_de_seguridad_ciudada),
-
-          total_impuesto_sobre_la_renta: 0,
-
-
+        total_utilidad_neta: 0,
+        total_impuestos_renta: 0,
+        total_impuesto_sobre_la_renta: 0,
       };
 
-      let impuesto_sobre_la_renta = (totales.total_utilidad_antes_de_impuestos * 1000) > 150000 ? totales.total_utilidad_antes_de_impuestos * 0.3 : totales.total_utilidad_antes_de_impuestos * 0.25;
+      let impuesto_sobre_la_renta =
+        totales.total_utilidad_antes_de_impuestos * 1000 > 150000
+          ? totales.total_utilidad_antes_de_impuestos * 0.3
+          : totales.total_utilidad_antes_de_impuestos * 0.25;
+
+      let impuestos_renta =
+        impuesto_sobre_la_renta +
+        estado.efecto_fiscal.gastos_no_deducibles -
+        estado.efecto_fiscal.ingresos_no_gravables;
+
+      let utilidad_neta =
+        totales.total_utilidad_antes_de_impuestos -
+        impuestos_renta -
+        estado.utilidad_antes_impuestos
+          .contribucion_especial_plan_de_seguridad_ciudada;
+
       totales.total_impuesto_sobre_la_renta = impuesto_sobre_la_renta;
+      totales.total_utilidad_neta = utilidad_neta;
+      totales.total_impuestos_renta = impuestos_renta;
       console.log(totales);
 
       if (estado.anio != "") {
