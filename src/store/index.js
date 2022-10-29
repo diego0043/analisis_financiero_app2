@@ -235,6 +235,7 @@ export default new Vuex.Store({
           ]);
         }
       }
+
       commit("setIndicadores", indicadores);
     },
 
