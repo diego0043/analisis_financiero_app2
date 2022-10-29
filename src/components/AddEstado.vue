@@ -172,17 +172,6 @@
               Utilidad antes de impuesto sobre la renta:
             </div>
             <div class="row">
-              <div class="col-7 row-item">Impuesto sobre la renta:</div>
-              <div class="col row-item2">
-                <b-form-input
-                  class="inp"
-                  v-model="doc.utilidad_antes_impuestos.impuesto_sobre_la_renta"
-                  type="text"
-                  v-money="impuesto_sobre_la_renta"
-                ></b-form-input>
-              </div>
-            </div>
-            <div class="row">
               <div class="col-7 row-item">
                 Contribución especial plan de seguridad ciudada:
               </div>
@@ -585,7 +574,30 @@ export default {
       totales.total_impuesto_sobre_la_renta = impuesto_sobre_la_renta;
       totales.total_utilidad_neta = utilidad_neta;
       totales.total_impuestos_renta = impuestos_renta;
-      console.log(totales);
+
+      //Llenamos los campos restantes en el estado de resultados que vamos a guardar
+
+      estado.ingreso_de_operaciones.total_ingresos_operacion =
+        totales.total_ingresos_operacion;
+      estado.gastos_operacion.total_gastos_operacion =
+        totales.total_gastos_operacional;
+      estado.costos_operacion.total_costos_operacion =
+        totales.total_costos_operacion;
+      estado.otros_ingreso_y_gastos.total_otros_ingresos_y_gastos =
+        totales.total_otros_ingresos_y_gastos;
+      estado.utilidad_antes_impuestos.utilidad_antes_impuestos =
+        totales.total_utilidad_antes_de_impuestos;
+      estado.utilidad_antes_impuestos.impuesto_sobre_la_renta =
+        totales.total_impuestos_renta;
+      estado.utilidad_neta = totales.total_utilidad_neta;
+      estado.impuesto_sobre_la_renta = impuesto_sobre_la_renta;
+      estado.efecto_fiscal.impuesto_sobre_la_renta =
+        totales.total_impuestos_renta;
+      estado.costos_operacion.utilidad_antes_gastos = totales.total_utilidad_antes_de_gastos;
+      estado.gastos_operacion.utilidad_operacional = totales.total_utilidad_de_operacion;
+      console.log(estado);
+
+      //Guardamos el estado de resultados
 
       if (estado.anio != "") {
         let guardo = await this.setEstadoResultados(estado);
