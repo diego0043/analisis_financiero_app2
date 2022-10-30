@@ -47,8 +47,6 @@ export default new Vuex.Store({
         balances.push(balance.data());
       });
 
-
-
       balances.map((item) => {
         anios.push(item.anio);
       });
@@ -113,62 +111,15 @@ export default new Vuex.Store({
       }
     },
 
-    async getIndicadores({ commit }) {
+    async getIndicadores({ commit, getters }) {
       let indicadores = [];
-      let balances = [];
-      let estados = [];
-      let anios = [];
-      let aniosOrden = [];
-      let dataFiltradaBalance = [];
-      let dataFiltradaEstado = [];
-
-      const doc_bl = await db
-        .collection("Estados de situacion financiera")
-        .get();
-      doc_bl.forEach((balance) => {
-        balances.push(balance.data());
-      });
-
-      balances.map((item) => {
-        anios.push(item.anio);
-      });
-
-      aniosOrden = anios.sort((a, b) => a - b).reverse();
-
-      aniosOrden.map((item) => {
-        balances.map((balance) => {
-          if (balance.anio === item) {
-            dataFiltradaBalance.push(balance);
-          }
-        });
-      });
-
-      anios = [];
-      aniosOrden = [];
-
-      const doc_er = await db.collection("Estados de resultados").get();
-      doc_er.forEach((estado) => {
-        estados.push(estado.data());
-      });
-
-      estados.map((item) => {
-        anios.push(item.anio);
-      });
-
-      aniosOrden = anios.sort((a, b) => a - b).reverse();
-
-      aniosOrden.map((item) => {
-        estados.map((estado) => {
-          if (estado.anio === item) {
-            dataFiltradaEstado.push(estado);
-          }
-        });
-      });
+      let balances = getters.BalanceGeneral;
+      let estados = getters.EstadoResultados;
 
       const largo = balances.length;
       for (let i = 0; i < largo; i++) {
-        let balance = dataFiltradaBalance[i];
-        let estado = dataFiltradaEstado[i];
+        let balance = balances[i];
+        let estado = estados[i];
 
         if (balance.anio === estado.anio) {
           indicadores.push([
@@ -239,57 +190,45 @@ export default new Vuex.Store({
       commit("setIndicadores", indicadores);
     },
 
-    async getAnalisisHorizontal({ commit }) {
-      let balances = [];
-      let anios = [];
-      let aniosOrden = [];
-      let dataFiltrada = [];
+    async getAnalisisHorizontal({ commit, getters }) {
+      let balances = getters.BalanceGeneral;
+      let estados = getters.EstadoResultados;
       let contador = 0;
-      let periodos = [];
-      const doc = await db.collection("Estados de situacion financiera").get();
-     
-      doc.forEach((balance) => {
-        balances.push(balance.data());
-      });
+      let periodos_balance = [];
+      let periodos_estado = [];
 
-      balances.map((item) => {
-        anios.push(item.anio);
-      });
+      
 
-      aniosOrden = anios.sort((a, b) => a - b).reverse();
-
-      aniosOrden.map((item) => {
-        balances.map((balance) => {
-          if (balance.anio === item) {
-            dataFiltrada.push(balance);
-          }
-        });
-      });
-
-
-
-      dataFiltrada.map((balance) => {
-        if (dataFiltrada[contador] && dataFiltrada[contador + 1]) {
+      // Obtenemos analisis vertical para los balances
+      /*balances.map((balance) => {
+        if (balances[contador] && balances[contador + 1]) {
           console.log("si");
-          periodos.push([
+          periodos_balance.push([
             {
-              activos_de_intermediacion: {
-                anio_uno: dataFiltrada[contador].anio,
-                anion_dos: dataFiltrada[contador + 1].anio,
-                variacion_relativa:
-                  balances[contador].activos.activos_de_intermediacion -
-                  balances[contador + 1].activos.activos_de_intermediacion,
+              periodos: {
+                anio_uno: balances[contador].anio,
+                anion_dos: balances[contador + 1].anio,
+              },
+              variacion_relativa: {
+
+              }, 
+              variacion_absoluta: {
+
               },
             },
-            dataFiltrada[contador],
-            dataFiltrada[contador + 1],
+            balances[contador],
+            balances[contador + 1],
           ]);
           contador++;
         } else {
           console.log("No es posible");
         }
       });
-      commit("setAnalisisHorizontales", periodos);
+      
+      */
+      //falta hacer las operaciones para sacar los porcentajes
+
+      //commit("setAnalisisHorizontales", periodos);
     },
   },
   modules: {},

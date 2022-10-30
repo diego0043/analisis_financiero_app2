@@ -104,7 +104,7 @@ export default {
     ...mapGetters(["Indicadores"]),
   },
   methods: {
-    ...mapActions(["getIndicadores"]),
+    ...mapActions(["getIndicadores", "getBalanceGeneral", "getEstadoResultados"]),
     mostrarIndicadores(indicador) {
       this.indicadores = { ...indicador[0] };
       this.balance = { ...indicador[1] };
@@ -312,6 +312,8 @@ export default {
     },
   },
   async created() {
+    await this.getBalanceGeneral();
+    await this.getEstadoResultados();
     await this.getIndicadores();
   },
   components: { TablaIndicadores },

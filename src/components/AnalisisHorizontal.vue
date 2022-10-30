@@ -90,7 +90,7 @@ export default {
     ...mapGetters(["AnalisisHorizontales"]),
   },
   methods: {
-    ...mapActions(["getAnalisisHorizontal"]),
+    ...mapActions(["getAnalisisHorizontal", "getBalanceGeneral", "getEstadoResultados"]),
     mostrarAnalisis(periodo) {
       this.AnalisisHorizontales = periodo;
       this.report = true;
@@ -103,6 +103,8 @@ export default {
     },
   },
   async created() {
+    await this.getBalanceGeneral();
+    await this.getEstadoResultados();
     await this.getAnalisisHorizontal();
     setTimeout(() => {}, 1000);
   },
