@@ -311,7 +311,7 @@ export default new Vuex.Store({
         balance_dos = balances[contador + 1];
 
         //variacion absoluta
-        if (balance_uno && balance_dos) {
+        if (balance_uno && balance_dos ) {
           variacion_absoluta.activos.activos_de_intermediacion = parseFloat(
             (
               balance_uno.activos.activos_de_intermediacion -
@@ -782,16 +782,21 @@ export default new Vuex.Store({
                 : "Pesimo"
               : "-";
 
+          let clone_bl1 = structuredClone(balance_uno);
+          let clone_bl2 = structuredClone(balance_dos);
+          let clone_bl3 = structuredClone(variacion_absoluta);
+          let clone_bl4 = structuredClone(variacion_relativa);
+          let clone_bl5 = structuredClone(estado_balance);
           periodos_balance.push([
-            balance_uno,
-            balance_dos,
-            variacion_absoluta,
-            variacion_relativa,
-            estado_balance,
+            clone_bl1,
+            clone_bl2,
+            clone_bl3,
+            clone_bl4,
+            clone_bl5,
           ]);
-          contador++;
         } else {
         }
+        contador = contador + 1;
       });
       //falta hacer las operaciones para sacar los porcentajes
       commit("setAnalisisHorizontales", periodos_balance);
@@ -1672,16 +1677,15 @@ export default new Vuex.Store({
                 : "Pesimo"
               : "-";
 
-              periodos_estados.push([
-                estado_uno,
-                estado_dos,
-                variacion_absoluta,
-                variacion_relativa,
-                estado_estado,
-              ]);
-              contador++;
-        }else{
-
+          periodos_estados.push([
+            estado_uno,
+            estado_dos,
+            variacion_absoluta,
+            variacion_relativa,
+            estado_estado,
+          ]);
+          contador++;
+        } else {
         }
       });
 

@@ -11,7 +11,9 @@
         >
           <div class="row">
             <div class="col mt-2 ml-3">BANDESAL</div>
-            <div class="col mt-2 ml-2">{{ item[0].anio }} - {{item[1].anio}}</div>
+            <div class="col mt-2 ml-2">
+              {{ item[0].anio }} - {{ item[1].anio }}
+            </div>
           </div>
           <div class="row mt-3">
             <div class="col">
@@ -22,7 +24,7 @@
               />
             </div>
             <div class="col mt-3">
-              <button @click="mostrarAnalisis(item)" class="btn-view mt-2">
+              <button @click="mostrarAnalisis(index)" class="btn-view mt-2">
                 Ver detalle
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +70,18 @@
         </div>
       </div>
       <div class="bl" v-if="report === true">
-        <TablaBalance :report="balanceGeneral" />
+        <TablaHorizontal
+          :balance1="balance1"
+          :balance2="balance2"
+          :estado1="estado1"
+          :estado2="estado2"
+          :var_rel_1="var_rel_1"
+          :var_rel_2="var_rel_2"
+          :var_abs_1="var_abs_1"
+          :var_abs_2="var_abs_2"
+          :estados_1="estados_1"
+          :estados_2="estados_2"
+        />
       </div>
     </div>
   </div>
@@ -76,13 +89,22 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import TablaBalance from "./TablaBalance.vue";
+import TablaHorizontal from "./TablaHorizontal.vue";
 export default {
   name: "BalanceGeneral",
   data() {
     return {
-      balanceGeneral: {},
       report: false,
+      balance1: {},
+      balance2: {},
+      estado1: {},
+      estado2: {},
+      var_rel_1: {},
+      var_rel_2: {},
+      var_abs_1: {},
+      var_abs_2: {},
+      estados_1: {},
+      estados_2: {},
     };
   },
 
@@ -90,16 +112,27 @@ export default {
     ...mapGetters(["AnalisisHorizontales", "AnalisisHorizontalesEstados"]),
   },
   methods: {
-    ...mapActions(["getAnalisisHorizontalBalance", "getBalanceGeneral", "getEstadoResultados", "getAnalisisHorizontalEstado"]),
-    mostrarAnalisis(periodo) {
-      this.AnalisisHorizontales = periodo;
+    ...mapActions([
+      "getAnalisisHorizontalBalance",
+      "getBalanceGeneral",
+      "getEstadoResultados",
+      "getAnalisisHorizontalEstado",
+    ]),
+    mostrarAnalisis(posicion) {
+      let analisis = this.AnalisisHorizontales[posicion];
+
+      this.balance1 = analisis[0];
+      this.balance2 = analisis[1];
+      this.var_rel_1 = analisis[2];
+      this.var_abs_1 = analisis[3];
+      this.estados_1 = analisis[4];
       this.report = true;
     },
     info() {
       this.$swal({
         title: "¿Que es un analisis horizontal?",
         text: "El análisis horizontal es una herramienta de análisis financiero que permite comparar los resultados de un periodo con los de otro periodo anterior. El análisis horizontal permite identificar las variaciones en los resultados de la empresa, y así determinar si los cambios son positivos o negativos.",
-          });
+      });
     },
   },
   async created() {
@@ -109,7 +142,7 @@ export default {
     await this.getAnalisisHorizontalEstado();
     setTimeout(() => {}, 1000);
   },
-  components: { TablaBalance },
+  components: { TablaHorizontal },
 };
 </script>
 
