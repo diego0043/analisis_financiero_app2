@@ -11,7 +11,7 @@
         >
           <div class="row">
             <div class="col mt-2 ml-3">BANDESAL</div>
-            <div class="col mt-2 ml-2">{{ item[1].anio }} - {{item[2].anio}}</div>
+            <div class="col mt-2 ml-2">{{ item[0].anio }} - {{item[1].anio}}</div>
           </div>
           <div class="row mt-3">
             <div class="col">
@@ -87,10 +87,10 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["AnalisisHorizontales"]),
+    ...mapGetters(["AnalisisHorizontales", "AnalisisHorizontalesEstados"]),
   },
   methods: {
-    ...mapActions(["getAnalisisHorizontal", "getBalanceGeneral", "getEstadoResultados"]),
+    ...mapActions(["getAnalisisHorizontalBalance", "getBalanceGeneral", "getEstadoResultados", "getAnalisisHorizontalEstado"]),
     mostrarAnalisis(periodo) {
       this.AnalisisHorizontales = periodo;
       this.report = true;
@@ -105,7 +105,8 @@ export default {
   async created() {
     await this.getBalanceGeneral();
     await this.getEstadoResultados();
-    await this.getAnalisisHorizontal();
+    await this.getAnalisisHorizontalBalance();
+    await this.getAnalisisHorizontalEstado();
     setTimeout(() => {}, 1000);
   },
   components: { TablaBalance },
