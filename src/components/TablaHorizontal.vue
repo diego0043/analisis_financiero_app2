@@ -25,63 +25,136 @@
         </svg>
       </button>
     </div>
-    <div id="element-to-convert" class="container mt-4 mb-3">
+    <div id="element-to-convert" class="container mt-4 mb-3 shadow-sm">
       <br />
-      <div class="row rows-principal">BANCO DE DESAROLLO DE EL SALVADOR</div>
-      <div class="row rows-principal">
-        ANÁLISIS HORIZONTAL - BALANCE GENERAL
-      </div>
-      <div class="row rows-principal">
-        {{ balance1.anio }} - {{ balance2.anio }}
-      </div>
-
       <!-- Encabezado -->
-      <div class="row sub-title rows-subtitulo">
-        <div class="col-5">Cuentas:</div>
-        <div class="row">
-          <div class="col-2">
-            {{ balance1.anio }}
+      <div class="row">
+        <div class="col-5">
+          <!-- encabezado -->
+          <div class="row text text-center">Cuentas</div>
+
+          <!-- nombres -->
+          <div class="row text mt-4">Activos de intermediación</div>
+          <div class="row text mt-2">Caja y bancos</div>
+          <div class="row text mt-2">Reportes y otras operaciones bursatiles</div>
+          <div class="row text mt-2">Inversiones financieras(Neto)</div>
+          <div class="row text mt-2">Cartera de prestamo</div>
+
+        </div>
+        <div class="col-7 scroll-form">
+          <div class="row-table">
+
+            <!-- encabezado -->
+            <div class="row">
+              <div class="item">
+                <span class="text-center"> {{ balance1.anio }}</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> {{ balance2.anio }}</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> Variación relativa</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> Variación absoluta</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> Estado</span>
+              </div>
+            </div>
+
+            <!-- items -->
+            <div class="row mt-4">
+              <div class="item">
+                <span class="text-center"> {{ balance1.activos.activos_de_intermediacion }}</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> {{ balance2.activos.activos_de_intermediacion }}</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> {{ var_rel_1.activos.activos_de_intermediacion }}</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> {{ var_abs_1.activos.activos_de_intermediacion }}</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> {{ estados_1.activos.activos_de_intermediacion }}</span>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="item">
+                <span class="text-center"> {{ balance1.activos.caja_y_bancos }}</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> {{ balance2.activos.caja_y_bancos }}</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> {{ var_rel_1.activos.caja_y_bancos }}</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> {{ var_abs_1.activos.caja_y_bancos }}</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> {{ estados_1.activos.caja_y_bancos }}</span>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="item">
+                <span class="text-center"> {{ balance1.activos.cartera_de_prestamos }}</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> {{ balance2.activos.cartera_de_prestamos }}</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> {{ var_rel_1.activos.cartera_de_prestamos }}</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> {{ var_abs_1.activos.cartera_de_prestamos }}</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> {{ estados_1.activos.cartera_de_prestamos }}</span>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="item">
+                <span class="text-center"> {{ balance1.activos.inversiones_financieras }}</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> {{ balance2.activos.inversiones_financieras }}</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> {{ var_rel_1.activos.inversiones_financieras }}</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> {{ var_abs_1.activos.inversiones_financieras }}</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> {{ estados_1.activos.inversiones_financieras }}</span>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="item">
+                <span class="text-center"> {{ balance1.activos.operaciones_bursatiles }}</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> {{ balance2.activos.operaciones_bursatiles }}</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> {{ var_rel_1.activos.operaciones_bursatiles }}</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> {{ var_abs_1.activos.operaciones_bursatiles }}</span>
+              </div>
+              <div class="item">
+                <span class="text-center"> {{ estados_1.activos.operaciones_bursatiles }}</span>
+              </div>
+            </div>
           </div>
-          <div class="col-2">
-            {{ balance2.anio }}
-          </div>
-          <div class="col-3"><span class="absoluta">Absoluta</span></div>
-          <div class="col-3"><span class="relativa">Relativa </span></div>
-          <div class="col-2"><span class="state">Estado</span></div>
+          
         </div>
       </div>
 
       <!-- Cuentas Balance-->
-      <div class="row sub-title rows-subtitulo">
-        <div class="col-5">Activos de intermediación</div>
-        <div class="row">
-          <div class="col-2">
-            <span class="anio1">{{
-              balance1.activos.activos_de_intermediacion
-            }}</span>
-          </div>
-          <div class="col-2">
-            <span class="anio2">
-              {{ balance2.activos.activos_de_intermediacion }}
-            </span>
-          </div>
-          <div class="col-3">
-            <span class="abs">
-              {{ var_abs_1.activos.activos_de_intermediacion }}
-            </span>
-          </div>
-          <div class="col-3">
-            <span class="rel">
-              {{ var_rel_1.activos.activos_de_intermediacion }}
-            </span>
-          </div>
-          <div class="col-2">
-            <span class="estado">
-              {{ estados_1.activos.activos_de_intermediacion }}
-            </span>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -116,6 +189,37 @@ export default {
   margin-left: 40px;
 }
 
+.text {
+  width: 350px;
+  margin-left: 40px;
+}
+
+.row-table {
+  width: 750px;
+}
+.item {
+  width: 150px;
+}
+
+.scroll-form {
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: white;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(230, 227, 227);
+  border-radius: 5px;
+}
+.anio-title {
+  margin-left: 10px;
+}
 .rows-principal {
   display: block;
   font-size: 20px;
@@ -162,14 +266,19 @@ export default {
   margin-top: 40px;
 }
 
-.state {
-  display: block;
-  margin-left: 35px;
+.state-w {
+  display: relative;
+  width: 100px;
 }
 
 .relativa {
   display: block;
   margin-left: 20px;
+}
+
+.relativa-text {
+  display: block;
+  margin-left: 15px;
 }
 
 .absoluta {
@@ -200,5 +309,11 @@ export default {
 .estado {
   display: block;
   margin-left: 27px;
+}
+
+.text-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
