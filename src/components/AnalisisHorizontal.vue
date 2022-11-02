@@ -130,6 +130,7 @@ export default {
     },
     info() {
       this.$swal({
+        icon: "info",
         title: "¿Que es un analisis horizontal?",
         text: "El análisis horizontal es una herramienta de análisis financiero que permite comparar los resultados de un periodo con los de otro periodo anterior. El análisis horizontal permite identificar las variaciones en los resultados de la empresa, y así determinar si los cambios son positivos o negativos.",
       });
