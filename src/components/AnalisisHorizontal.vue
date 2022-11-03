@@ -120,12 +120,24 @@ export default {
     ]),
     mostrarAnalisis(posicion) {
       let analisis = this.AnalisisHorizontales[posicion];
+      let estados = this.AnalisisHorizontalesEstados[posicion];
 
+      //asignamos valores del balance
       this.balance1 = analisis[0];
       this.balance2 = analisis[1];
       this.var_rel_1 = analisis[2];
       this.var_abs_1 = analisis[3];
       this.estados_1 = analisis[4];
+
+      //asignamos valores del estado de resultados
+      this.estado1 = estados[0];
+      this.estado2 = estados[1];
+      this.var_rel_2 = estados[2];
+      this.var_abs_2 = estados[3];
+      this.estados_2 = estados[4];
+
+      console.log(this.estados_2.gastos_operacion.utilidad_operacional);
+      //mostramos el reporte
       this.report = true;
     },
     info() {

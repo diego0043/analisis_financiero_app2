@@ -8,14 +8,25 @@
         data-bs-placement="left"
         title="Ver balance"
       >
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-double-up" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M7.646 2.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 3.707 2.354 9.354a.5.5 0 1 1-.708-.708l6-6z"/>
-  <path fill-rule="evenodd" d="M7.646 6.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 7.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
-</svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          class="bi bi-chevron-double-up"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M7.646 2.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 3.707 2.354 9.354a.5.5 0 1 1-.708-.708l6-6z"
+          />
+          <path
+            fill-rule="evenodd"
+            d="M7.646 6.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 7.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"
+          />
+        </svg>
       </button>
-      <div class="pag">
-        Pag. {{pag}} / 2
-      </div>
+      <div class="pag">Pag. {{ pag }} / 2</div>
       <button
         @click="nextPage"
         class="btn-down"
@@ -23,10 +34,23 @@
         data-bs-placement="left"
         title="Ver estado de resultados"
       >
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-double-down" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-  <path fill-rule="evenodd" d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-</svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          class="bi bi-chevron-double-down"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+          />
+          <path
+            fill-rule="evenodd"
+            d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+          />
+        </svg>
       </button>
     </div>
     <div class="right-menu shadow-sm">
@@ -54,23 +78,40 @@
         </svg>
       </button>
       <button
-      class="btn-help"
-      @click="ayuda()"
-      data-bs-toggle="tooltip"
-      data-bs-placement="left"
-      title="¿Necesitas ayuda?"
-    >
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
-  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-  <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-</svg>
-    </button>
+        class="btn-help"
+        @click="ayuda()"
+        data-bs-toggle="tooltip"
+        data-bs-placement="left"
+        title="¿Necesitas ayuda?"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          class="bi bi-question-circle"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+          />
+          <path
+            d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"
+          />
+        </svg>
+      </button>
     </div>
-    <div id="element-to-convert" class="container mt-4 mb-3">
+    <div
+      v-show="showBalance && showEstado === false"
+      id="element-to-convert"
+      class="container mt-4 mb-3"
+    >
       <br />
 
       <div class="row rows-principal">BANCO DE DESAROLLO DE EL SALVADOR</div>
-      <div class="row rows-principal">ANALISIS HORIZONTAL - BALANCE GENERAL</div>
+      <div class="row rows-principal">
+        ANALISIS HORIZONTAL - BALANCE GENERAL
+      </div>
       <div class="row rows-principal">En dolares americanos</div>
       <div class="row rows-principal">
         {{ balance1.anio }} - {{ balance2.anio }}
@@ -132,7 +173,7 @@
                 <span class="text-center ml-2"> Variación absoluta</span>
               </div>
               <div class="item text-header">
-                <span class="text-center "> Estado</span>
+                <span class="text-center"> Estado</span>
               </div>
             </div>
             <!-- items -->
@@ -156,14 +197,29 @@
               </div>
               <div class="item">
                 <span class="text-center">
-                  {{ var_abs_1.activos.activos_de_intermediacion }} %</span
+                  {{ var_abs_1.activos.activos_de_intermediacion }}
+                  <span
+                    v-show="var_abs_1.activos.activos_de_intermediacion != '-'"
+                  >
+                    %</span
+                  ></span
                 >
               </div>
               <div class="item">
-                <span v-show="estados_1.activos.activos_de_intermediacion === 'Pesimo'"  class="text-center bad">
+                <span
+                  v-show="
+                    estados_1.activos.activos_de_intermediacion === 'Pesimo'
+                  "
+                  class="text-center bad"
+                >
                   {{ estados_1.activos.activos_de_intermediacion }}</span
                 >
-                <span v-show="estados_1.activos.activos_de_intermediacion === 'Optimo'"  class="text-center good">
+                <span
+                  v-show="
+                    estados_1.activos.activos_de_intermediacion === 'Optimo'
+                  "
+                  class="text-center good"
+                >
                   {{ estados_1.activos.activos_de_intermediacion }}</span
                 >
               </div>
@@ -187,14 +243,23 @@
               </div>
               <div class="item">
                 <span class="text-center">
-                  {{ var_abs_1.activos.caja_y_bancos }} %</span
+                  {{ var_abs_1.activos.caja_y_bancos }}
+                  <span v-show="var_abs_1.activos.caja_y_bancos != '-'">
+                    %</span
+                  ></span
                 >
               </div>
               <div class="item">
-                <span v-show="estados_1.activos.caja_y_bancos === 'Pesimo'"  class="text-center bad">
+                <span
+                  v-show="estados_1.activos.caja_y_bancos === 'Pesimo'"
+                  class="text-center bad"
+                >
                   {{ estados_1.activos.caja_y_bancos }}</span
                 >
-                <span v-show="estados_1.activos.caja_y_bancos === 'Optimo'"  class="text-center good">
+                <span
+                  v-show="estados_1.activos.caja_y_bancos === 'Optimo'"
+                  class="text-center good"
+                >
                   {{ estados_1.activos.caja_y_bancos }}</span
                 >
               </div>
@@ -218,14 +283,23 @@
               </div>
               <div class="item">
                 <span class="text-center">
-                  {{ var_abs_1.activos.cartera_de_prestamos }} %</span
+                  {{ var_abs_1.activos.cartera_de_prestamos }}
+                  <span v-show="var_abs_1.activos.cartera_de_prestamos != '-'">
+                    %</span
+                  ></span
                 >
               </div>
               <div class="item">
-                <span v-show="estados_1.activos.cartera_de_prestamos === 'Pesimo'"  class="text-center bad">
+                <span
+                  v-show="estados_1.activos.cartera_de_prestamos === 'Pesimo'"
+                  class="text-center bad"
+                >
                   {{ estados_1.activos.cartera_de_prestamos }}</span
                 >
-                <span v-show="estados_1.activos.cartera_de_prestamos === 'Optimo'"  class="text-center good">
+                <span
+                  v-show="estados_1.activos.cartera_de_prestamos === 'Optimo'"
+                  class="text-center good"
+                >
                   {{ estados_1.activos.cartera_de_prestamos }}</span
                 >
               </div>
@@ -249,14 +323,29 @@
               </div>
               <div class="item">
                 <span class="text-center">
-                  {{ var_abs_1.activos.inversiones_financieras }} %</span
+                  {{ var_abs_1.activos.inversiones_financieras }}
+                  <span
+                    v-show="var_abs_1.activos.inversiones_financieras != '-'"
+                  >
+                    %</span
+                  ></span
                 >
               </div>
               <div class="item">
-                <span  v-show=" estados_1.activos.inversiones_financieras === 'Pesimo'"  class="text-center bad">
+                <span
+                  v-show="
+                    estados_1.activos.inversiones_financieras === 'Pesimo'
+                  "
+                  class="text-center bad"
+                >
                   {{ estados_1.activos.inversiones_financieras }}</span
                 >
-                <span  v-show=" estados_1.activos.inversiones_financieras === 'Optimo'"  class="text-center good">
+                <span
+                  v-show="
+                    estados_1.activos.inversiones_financieras === 'Optimo'
+                  "
+                  class="text-center good"
+                >
                   {{ estados_1.activos.inversiones_financieras }}</span
                 >
               </div>
@@ -280,17 +369,31 @@
               </div>
               <div class="item">
                 <span class="text-center">
-                  {{ var_abs_1.activos.operaciones_bursatiles }} </span
-                > <span v-show="var_abs_1.activos.operaciones_bursatiles != '-'"> %</span>
+                  {{ var_abs_1.activos.operaciones_bursatiles }}
+                  <span
+                    v-show="var_abs_1.activos.operaciones_bursatiles != '-'"
+                  >
+                    %</span
+                  ></span
+                >
               </div>
               <div class="item">
-                <span v-show="estados_1.activos.operaciones_bursatiles === '-'" class="text-center">
+                <span
+                  v-show="estados_1.activos.operaciones_bursatiles === '-'"
+                  class="text-center"
+                >
                   {{ estados_1.activos.operaciones_bursatiles }}</span
                 >
-                <span v-show="estados_1.activos.operaciones_bursatiles === 'Pesimo'" class="text-center bad">
+                <span
+                  v-show="estados_1.activos.operaciones_bursatiles === 'Pesimo'"
+                  class="text-center bad"
+                >
                   {{ estados_1.activos.operaciones_bursatiles }}</span
                 >
-                <span v-show="estados_1.activos.operaciones_bursatiles === 'Optimo'" class="text-center good">
+                <span
+                  v-show="estados_1.activos.operaciones_bursatiles === 'Optimo'"
+                  class="text-center good"
+                >
                   {{ estados_1.activos.operaciones_bursatiles }}</span
                 >
               </div>
@@ -316,14 +419,25 @@
               </div>
               <div class="item">
                 <span class="text-center">
-                  {{ var_abs_1.activos_fijos.bienes_inmuebles }} %</span
+                  {{ var_abs_1.activos_fijos.bienes_inmuebles }}
+                  <span
+                    v-show="var_abs_1.activos_fijos.bienes_inmuebles != '-'"
+                  >
+                    %</span
+                  ></span
                 >
               </div>
               <div class="item">
-                <span v-show=" estados_1.activos_fijos.bienes_inmuebles === 'Pesimo'" class="text-center bad">
+                <span
+                  v-show="estados_1.activos_fijos.bienes_inmuebles === 'Pesimo'"
+                  class="text-center bad"
+                >
                   {{ estados_1.activos_fijos.bienes_inmuebles }}</span
                 >
-                <span v-show=" estados_1.activos_fijos.bienes_inmuebles === 'Optimo'" class="text-center good">
+                <span
+                  v-show="estados_1.activos_fijos.bienes_inmuebles === 'Optimo'"
+                  class="text-center good"
+                >
                   {{ estados_1.activos_fijos.bienes_inmuebles }}</span
                 >
               </div>
@@ -349,14 +463,23 @@
               </div>
               <div class="item">
                 <span class="text-center">
-                  {{ var_abs_1.otros_activos.diversos }} %</span
+                  {{ var_abs_1.otros_activos.diversos }}
+                  <span v-show="var_abs_1.otros_activos.diversos != '-'">
+                    %</span
+                  ></span
                 >
               </div>
               <div class="item">
-                <span v-show="estados_1.otros_activos.diversos === 'Pesimo'" class="text-center bad">
+                <span
+                  v-show="estados_1.otros_activos.diversos === 'Pesimo'"
+                  class="text-center bad"
+                >
                   {{ estados_1.otros_activos.diversos }}</span
                 >
-                <span v-show="estados_1.otros_activos.diversos === 'Optimo'" class="text-center good">
+                <span
+                  v-show="estados_1.otros_activos.diversos === 'Optimo'"
+                  class="text-center good"
+                >
                   {{ estados_1.otros_activos.diversos }}</span
                 >
               </div>
@@ -382,17 +505,25 @@
               </div>
               <div class="item">
                 <span class="text-center">
-                  {{ var_abs_1.pasivos.diversos }} %</span
+                  {{ var_abs_1.pasivos.diversos }}
+                  <span v-show="var_abs_1.pasivos.diversos != '-'">
+                    %</span
+                  ></span
                 >
               </div>
               <div class="item">
-                <span v-show="estados_1.pasivos.diversos === 'Pesimo'" class="text-center bad">
+                <span
+                  v-show="estados_1.pasivos.diversos === 'Pesimo'"
+                  class="text-center bad"
+                >
                   {{ estados_1.pasivos.diversos }}</span
                 >
-                <span v-show="estados_1.pasivos.diversos === 'Optimo'" class="text-center good">
+                <span
+                  v-show="estados_1.pasivos.diversos === 'Optimo'"
+                  class="text-center good"
+                >
                   {{ estados_1.pasivos.diversos }}</span
                 >
-                
               </div>
             </div>
 
@@ -414,14 +545,29 @@
               </div>
               <div class="item">
                 <span class="text-center">
-                  {{ var_abs_1.pasivos.fondos_de_administracion }} %</span
+                  {{ var_abs_1.pasivos.fondos_de_administracion }}
+                  <span
+                    v-show="var_abs_1.pasivos.fondos_de_administracion != '-'"
+                  >
+                    %</span
+                  ></span
                 >
               </div>
               <div class="item">
-                <span v-show="estados_1.pasivos.fondos_de_administracion === 'Pesimo'" class="text-center bad">
+                <span
+                  v-show="
+                    estados_1.pasivos.fondos_de_administracion === 'Pesimo'
+                  "
+                  class="text-center bad"
+                >
                   {{ estados_1.pasivos.fondos_de_administracion }}</span
                 >
-                <span v-show="estados_1.pasivos.fondos_de_administracion === 'Optimo'" class="text-center good">
+                <span
+                  v-show="
+                    estados_1.pasivos.fondos_de_administracion === 'Optimo'
+                  "
+                  class="text-center good"
+                >
                   {{ estados_1.pasivos.fondos_de_administracion }}</span
                 >
               </div>
@@ -445,14 +591,29 @@
               </div>
               <div class="item">
                 <span class="text-center">
-                  {{ var_abs_1.pasivos.pasivos_de_intermediacion }} %</span
+                  {{ var_abs_1.pasivos.pasivos_de_intermediacion }}
+                  <span
+                    v-show="var_abs_1.pasivos.pasivos_de_intermediacion != '-'"
+                  >
+                    %</span
+                  ></span
                 >
               </div>
               <div class="item">
-                <span v-show="estados_1.pasivos.pasivos_de_intermediacion === 'Pesimo'" class="text-center bad">
+                <span
+                  v-show="
+                    estados_1.pasivos.pasivos_de_intermediacion === 'Pesimo'
+                  "
+                  class="text-center bad"
+                >
                   {{ estados_1.pasivos.pasivos_de_intermediacion }}</span
                 >
-                <span v-show="estados_1.pasivos.pasivos_de_intermediacion === 'Optimo'" class="text-center good">
+                <span
+                  v-show="
+                    estados_1.pasivos.pasivos_de_intermediacion === 'Optimo'
+                  "
+                  class="text-center good"
+                >
                   {{ estados_1.pasivos.pasivos_de_intermediacion }}</span
                 >
               </div>
@@ -476,14 +637,23 @@
               </div>
               <div class="item">
                 <span class="text-center">
-                  {{ var_abs_1.pasivos.prestamo_bancos }} %</span
+                  {{ var_abs_1.pasivos.prestamo_bancos }}
+                  <span v-show="var_abs_1.pasivos.prestamo_bancos != '-'">
+                    %</span
+                  ></span
                 >
               </div>
               <div class="item">
-                <span v-show="estados_1.pasivos.prestamo_bancos === 'Pesimo'" class="text-center bad">
+                <span
+                  v-show="estados_1.pasivos.prestamo_bancos === 'Pesimo'"
+                  class="text-center bad"
+                >
                   {{ estados_1.pasivos.prestamo_bancos }}</span
                 >
-                <span v-show="estados_1.pasivos.prestamo_bancos === 'Optimo'" class="text-center good">
+                <span
+                  v-show="estados_1.pasivos.prestamo_bancos === 'Optimo'"
+                  class="text-center good"
+                >
                   {{ estados_1.pasivos.prestamo_bancos }}</span
                 >
               </div>
@@ -507,14 +677,23 @@
               </div>
               <div class="item">
                 <span class="text-center">
-                  {{ var_abs_1.pasivos.prestamos_del_banco }} %</span
+                  {{ var_abs_1.pasivos.prestamos_del_banco }}
+                  <span v-show="var_abs_1.pasivos.prestamos_del_banco != '-'">
+                    %</span
+                  ></span
                 >
               </div>
               <div class="item">
-                <span v-show="estados_1.pasivos.prestamos_del_banco === 'Pesimo'" class="text-center bad">
+                <span
+                  v-show="estados_1.pasivos.prestamos_del_banco === 'Pesimo'"
+                  class="text-center bad"
+                >
                   {{ estados_1.pasivos.prestamos_del_banco }}</span
                 >
-                <span v-show="estados_1.pasivos.prestamos_del_banco === 'Optimo'" class="text-center good">
+                <span
+                  v-show="estados_1.pasivos.prestamos_del_banco === 'Optimo'"
+                  class="text-center good"
+                >
                   {{ estados_1.pasivos.prestamos_del_banco }}</span
                 >
               </div>
@@ -538,14 +717,23 @@
               </div>
               <div class="item">
                 <span class="text-center">
-                  {{ var_abs_1.pasivos.provisiones }} %</span
+                  {{ var_abs_1.pasivos.provisiones }}
+                  <span v-show="var_abs_1.pasivos.provisiones != '-'">
+                    %</span
+                  ></span
                 >
               </div>
               <div class="item">
-                <span v-show="estados_1.pasivos.provisiones === 'Pesimo'" class="text-center bad">
+                <span
+                  v-show="estados_1.pasivos.provisiones === 'Pesimo'"
+                  class="text-center bad"
+                >
                   {{ estados_1.pasivos.provisiones }}</span
                 >
-                <span v-show="estados_1.pasivos.provisiones === 'Optimo'" class="text-center good">
+                <span
+                  v-show="estados_1.pasivos.provisiones === 'Optimo'"
+                  class="text-center good"
+                >
                   {{ estados_1.pasivos.provisiones }}</span
                 >
               </div>
@@ -569,14 +757,29 @@
               </div>
               <div class="item">
                 <span class="text-center">
-                  {{ var_abs_1.pasivos.titulos_de_emision_propia }} %</span
+                  {{ var_abs_1.pasivos.titulos_de_emision_propia }}
+                  <span
+                    v-show="var_abs_1.pasivos.titulos_de_emision_propia != '-'"
+                  >
+                    %</span
+                  ></span
                 >
               </div>
               <div class="item">
-                <span v-show="estados_1.pasivos.titulos_de_emision_propia === 'Pesimo'" class="text-center bad">
+                <span
+                  v-show="
+                    estados_1.pasivos.titulos_de_emision_propia === 'Pesimo'
+                  "
+                  class="text-center bad"
+                >
                   {{ estados_1.pasivos.titulos_de_emision_propia }}</span
                 >
-                <span v-show="estados_1.pasivos.titulos_de_emision_propia === 'Optimo'" class="text-center good">
+                <span
+                  v-show="
+                    estados_1.pasivos.titulos_de_emision_propia === 'Optimo'
+                  "
+                  class="text-center good"
+                >
                   {{ estados_1.pasivos.titulos_de_emision_propia }}</span
                 >
               </div>
@@ -602,14 +805,23 @@
               </div>
               <div class="item">
                 <span class="text-center">
-                  {{ var_abs_1.patrimonio.aportes_del_estado }} %</span
+                  {{ var_abs_1.patrimonio.aportes_del_estado }}
+                  <span v-show="var_abs_1.patrimonio.aportes_del_estado != '-'">
+                    %</span
+                  ></span
                 >
               </div>
               <div class="item">
-                <span v-show="estados_1.patrimonio.aportes_del_estado === 'Pesimo'" class="text-center bad">
+                <span
+                  v-show="estados_1.patrimonio.aportes_del_estado === 'Pesimo'"
+                  class="text-center bad"
+                >
                   {{ estados_1.patrimonio.aportes_del_estado }}</span
                 >
-                <span v-show="estados_1.patrimonio.aportes_del_estado === 'Optimo'" class="text-center good">
+                <span
+                  v-show="estados_1.patrimonio.aportes_del_estado === 'Optimo'"
+                  class="text-center good"
+                >
                   {{ estados_1.patrimonio.aportes_del_estado }}</span
                 >
               </div>
@@ -633,14 +845,29 @@
               </div>
               <div class="item">
                 <span class="text-center">
-                  {{ var_abs_1.patrimonio.reservas_del_capital }} %</span
+                  {{ var_abs_1.patrimonio.reservas_del_capital }}
+                  <span
+                    v-show="var_abs_1.patrimonio.reservas_del_capital != '-'"
+                  >
+                    %</span
+                  ></span
                 >
               </div>
               <div class="item">
-                <span v-show="estados_1.patrimonio.reservas_del_capital === 'Pesimo'" class="text-center bad">
+                <span
+                  v-show="
+                    estados_1.patrimonio.reservas_del_capital === 'Pesimo'
+                  "
+                  class="text-center bad"
+                >
                   {{ estados_1.patrimonio.reservas_del_capital }}</span
                 >
-                <span v-show="estados_1.patrimonio.reservas_del_capital === 'Optimo'" class="text-center good">
+                <span
+                  v-show="
+                    estados_1.patrimonio.reservas_del_capital === 'Optimo'
+                  "
+                  class="text-center good"
+                >
                   {{ estados_1.patrimonio.reservas_del_capital }}</span
                 >
               </div>
@@ -657,12 +884,24 @@
                 <span class="text-center"> {{ var_rel_1.total_activos }}</span>
               </div>
               <div class="item">
-                <span class="text-center"> {{ var_abs_1.total_activos }} %</span>
+                <span class="text-center">
+                  {{ var_abs_1.total_activos }}
+                  <span v-show="var_abs_1.total_activos != '-'"> %</span></span
+                >
               </div>
               <div class="item">
-                <span v-show="estados_1.total_activos === 'Pesimo'" class="text-center bad"> {{ estados_1.total_activos }}</span>
-                <span v-show="estados_1.total_activos === 'Optimo'" class="text-center good"> {{ estados_1.total_activos }}</span>
-
+                <span
+                  v-show="estados_1.total_activos === 'Pesimo'"
+                  class="text-center bad"
+                >
+                  {{ estados_1.total_activos }}</span
+                >
+                <span
+                  v-show="estados_1.total_activos === 'Optimo'"
+                  class="text-center good"
+                >
+                  {{ estados_1.total_activos }}</span
+                >
               </div>
             </div>
 
@@ -677,12 +916,24 @@
                 <span class="text-center"> {{ var_rel_1.total_pasivos }}</span>
               </div>
               <div class="item">
-                <span class="text-center"> {{ var_abs_1.total_pasivos }} %</span>
+                <span class="text-center">
+                  {{ var_abs_1.total_pasivos }}
+                  <span v-show="var_abs_1.total_pasivos != '-'"> %</span></span
+                >
               </div>
               <div class="item">
-                <span v-show="estados_1.total_pasivos === 'Pesimo'" class="text-center bad"> {{ estados_1.total_pasivos }}</span>
-                <span v-show="estados_1.total_pasivos === 'Optimo'" class="text-center good"> {{ estados_1.total_pasivos }}</span>
-
+                <span
+                  v-show="estados_1.total_pasivos === 'Pesimo'"
+                  class="text-center bad"
+                >
+                  {{ estados_1.total_pasivos }}</span
+                >
+                <span
+                  v-show="estados_1.total_pasivos === 'Optimo'"
+                  class="text-center good"
+                >
+                  {{ estados_1.total_pasivos }}</span
+                >
               </div>
             </div>
 
@@ -704,14 +955,23 @@
               </div>
               <div class="item">
                 <span class="text-center">
-                  {{ var_abs_1.total_pasivos_patrimonio }} %</span
+                  {{ var_abs_1.total_pasivos_patrimonio }}
+                  <span v-show="var_abs_1.total_pasivos_patrimonio != '-'">
+                    %</span
+                  ></span
                 >
               </div>
               <div class="item">
-                <span v-show="estados_1.total_pasivos_patrimonio === 'Pesimo'" class="text-center bad">
+                <span
+                  v-show="estados_1.total_pasivos_patrimonio === 'Pesimo'"
+                  class="text-center bad"
+                >
                   {{ estados_1.total_pasivos_patrimonio }}</span
                 >
-                <span v-show="estados_1.total_pasivos_patrimonio === 'Optimo'" class="text-center good">
+                <span
+                  v-show="estados_1.total_pasivos_patrimonio === 'Optimo'"
+                  class="text-center good"
+                >
                   {{ estados_1.total_pasivos_patrimonio }}</span
                 >
               </div>
@@ -735,14 +995,23 @@
               </div>
               <div class="item">
                 <span class="text-center">
-                  {{ var_abs_1.total_patrimonio }} %</span
+                  {{ var_abs_1.total_patrimonio }}
+                  <span v-show="var_abs_1.total_patrimonio != '-'">
+                    %</span
+                  ></span
                 >
               </div>
               <div class="item">
-                <span v-show="estados_1.total_patrimonio === 'Pesimo'" class="text-center bad">
+                <span
+                  v-show="estados_1.total_patrimonio === 'Pesimo'"
+                  class="text-center bad"
+                >
                   {{ estados_1.total_patrimonio }}</span
                 >
-                <span v-show="estados_1.total_patrimonio === 'Optimo'" class="text-center good">
+                <span
+                  v-show="estados_1.total_patrimonio === 'Optimo'"
+                  class="text-center good"
+                >
                   {{ estados_1.total_patrimonio }}</span
                 >
               </div>
@@ -755,6 +1024,1434 @@
 
       <!-- Cuentas Balance-->
     </div>
+
+    <div
+      id="element-to-convert-2"
+      v-show="showEstado && showBalance === false"
+      class="container mt-4 mb-3"
+    >
+      <br />
+
+      <div class="row rows-principal">BANCO DE DESAROLLO DE EL SALVADOR</div>
+      <div class="row rows-principal">
+        ANALISIS HORIZONTAL - ESTADO DE RESULTADOS
+      </div>
+      <div class="row rows-principal">En dolares americanos</div>
+      <div class="row rows-principal">
+        {{ balance1.anio }} - {{ balance2.anio }}
+      </div>
+      <div class="row mt-4"></div>
+      <div class="row mt-4"></div>
+
+      <div class="row p-1">
+        <div class="col-5">
+          <!-- encabezado -->
+          <div class="row text-header text-center">Cuentas</div>
+
+          <!-- ingreso de operacion -->
+          <div class="row text mt-4">Ingreso de operación</div>
+          <div class="row text2 mt-3">Intereses de préstamos</div>
+          <div class="row text2 mt-2">
+            Comisiones y otros ingresos financieros
+          </div>
+          <div class="row text2 mt-2">Intereses de inversiones</div>
+          <div class="row text2 mt-2">Intereses sobre depósitos</div>
+          <div class="row text2 mt-2">Total ingresos de operacón</div>
+
+          <!-- costos de operacion -->
+          <div class="row text mt-4">Costos de operación</div>
+          <div class="row text2 mt-3">Intereses sobre préstamos</div>
+          <div class="row text2 mt-2">
+            Intereses sobre titulos de emisión propia
+          </div>
+          <div class="row text2 mt-2">Comisiones y otros</div>
+          <div class="row text2 mt-2">Total costos de operación</div>
+          <div class="row text2 mt-2">Reservas de saneamiento</div>
+
+          <!-- Utilidad antes de gastos -->
+          <div class="row text mt-4">Utilidad antes de gastos</div>
+          <div class="row text mt-4">Gastos de operación</div>
+          <div class="row text2 mt-3">De funcionarios y empleados</div>
+          <div class="row text2 mt-2">Generales</div>
+          <div class="row text2 mt-2">Depreciaciones y amortizaciones</div>
+          <div class="row text2 mt-2">Total gastos de operaciones</div>
+
+          <!-- Utilidad de operación -->
+          <div class="row text mt-4">Utilidad de operación</div>
+          <div class="row text2 mt-2">Dividendos</div>
+
+          <!-- Otros ingresos y otros gastos -->
+          <div class="row text mt-4">Otros ingresos y gastos</div>
+          <div class="row text2 mt-3">Otros ingresos</div>
+          <div class="row text2 mt-2">Otros gastos</div>
+          <div class="row text2 mt-2">Total otros ingresos y gastos</div>
+
+          <!-- Utilidad antes de impuesto -->
+          <div class="row text mt-4">
+            Utilidad antes de impuesto sobre la renta
+          </div>
+          <div class="row text2 mt-3">impuesto sobre la renta</div>
+          <div class="row text2 mt-2">
+            Contribución especial plan de seguridad ciudadana
+          </div>
+
+          <!-- Utilidad neta-->
+          <div class="row text mt-4">Utilidad neta</div>
+        </div>
+
+        <!-- Columna de resultados -->
+        <div class="col-7 scroll-form">
+          <div class="row-table">
+            <!-- encabezado -->
+            <div class="row">
+              <div class="item text-header">
+                <span class="text-center"> {{ balance1.anio }}</span>
+              </div>
+              <div class="item text-header">
+                <span class="text-center"> {{ balance2.anio }}</span>
+              </div>
+              <div class="item text-header">
+                <span class="text-center ml-3"> Variación relativa</span>
+              </div>
+              <div class="item text-header">
+                <span class="text-center ml-2"> Variación absoluta</span>
+              </div>
+              <div class="item text-header">
+                <span class="text-center"> Estado</span>
+              </div>
+            </div>
+            <!-- items -->
+            <div class="row mt-4"></div>
+            <div class="row mt-4">
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{ estado1.ingreso_de_operaciones.interes_prestamos }}</span
+                >
+              </div>
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{ estado2.ingreso_de_operaciones.interes_prestamos }}</span
+                >
+              </div>
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{ var_rel_2.ingreso_de_operaciones.interes_prestamos }}</span
+                >
+              </div>
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{ var_abs_2.ingreso_de_operaciones.interes_prestamos }}
+                  <span
+                    v-show="
+                      var_abs_2.ingreso_de_operaciones.interes_prestamos != '-'
+                    "
+                  >
+                    %</span
+                  ></span
+                >
+              </div>
+              <div class="item mt-3">
+                <span
+                  v-show="
+                    estados_2.ingreso_de_operaciones.interes_prestamos ===
+                    'Pesimo'
+                  "
+                  class="text-center bad"
+                >
+                  {{ estados_2.ingreso_de_operaciones.interes_prestamos }}</span
+                >
+                <span
+                  v-show="
+                    estados_2.ingreso_de_operaciones.interes_prestamos ===
+                    'Optimo'
+                  "
+                  class="text-center good"
+                >
+                  {{ estados_2.ingreso_de_operaciones.interes_prestamos }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    estado1.ingreso_de_operaciones.comisiones_y_otros_ingresos
+                  }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    estado2.ingreso_de_operaciones.comisiones_y_otros_ingresos
+                  }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    var_rel_2.ingreso_de_operaciones.comisiones_y_otros_ingresos
+                  }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    var_abs_2.ingreso_de_operaciones.comisiones_y_otros_ingresos
+                  }}
+                  <span
+                    v-show="
+                      var_abs_2.ingreso_de_operaciones
+                        .comisiones_y_otros_ingresos != '-'
+                    "
+                  >
+                    %</span
+                  ></span
+                >
+              </div>
+              <div class="item mt-2">
+                <span
+                  v-show="
+                    estados_2.ingreso_de_operaciones
+                      .comisiones_y_otros_ingresos === 'Pesimo'
+                  "
+                  class="text-center bad"
+                >
+                  {{
+                    estados_2.ingreso_de_operaciones.comisiones_y_otros_ingresos
+                  }}</span
+                >
+                <span
+                  v-show="
+                    estados_2.ingreso_de_operaciones
+                      .comisiones_y_otros_ingresos === 'Optimo'
+                  "
+                  class="text-center good"
+                >
+                  {{
+                    estados_2.ingreso_de_operaciones.comisiones_y_otros_ingresos
+                  }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    estado1.ingreso_de_operaciones.comisiones_y_otros_ingresos
+                  }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    estado2.ingreso_de_operaciones.comisiones_y_otros_ingresos
+                  }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    var_rel_2.ingreso_de_operaciones.comisiones_y_otros_ingresos
+                  }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ var_abs_2.ingreso_de_operaciones.intereses_inversiones }}
+                  <span
+                    v-show="
+                      var_abs_2.ingreso_de_operaciones.intereses_inversiones !=
+                      '-'
+                    "
+                  >
+                    %</span
+                  ></span
+                >
+              </div>
+              <div class="item mt-2">
+                <span
+                  v-show="
+                    estados_2.ingreso_de_operaciones.intereses_inversiones ===
+                    'Pesimo'
+                  "
+                  class="text-center bad"
+                >
+                  {{
+                    estados_2.ingreso_de_operaciones.intereses_inversiones
+                  }}</span
+                >
+                <span
+                  v-show="
+                    estados_2.ingreso_de_operaciones.intereses_inversiones ===
+                    'Optimo'
+                  "
+                  class="text-center good"
+                >
+                  {{
+                    estados_2.ingreso_de_operaciones.intereses_inversiones
+                  }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ estado1.ingreso_de_operaciones.intereses_depositos }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ estado2.ingreso_de_operaciones.intereses_depositos }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    var_rel_2.ingreso_de_operaciones.intereses_depositos
+                  }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ var_abs_2.ingreso_de_operaciones.intereses_depositos }}
+                  <span
+                    v-show="
+                      var_abs_2.ingreso_de_operaciones.intereses_depositos !=
+                      '-'
+                    "
+                  >
+                    %</span
+                  ></span
+                >
+              </div>
+              <div class="item mt-2">
+                <span
+                  v-show="
+                    estados_2.ingreso_de_operaciones.intereses_depositos ===
+                    'Pesimo'
+                  "
+                  class="text-center bad"
+                >
+                  {{
+                    estados_2.ingreso_de_operaciones.intereses_depositos
+                  }}</span
+                >
+                <span
+                  v-show="
+                    estados_2.ingreso_de_operaciones.intereses_depositos ===
+                    'Optimo'
+                  "
+                  class="text-center good"
+                >
+                  {{
+                    estados_2.ingreso_de_operaciones.intereses_depositos
+                  }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    estado1.ingreso_de_operaciones.total_ingresos_operacion
+                  }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    estado2.ingreso_de_operaciones.total_ingresos_operacion
+                  }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    var_rel_2.ingreso_de_operaciones.total_ingresos_operacion
+                  }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    var_abs_2.ingreso_de_operaciones.total_ingresos_operacion
+                  }}
+                  <span
+                    v-show="
+                      var_abs_2.ingreso_de_operaciones
+                        .total_ingresos_operacion != '-'
+                    "
+                  >
+                    %</span
+                  ></span
+                >
+              </div>
+              <div class="item mt-2">
+                <span
+                  v-show="
+                    estados_2.ingreso_de_operaciones
+                      .total_ingresos_operacion === 'Pesimo'
+                  "
+                  class="text-center bad"
+                >
+                  {{
+                    estados_2.ingreso_de_operaciones.total_ingresos_operacion
+                  }}</span
+                >
+                <span
+                  v-show="
+                    estados_2.ingreso_de_operaciones
+                      .total_ingresos_operacion === 'Optimo'
+                  "
+                  class="text-center good"
+                >
+                  {{
+                    estados_2.ingreso_de_operaciones.total_ingresos_operacion
+                  }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row mt-4"></div>
+            <div class="row mt-4">
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{ estado1.costos_operacion.intereses_sobre_prestamos }}</span
+                >
+              </div>
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{ estado2.costos_operacion.intereses_sobre_prestamos }}</span
+                >
+              </div>
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{
+                    var_rel_2.costos_operacion.intereses_sobre_prestamos
+                  }}</span
+                >
+              </div>
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{ var_abs_2.costos_operacion.intereses_sobre_prestamos }}
+                  <span
+                    v-show="
+                      var_abs_2.costos_operacion.intereses_sobre_prestamos !=
+                      '-'
+                    "
+                  >
+                    %</span
+                  ></span
+                >
+              </div>
+              <div class="item mt-3">
+                <span
+                  v-show="
+                    estados_2.costos_operacion.intereses_sobre_prestamos ===
+                    'Pesimo'
+                  "
+                  class="text-center bad"
+                >
+                  {{
+                    estados_2.costos_operacion.intereses_sobre_prestamos
+                  }}</span
+                >
+                <span
+                  v-show="
+                    estados_2.costos_operacion.intereses_sobre_prestamos ===
+                    'Optimo'
+                  "
+                  class="text-center good"
+                >
+                  {{
+                    estados_2.costos_operacion.intereses_sobre_prestamos
+                  }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ estado1.costos_operacion.comisiones_sobre_titulos }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ estado2.costos_operacion.comisiones_sobre_titulos }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    var_rel_2.costos_operacion.comisiones_sobre_titulos
+                  }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ var_abs_2.costos_operacion.comisiones_sobre_titulos }}
+                  <span
+                    v-show="
+                      var_abs_2.costos_operacion.comisiones_sobre_titulos != '-'
+                    "
+                  >
+                    %</span
+                  ></span
+                >
+              </div>
+              <div class="item mt-2">
+                <span
+                  v-show="
+                    estados_2.costos_operacion.comisiones_sobre_titulos ===
+                    'Pesimo'
+                  "
+                  class="text-center bad"
+                >
+                  {{
+                    estados_2.costos_operacion.comisiones_sobre_titulos
+                  }}</span
+                >
+                <span
+                  v-show="
+                    estados_2.costos_operacion.comisiones_sobre_titulos ===
+                    'Optimo'
+                  "
+                  class="text-center good"
+                >
+                  {{
+                    estados_2.costos_operacion.comisiones_sobre_titulos
+                  }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ estado1.costos_operacion.comisiones_y_otros }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ estado2.costos_operacion.comisiones_y_otros }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ var_rel_2.costos_operacion.comisiones_y_otros }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ var_abs_2.costos_operacion.comisiones_y_otros }}
+                  <span
+                    v-show="
+                      var_abs_2.costos_operacion.comisiones_y_otros != '-'
+                    "
+                  >
+                    %</span
+                  ></span
+                >
+              </div>
+              <div class="item mt-2">
+                <span
+                  v-show="
+                    estados_2.costos_operacion.comisiones_y_otros === 'Pesimo'
+                  "
+                  class="text-center bad"
+                >
+                  {{ estados_2.costos_operacion.comisiones_y_otros }}</span
+                >
+                <span
+                  v-show="
+                    estados_2.costos_operacion.comisiones_y_otros === 'Optimo'
+                  "
+                  class="text-center good"
+                >
+                  {{ estados_2.costos_operacion.comisiones_y_otros }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ estado1.costos_operacion.total_costos_operacion }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ estado2.costos_operacion.total_costos_operacion }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ var_rel_2.costos_operacion.total_costos_operacion }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ var_abs_2.costos_operacion.total_costos_operacion }}
+                  <span
+                    v-show="
+                      var_abs_2.costos_operacion.total_costos_operacion != '-'
+                    "
+                  >
+                    %</span
+                  ></span
+                >
+              </div>
+              <div class="item mt-2">
+                <span
+                  v-show="
+                    estados_2.costos_operacion.total_costos_operacion ===
+                    'Pesimo'
+                  "
+                  class="text-center bad"
+                >
+                  {{ estados_2.costos_operacion.total_costos_operacion }}</span
+                >
+                <span
+                  v-show="
+                    estados_2.costos_operacion.total_costos_operacion ===
+                    'Optimo'
+                  "
+                  class="text-center good"
+                >
+                  {{ estados_2.costos_operacion.total_costos_operacion }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ estado1.costos_operacion.reservas_de_saneamiento }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ estado2.costos_operacion.reservas_de_saneamiento }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ var_rel_2.costos_operacion.reservas_de_saneamiento }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ var_abs_2.costos_operacion.reservas_de_saneamiento }}
+                  <span
+                    v-show="
+                      var_abs_2.costos_operacion.reservas_de_saneamiento != '-'
+                    "
+                  >
+                    %</span
+                  ></span
+                >
+              </div>
+              <div class="item mt-2">
+                <span
+                  v-show="
+                    estados_2.costos_operacion.reservas_de_saneamiento ===
+                    'Pesimo'
+                  "
+                  class="text-center bad"
+                >
+                  {{ estados_2.costos_operacion.reservas_de_saneamiento }}</span
+                >
+                <span
+                  v-show="
+                    estados_2.costos_operacion.reservas_de_saneamiento ===
+                    'Optimo'
+                  "
+                  class="text-center good"
+                >
+                  {{ estados_2.costos_operacion.reservas_de_saneamiento }}</span
+                >
+                <span
+                  v-show="
+                    estados_2.costos_operacion.reservas_de_saneamiento === '-'
+                  "
+                  class="text-center"
+                >
+                  {{ estados_2.costos_operacion.reservas_de_saneamiento }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row mt-3"></div>
+            <div class="row">
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ estado1.costos_operacion.utilidad_antes_gastos }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ estado2.costos_operacion.utilidad_antes_gastos }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ var_rel_2.costos_operacion.utilidad_antes_gastos }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ var_abs_2.costos_operacion.utilidad_antes_gastos }}
+                  <span
+                    v-show="
+                      var_abs_2.costos_operacion.utilidad_antes_gastos != '-'
+                    "
+                  >
+                    %</span
+                  ></span
+                >
+              </div>
+              <div class="item mt-2">
+                <span
+                  v-show="
+                    estados_2.costos_operacion.utilidad_antes_gastos ===
+                    'Pesimo'
+                  "
+                  class="text-center bad"
+                >
+                  {{ estados_2.costos_operacion.utilidad_antes_gastos }}</span
+                >
+                <span
+                  v-show="
+                    estados_2.costos_operacion.utilidad_antes_gastos ===
+                    'Optimo'
+                  "
+                  class="text-center good"
+                >
+                  {{ estados_2.costos_operacion.utilidad_antes_gastos }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row mt-4"></div>
+            <div class="row mt-4">
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{ estado1.gastos_operacion.funcionarios_y_empleados }}</span
+                >
+              </div>
+
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{ estado2.gastos_operacion.funcionarios_y_empleados }}</span
+                >
+              </div>
+
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{
+                    var_rel_2.gastos_operacion.funcionarios_y_empleados
+                  }}</span
+                >
+              </div>
+
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{ var_abs_2.gastos_operacion.funcionarios_y_empleados }}
+                  <span
+                    v-show="
+                      var_abs_2.gastos_operacion.funcionarios_y_empleados != '-'
+                    "
+                  >
+                    %</span
+                  ></span
+                >
+              </div>
+              <div class="item mt-3">
+                <span
+                  v-show="
+                    estados_2.gastos_operacion.funcionarios_y_empleados ===
+                    'Pesimo'
+                  "
+                  class="text-center bad"
+                >
+                  {{
+                    estados_2.gastos_operacion.funcionarios_y_empleados
+                  }}</span
+                >
+                <span
+                  v-show="
+                    estados_2.gastos_operacion.funcionarios_y_empleados ===
+                    'Optimo'
+                  "
+                  class="text-center good"
+                >
+                  {{
+                    estados_2.gastos_operacion.funcionarios_y_empleados
+                  }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ estado1.gastos_operacion.generales }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ estado2.gastos_operacion.generales }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ var_rel_2.gastos_operacion.generales }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ var_abs_2.gastos_operacion.generales }}
+                  <span v-show="var_abs_2.gastos_operacion.generales != '-'">
+                    %</span
+                  ></span
+                >
+              </div>
+              <div class="item mt-2">
+                <span
+                  v-show="estados_2.gastos_operacion.generales === 'Pesimo'"
+                  class="text-center bad"
+                >
+                  {{ estados_2.gastos_operacion.generales }}</span
+                >
+                <span
+                  v-show="estados_2.gastos_operacion.generales === 'Optimo'"
+                  class="text-center good"
+                >
+                  {{ estados_2.gastos_operacion.generales }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    estado1.gastos_operacion.depresiaciones_y_amortizaciones
+                  }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    estado2.gastos_operacion.depresiaciones_y_amortizaciones
+                  }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    var_rel_2.gastos_operacion.depresiaciones_y_amortizaciones
+                  }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    var_abs_2.gastos_operacion.depresiaciones_y_amortizaciones
+                  }}
+                  <span
+                    v-show="
+                      var_abs_2.gastos_operacion
+                        .depresiaciones_y_amortizaciones != '-'
+                    "
+                  >
+                    %</span
+                  ></span
+                >
+              </div>
+              <div class="item mt-2">
+                <span
+                  v-show="
+                    estados_2.gastos_operacion
+                      .depresiaciones_y_amortizaciones === 'Pesimo'
+                  "
+                  class="text-center bad"
+                >
+                  {{
+                    estados_2.gastos_operacion.depresiaciones_y_amortizaciones
+                  }}</span
+                >
+                <span
+                  v-show="
+                    estados_2.gastos_operacion
+                      .depresiaciones_y_amortizaciones === 'Optimo'
+                  "
+                  class="text-center good"
+                >
+                  {{
+                    estados_2.gastos_operacion.depresiaciones_y_amortizaciones
+                  }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ estado1.gastos_operacion.total_gastos_operacion }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ estado2.gastos_operacion.total_gastos_operacion }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ var_rel_2.gastos_operacion.total_gastos_operacion }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ var_abs_2.gastos_operacion.total_gastos_operacion }}
+                  <span
+                    v-show="
+                      var_abs_2.gastos_operacion.total_gastos_operacion != '-'
+                    "
+                  >
+                    %</span
+                  ></span
+                >
+              </div>
+              <div class="item mt-2">
+                <span
+                  v-show="
+                    estados_2.gastos_operacion.total_gastos_operacion ===
+                    'Pesimo'
+                  "
+                  class="text-center bad"
+                >
+                  {{ estados_2.gastos_operacion.total_gastos_operacion }}</span
+                >
+                <span
+                  v-show="
+                    estados_2.gastos_operacion.total_gastos_operacion ===
+                    'Optimo'
+                  "
+                  class="text-center good"
+                >
+                  {{ estados_2.gastos_operacion.total_gastos_operacion }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row mt-2">
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{ estado1.gastos_operacion.utilidad_operacional }}</span
+                >
+              </div>
+
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{ estado2.gastos_operacion.utilidad_operacional }}</span
+                >
+              </div>
+
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{ var_rel_2.gastos_operacion.utilidad_operacional }}</span
+                >
+              </div>
+
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{ var_abs_2.gastos_operacion.utilidad_operacional }}
+                  <span
+                    v-show="
+                      var_abs_2.gastos_operacion.utilidad_operacional != '-'
+                    "
+                  >
+                    %</span
+                  ></span
+                >
+              </div>
+              <div class="item mt-3">
+                <span
+                  v-show="
+                    estados_2.gastos_operacion.utilidad_operacional === 'Pesimo'
+                  "
+                  class="text-center bad"
+                >
+                  {{ estados_2.gastos_operacion.utilidad_operacional }}</span
+                >
+                <span
+                  v-show="
+                    estados_2.gastos_operacion.utilidad_operacional === 'Optimo'
+                  "
+                  class="text-center good"
+                >
+                  {{ estados_2.gastos_operacion.utilidad_operacional }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ estado1.gastos_operacion.dividendos }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ estado2.gastos_operacion.dividendos }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ var_rel_2.gastos_operacion.dividendos }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ var_abs_2.gastos_operacion.dividendos }}
+                  <span v-show="var_abs_2.gastos_operacion.dividendos != '-'">
+                    %</span
+                  ></span
+                >
+              </div>
+              <div class="item mt-2">
+                <span
+                  v-show="estados_2.gastos_operacion.dividendos === 'Pesimo'"
+                  class="text-center bad"
+                >
+                  {{ estados_2.gastos_operacion.dividendos }}</span
+                >
+                <span
+                  v-show="estados_2.gastos_operacion.dividendos === 'Optimo'"
+                  class="text-center good"
+                >
+                  {{ estados_2.gastos_operacion.dividendos }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row mt-4"></div>
+            <div class="row mt-4">
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{ estado1.otros_ingreso_y_gastos.otros_ingresos }}</span
+                >
+              </div>
+
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{ estado2.otros_ingreso_y_gastos.otros_ingresos }}</span
+                >
+              </div>
+
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{ var_rel_2.otros_ingreso_y_gastos.otros_ingresos }}</span
+                >
+              </div>
+
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{ var_abs_2.otros_ingreso_y_gastos.otros_ingresos }}
+                  <span
+                    v-show="
+                      var_abs_2.otros_ingreso_y_gastos.otros_ingresos != '-'
+                    "
+                  >
+                    %</span
+                  ></span
+                >
+              </div>
+              <div class="item mt-3">
+                <span
+                  v-show="
+                    estados_2.otros_ingreso_y_gastos.otros_ingresos === 'Pesimo'
+                  "
+                  class="text-center bad"
+                >
+                  {{ estados_2.otros_ingreso_y_gastos.otros_ingresos }}</span
+                >
+                <span
+                  v-show="
+                    estados_2.otros_ingreso_y_gastos.otros_ingresos === 'Optimo'
+                  "
+                  class="text-center good"
+                >
+                  {{ estados_2.otros_ingreso_y_gastos.otros_ingresos }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ estado1.otros_ingreso_y_gastos.otros_gastos }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ estado2.otros_ingreso_y_gastos.otros_gastos }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ var_rel_2.otros_ingreso_y_gastos.otros_gastos }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{ var_abs_2.otros_ingreso_y_gastos.otros_gastos }}
+                  <span
+                    v-show="
+                      var_abs_2.otros_ingreso_y_gastos.otros_gastos != '-'
+                    "
+                  >
+                    %</span
+                  ></span
+                >
+              </div>
+              <div class="item mt-2">
+                <span
+                  v-show="
+                    estados_2.otros_ingreso_y_gastos.otros_gastos === 'Pesimo'
+                  "
+                  class="text-center bad"
+                >
+                  {{ estados_2.otros_ingreso_y_gastos.otros_gastos }}</span
+                >
+                <span
+                  v-show="
+                    estados_2.otros_ingreso_y_gastos.otros_gastos === 'Optimo'
+                  "
+                  class="text-center good"
+                >
+                  {{ estados_2.otros_ingreso_y_gastos.otros_gastos }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    estado1.otros_ingreso_y_gastos.total_otros_ingresos_y_gastos
+                  }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    estado2.otros_ingreso_y_gastos.total_otros_ingresos_y_gastos
+                  }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    var_rel_2.otros_ingreso_y_gastos
+                      .total_otros_ingresos_y_gastos
+                  }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    var_abs_2.otros_ingreso_y_gastos
+                      .total_otros_ingresos_y_gastos
+                  }}
+                  <span
+                    v-show="
+                      var_abs_2.otros_ingreso_y_gastos
+                        .total_otros_ingresos_y_gastos != '-'
+                    "
+                  >
+                    %</span
+                  ></span
+                >
+              </div>
+              <div class="item mt-2">
+                <span
+                  v-show="
+                    estados_2.otros_ingreso_y_gastos
+                      .total_otros_ingresos_y_gastos === 'Pesimo'
+                  "
+                  class="text-center bad"
+                >
+                  {{
+                    estados_2.otros_ingreso_y_gastos
+                      .total_otros_ingresos_y_gastos
+                  }}</span
+                >
+                <span
+                  v-show="
+                    estados_2.otros_ingreso_y_gastos
+                      .total_otros_ingresos_y_gastos === 'Optimo'
+                  "
+                  class="text-center good"
+                >
+                  {{
+                    estados_2.otros_ingreso_y_gastos
+                      .total_otros_ingresos_y_gastos
+                  }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row mt-3">
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    estado1.utilidad_antes_impuestos.utilidad_antes_impuestos
+                  }}</span
+                >
+              </div>
+
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    estado2.utilidad_antes_impuestos.utilidad_antes_impuestos
+                  }}</span
+                >
+              </div>
+
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    var_rel_2.utilidad_antes_impuestos.utilidad_antes_impuestos
+                  }}</span
+                >
+              </div>
+
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    var_abs_2.utilidad_antes_impuestos.utilidad_antes_impuestos
+                  }}
+                  <span
+                    v-show="
+                      var_abs_2.utilidad_antes_impuestos
+                        .utilidad_antes_impuestos != '-'
+                    "
+                  >
+                    %</span
+                  ></span
+                >
+              </div>
+              <div class="item mt-2">
+                <span
+                  v-show="
+                    estados_2.utilidad_antes_impuestos
+                      .utilidad_antes_impuestos === 'Pesimo'
+                  "
+                  class="text-center bad"
+                >
+                  {{
+                    estados_2.utilidad_antes_impuestos.utilidad_antes_impuestos
+                  }}</span
+                >
+                <span
+                  v-show="
+                    estados_2.utilidad_antes_impuestos
+                      .utilidad_antes_impuestos === 'Optimo'
+                  "
+                  class="text-center good"
+                >
+                  {{
+                    estados_2.utilidad_antes_impuestos.utilidad_antes_impuestos
+                  }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row mt-4">
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{
+                    estado1.utilidad_antes_impuestos.impuesto_sobre_la_renta
+                  }}</span
+                >
+              </div>
+
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{
+                    estado2.utilidad_antes_impuestos.impuesto_sobre_la_renta
+                  }}</span
+                >
+              </div>
+
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{
+                    var_rel_2.utilidad_antes_impuestos.impuesto_sobre_la_renta
+                  }}</span
+                >
+              </div>
+
+              <div class="item mt-3">
+                <span class="text-center">
+                  {{
+                    var_abs_2.utilidad_antes_impuestos.impuesto_sobre_la_renta
+                  }}
+                  <span
+                    v-show="
+                      var_abs_2.utilidad_antes_impuestos
+                        .impuesto_sobre_la_renta != '-'
+                    "
+                  >
+                    %</span
+                  ></span
+                >
+              </div>
+              <div class="item mt-3">
+                <span
+                  v-show="
+                    estados_2.utilidad_antes_impuestos
+                      .impuesto_sobre_la_renta === 'Pesimo'
+                  "
+                  class="text-center bad"
+                >
+                  {{
+                    estados_2.utilidad_antes_impuestos.impuesto_sobre_la_renta
+                  }}</span
+                >
+                <span
+                  v-show="
+                    estados_2.utilidad_antes_impuestos
+                      .impuesto_sobre_la_renta === 'Optimo'
+                  "
+                  class="text-center good"
+                >
+                  {{
+                    estados_2.utilidad_antes_impuestos.impuesto_sobre_la_renta
+                  }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    estado1.utilidad_antes_impuestos
+                      .contribucion_especial_plan_de_seguridad_ciudada
+                  }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    estado2.utilidad_antes_impuestos
+                      .contribucion_especial_plan_de_seguridad_ciudada
+                  }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    var_rel_2.utilidad_antes_impuestos
+                      .contribucion_especial_plan_de_seguridad_ciudada
+                  }}</span
+                >
+              </div>
+              <div class="item mt-2">
+                <span class="text-center">
+                  {{
+                    var_abs_2.utilidad_antes_impuestos
+                      .contribucion_especial_plan_de_seguridad_ciudada
+                  }}
+                  <span
+                    v-show="
+                      var_abs_2.utilidad_antes_impuestos
+                        .contribucion_especial_plan_de_seguridad_ciudada != '-'
+                    "
+                  >
+                    %</span
+                  ></span
+                >
+              </div>
+              <div class="item mt-2">
+                <span
+                  v-show="
+                    estados_2.utilidad_antes_impuestos
+                      .contribucion_especial_plan_de_seguridad_ciudada ===
+                    'Pesimo'
+                  "
+                  class="text-center bad"
+                >
+                  {{
+                    estados_2.utilidad_antes_impuestos
+                      .contribucion_especial_plan_de_seguridad_ciudada
+                  }}</span
+                >
+                <span
+                  v-show="
+                    estados_2.utilidad_antes_impuestos
+                      .contribucion_especial_plan_de_seguridad_ciudada ===
+                    'Optimo'
+                  "
+                  class="text-center good"
+                >
+                  {{
+                    estados_2.utilidad_antes_impuestos
+                      .contribucion_especial_plan_de_seguridad_ciudada
+                  }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row mt-4">
+              <div class="item mt-4">
+                <span class="text-center"> {{ estado1.utilidad_neta }}</span>
+              </div>
+
+              <div class="item mt-4">
+                <span class="text-center"> {{ estado2.utilidad_neta }}</span>
+              </div>
+
+              <div class="item mt-4">
+                <span class="text-center"> {{ var_rel_2.utilidad_neta }}</span>
+              </div>
+
+              <div class="item mt-4">
+                <span class="text-center">
+                  {{ var_abs_2.utilidad_neta }}
+                  <span v-show="var_abs_2.utilidad_neta != '-'"> %</span></span
+                >
+              </div>
+              <div class="item mt-3">
+                <span
+                  v-show="estados_2.utilidad_neta === 'Pesimo'"
+                  class="text-center bad"
+                >
+                  {{ estados_2.utilidad_neta }}</span
+                >
+                <span
+                  v-show="estados_2.utilidad_neta === 'Optimo'"
+                  class="text-center good"
+                >
+                  {{ estados_2.utilidad_neta }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row mt-4"></div>
+            <div class="row mt-4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -766,6 +2463,8 @@ export default {
   data() {
     return {
       pag: 1,
+      showBalance: true,
+      showEstado: false,
     };
   },
   props: {
@@ -783,45 +2482,80 @@ export default {
 
   methods: {
     async exportToPDF() {
-      let name = "Analisis-horizontal-" + this.balance1.anio +"-"+ this.balance2.anio;
-      html2pdf(document.getElementById("element-to-convert"), {
-        margin: 1,
-        filename: name,
-        margin: [1, 0, 1, 0], // [top, right, bottom, left]
-        jsPDF: { unit: "in" },
-      });
+      if (this.showBalance && this.showEstado === false) {
+        let name =
+          "Analisis-horizontal-" +
+          this.balance1.anio +
+          "-" +
+          this.balance2.anio;
+        html2pdf(document.getElementById("element-to-convert"), {
+          margin: 1,
+          filename: name,
+          margin: [1, 0, 1, 0], // [top, right, bottom, left]
+          jsPDF: { unit: "in" },
+        });
 
-      await this.$swal.fire({
-        icon: "success",
-        title: "Se ha exportado el balance general a PDF",
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 3500,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener("mouseenter", Swal.stopTimer);
-          toast.addEventListener("mouseleave", Swal.resumeTimer);
-        },
-      });
+        await this.$swal.fire({
+          icon: "success",
+          title: "Se ha exportado el balance general a PDF",
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3500,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+      }else if(this.showEstado && this.showBalance === false){
+        "Analisis-horizontal-" +
+          this.balance1.anio +
+          "-" +
+          this.balance2.anio;
+        html2pdf(document.getElementById("element-to-convert-2"), {
+          margin: 1,
+          filename: name,
+          margin: [1, 0, 1, 0], // [top, right, bottom, left]
+          jsPDF: { unit: "in" },
+        });
+
+        await this.$swal.fire({
+          icon: "success",
+          title: "Se ha exportado el balance general a PDF",
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3500,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+      }
     },
     nextPage() {
-      if(this.pag === 1){
+      if (this.pag === 1) {
+        this.showEstado = true;
+        this.showBalance = false;
         this.pag = 2;
       }
     },
     prevPage() {
-      if(this.pag === 2){
+      if (this.pag === 2) {
+        this.showEstado = false;
+        this.showBalance = true;
         this.pag = 1;
       }
     },
-    ayuda(){
+    ayuda() {
       this.$swal({
         icon: "info",
         title: "¿Como ver el análisis horizontal?",
         text: "Para ver el análisis horizontal correctamente debes hacer scroll horizontalmente en la tabla.",
       });
-    }
+    },
   },
 };
 </script>
@@ -844,8 +2578,6 @@ export default {
   margin-left: 25px;
 }
 
-
-
 .row-table {
   width: 790px;
 }
@@ -854,12 +2586,11 @@ export default {
 }
 
 .good {
-  color: #9CFF2E;
+  color: #9cff2e;
 }
 
 .bad {
   color: red;
-
 }
 
 .text-header {
@@ -943,7 +2674,7 @@ export default {
   height: 100vh;
 }
 
-.pagination{
+.pagination {
   position: fixed;
   top: 40px;
   left: 305px;
@@ -992,7 +2723,7 @@ export default {
   color: black;
 }
 
-.pag{
+.pag {
   position: fixed;
   top: 323px;
   background-color: transparent;

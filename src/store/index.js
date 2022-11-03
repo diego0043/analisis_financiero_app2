@@ -311,7 +311,7 @@ export default new Vuex.Store({
         balance_dos = balances[contador + 1];
 
         //variacion absoluta
-        if (balance_uno && balance_dos ) {
+        if (balance_uno && balance_dos) {
           variacion_absoluta.activos.activos_de_intermediacion = parseFloat(
             (
               balance_uno.activos.activos_de_intermediacion -
@@ -1068,17 +1068,17 @@ export default new Vuex.Store({
               estado_dos.otros_ingreso_y_gastos.otros_ingresos
             ).toFixed(2)
           );
-          variacion_absoluta.gastos_operacion.otros_gastos = parseFloat(
+          variacion_absoluta.otros_ingreso_y_gastos.otros_gastos = parseFloat(
             (
-              estado_uno.gastos_operacion.otros_gastos -
-              estado_dos.gastos_operacion.otros_gastos
+              estado_uno.otros_ingreso_y_gastos.otros_gastos -
+              estado_dos.otros_ingreso_y_gastos.otros_gastos
             ).toFixed(2)
           );
-          variacion_absoluta.gastos_operacion.total_otros_ingresos_y_gastos =
+          variacion_absoluta.otros_ingreso_y_gastos.total_otros_ingresos_y_gastos =
             parseFloat(
               (
-                estado_uno.gastos_operacion.total_otros_ingresos_y_gastos -
-                estado_dos.gastos_operacion.total_otros_ingresos_y_gastos
+                estado_uno.otros_ingreso_y_gastos.total_otros_ingresos_y_gastos -
+                estado_dos.otros_ingreso_y_gastos.total_otros_ingresos_y_gastos
               ).toFixed(2)
             );
           variacion_absoluta.utilidad_antes_impuestos.utilidad_antes_impuestos =
@@ -1093,6 +1093,14 @@ export default new Vuex.Store({
               (
                 estado_uno.utilidad_antes_impuestos.impuesto_sobre_la_renta -
                 estado_dos.utilidad_antes_impuestos.impuesto_sobre_la_renta
+              ).toFixed(2)
+            );
+
+            variacion_absoluta.utilidad_antes_impuestos.contribucion_especial_plan_de_seguridad_ciudada =
+            parseFloat(
+              (
+                estado_uno.utilidad_antes_impuestos.contribucion_especial_plan_de_seguridad_ciudada -
+                estado_dos.utilidad_antes_impuestos.contribucion_especial_plan_de_seguridad_ciudada
               ).toFixed(2)
             );
           variacion_absoluta.impuesto_sobre_la_renta = parseFloat(
@@ -1253,53 +1261,53 @@ export default new Vuex.Store({
                   100
                 ).toFixed(2);
 
-          variacion_relativa.costos_operacion.generales =
-            estado_dos.costos_operacion.generales === 0
+          variacion_relativa.gastos_operacion.generales =
+            estado_dos.gastos_operacion.generales === 0
               ? "-"
               : (
-                  (estado_uno.costos_operacion.generales /
-                    estado_dos.costos_operacion.generales -
+                  (estado_uno.gastos_operacion.generales /
+                    estado_dos.gastos_operacion.generales -
                     1) *
                   100
                 ).toFixed(2);
 
-          variacion_relativa.costos_operacion.depresiaciones_y_amortizaciones =
-            estado_dos.costos_operacion.depresiaciones_y_amortizaciones === 0
+          variacion_relativa.gastos_operacion.depresiaciones_y_amortizaciones =
+            estado_dos.gastos_operacion.depresiaciones_y_amortizaciones === 0
               ? "-"
               : (
-                  (estado_uno.costos_operacion.depresiaciones_y_amortizaciones /
-                    estado_dos.costos_operacion
+                  (estado_uno.gastos_operacion.depresiaciones_y_amortizaciones /
+                    estado_dos.gastos_operacion
                       .depresiaciones_y_amortizaciones -
                     1) *
                   100
                 ).toFixed(2);
 
-          variacion_relativa.costos_operacion.total_gastos_operacion =
-            estado_dos.costos_operacion.total_gastos_operacion === 0
+          variacion_relativa.gastos_operacion.total_gastos_operacion =
+            estado_dos.gastos_operacion.total_gastos_operacion === 0
               ? "-"
               : (
-                  (estado_uno.costos_operacion.total_gastos_operacion /
-                    estado_dos.costos_operacion.total_gastos_operacion -
+                  (estado_uno.gastos_operacion.total_gastos_operacion /
+                    estado_dos.gastos_operacion.total_gastos_operacion -
                     1) *
                   100
                 ).toFixed(2);
 
-          variacion_relativa.costos_operacion.utilidad_operacional =
-            estado_dos.costos_operacion.utilidad_operacional === 0
+          variacion_relativa.gastos_operacion.utilidad_operacional = parseFloat(
+            estado_dos.gastos_operacion.utilidad_operacional === 0
               ? "-"
               : (
-                  (estado_uno.costos_operacion.utilidad_operacional /
-                    estado_dos.costos_operacion.utilidad_operacional -
+                  (estado_uno.gastos_operacion.utilidad_operacional /
+                    estado_dos.gastos_operacion.utilidad_operacional -
                     1) *
                   100
-                ).toFixed(2);
+                ).toFixed(2));
 
-          variacion_relativa.costos_operacion.dividendos =
-            estado_dos.costos_operacion.dividendos === 0
+          variacion_relativa.gastos_operacion.dividendos =
+            estado_dos.gastos_operacion.dividendos === 0
               ? "-"
               : (
-                  (estado_uno.costos_operacion.dividendos /
-                    estado_dos.costos_operacion.dividendos -
+                  (estado_uno.gastos_operacion.dividendos /
+                    estado_dos.gastos_operacion.dividendos -
                     1) *
                   100
                 ).toFixed(2);
@@ -1529,16 +1537,16 @@ export default new Vuex.Store({
               ? variacion_absoluta.gastos_operacion.funcionarios_y_empleados >
                   0 &&
                 variacion_relativa.gastos_operacion.funcionarios_y_empleados > 0
-                ? "Optimo"
-                : "Pesimo"
+                ? "Pesimo"
+                : "Optimo"
               : "-";
 
           estado_estado.gastos_operacion.generales =
             variacion_relativa.gastos_operacion.generales != "-"
               ? variacion_absoluta.gastos_operacion.generales > 0 &&
                 variacion_relativa.gastos_operacion.generales > 0
-                ? "Optimo"
-                : "Pesimo"
+                ? "Pesimo"
+                : "Optimo"
               : "-";
 
           estado_estado.gastos_operacion.depresiaciones_y_amortizaciones =
@@ -1548,8 +1556,8 @@ export default new Vuex.Store({
                   .depresiaciones_y_amortizaciones > 0 &&
                 variacion_relativa.gastos_operacion
                   .depresiaciones_y_amortizaciones > 0
-                ? "Optimo"
-                : "Pesimo"
+                ? "Pesimo"
+                : "Optimo"
               : "-";
 
           estado_estado.gastos_operacion.total_gastos_operacion =
@@ -1557,8 +1565,8 @@ export default new Vuex.Store({
               ? variacion_absoluta.gastos_operacion.total_gastos_operacion >
                   0 &&
                 variacion_relativa.gastos_operacion.total_gastos_operacion > 0
-                ? "Optimo"
-                : "Pesimo"
+                ? "Pesimo"
+                : "Optimo"
               : "-";
 
           estado_estado.gastos_operacion.utilidad_operacional =
@@ -1589,8 +1597,8 @@ export default new Vuex.Store({
             variacion_relativa.otros_ingreso_y_gastos.otros_gastos != "-"
               ? variacion_absoluta.otros_ingreso_y_gastos.otros_gastos > 0 &&
                 variacion_relativa.otros_ingreso_y_gastos.otros_gastos > 0
-                ? "Optimo"
-                : "Pesimo"
+                ? "Pesimo"
+                : "Optimo"
               : "-";
 
           estado_estado.otros_ingreso_y_gastos.total_otros_ingresos_y_gastos =
@@ -1622,8 +1630,8 @@ export default new Vuex.Store({
                   .impuesto_sobre_la_renta > 0 &&
                 variacion_relativa.utilidad_antes_impuestos
                   .impuesto_sobre_la_renta > 0
-                ? "Optimo"
-                : "Pesimo"
+                ? "Pesimo"
+                : "Optimo"
               : "-";
 
           estado_estado.utilidad_antes_impuestos.contribucion_especial_plan_de_seguridad_ciudada =
@@ -1633,8 +1641,8 @@ export default new Vuex.Store({
                   .contribucion_especial_plan_de_seguridad_ciudada > 0 &&
                 variacion_relativa.utilidad_antes_impuestos
                   .contribucion_especial_plan_de_seguridad_ciudada > 0
-                ? "Optimo"
-                : "Pesimo"
+                ? "Pesimo"
+                : "Optimo"
               : "-";
 
           estado_estado.efecto_fiscal.gastos_no_deducibles =
@@ -1677,13 +1685,19 @@ export default new Vuex.Store({
                 : "Pesimo"
               : "-";
 
+          let clone_bl1 = structuredClone(estado_uno);
+          let clone_bl2 = structuredClone(estado_dos);
+          let clone_bl3 = structuredClone(variacion_absoluta);
+          let clone_bl4 = structuredClone(variacion_relativa);
+          let clone_bl5 = structuredClone(estado_estado);
           periodos_estados.push([
-            estado_uno,
-            estado_dos,
-            variacion_absoluta,
-            variacion_relativa,
-            estado_estado,
+            clone_bl1,
+            clone_bl2,
+            clone_bl3,
+            clone_bl4,
+            clone_bl5,
           ]);
+
           contador++;
         } else {
         }
