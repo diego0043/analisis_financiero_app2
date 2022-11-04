@@ -23,27 +23,30 @@
           <div class="row text mt-4">Activos</div>
           <div class="row text2 mt-3">Activos de intermediación</div>
           <div class="row text2 mt-2">Caja y bancos</div>
+          <div class="row text2 mt-2">Cartera de prestamo</div>
+
+          <div class="row text2 mt-2">Inversiones financieras(Neto)</div>
           <div v-show="isVisible" class="row text2 mt-2">
             Reportes y otras operaciones bursatiles
           </div>
           <div v-show="isVisible === false" class="row text2 mt-2">
             Operaciones bursatiles
           </div>
-          <div class="row text2 mt-2">Inversiones financieras(Neto)</div>
-          <div class="row text2 mt-2">Cartera de prestamo</div>
           <div class="row text mt-4">Activos fijos</div>
           <div class="row text2 mt-3">Bienes y inmuebles</div>
           <div class="row text mt-4">Otros activos</div>
           <div class="row text2 mt-3">diversos</div>
 
           <div class="row text mt-4">Pasivos</div>
-          <div class="row text2 mt-3">Fondos de administración</div>
-          <div class="row text2 mt-2">Otros pasivos</div>
+          <div class="row text2 mt-3">Diversos</div>
+          <div class="row text2 mt-2">Fondos de administración</div>
           <div class="row text2 mt-2">Pasivos de intermediación</div>
           <div class="row text2 mt-2">Prestamo a bancos</div>
           <div class="row text2 mt-2">Prestamos del banco</div>
           <div class="row text2 mt-2">Provisiones</div>
           <div class="row text2 mt-2">Titulos de emision propia</div>
+          <div class="row text2 mt-2">Otros pasivos</div>
+
 
           <div class="row text mt-4">patrimonio</div>
           <div class="row text2 mt-3">Aportes del estado</div>
@@ -685,6 +688,58 @@
                   v-show="estados_1.pasivos.titulos_de_emision_propia === '-'"
                 >
                   {{ estados_1.pasivos.titulos_de_emision_propia }}</span
+                >
+              </div>
+            </div>
+
+            <div class="row mt-2">
+              <div class="item">
+                <span class="text-center">
+                  {{ balance1.pasivos.otros_pasivos }}</span
+                >
+              </div>
+              <div class="item">
+                <span class="text-center">
+                  {{ balance2.pasivos.otros_pasivos }}</span
+                >
+              </div>
+              <div class="item">
+                <span class="text-center">
+                  {{ var_rel_1.pasivos.otros_pasivos }}</span
+                >
+              </div>
+              <div class="item">
+                <span class="text-center">
+                  {{ var_abs_1.pasivos.otros_pasivos }}
+                  <span
+                    v-show="var_abs_1.pasivos.otros_pasivos != '-'"
+                  >
+                    %</span
+                  ></span
+                >
+              </div>
+              <div v-show="isVisible" class="item">
+                <span
+                  v-show="
+                    estados_1.pasivos.otros_pasivos === 'Pesimo'
+                  "
+                  class="text-center bad"
+                >
+                  {{ estados_1.pasivos.otros_pasivos }}</span
+                >
+                <span
+                  v-show="
+                    estados_1.pasivos.otros_pasivos === 'Optimo'
+                  "
+                  class="text-center good"
+                >
+                  {{ estados_1.pasivos.otros_pasivos }}</span
+                >
+                <span
+                class="text-center"
+                  v-show="estados_1.pasivos.otros_pasivos === '-'"
+                >
+                  {{ estados_1.pasivos.otros_pasivos }}</span
                 >
               </div>
             </div>
