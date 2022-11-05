@@ -108,7 +108,7 @@
       :balance1="balance1"
       :balance2="balance2"
       :var_rel_1="var_rel_1"
-      :var_rel_2="var_abs_1"
+      :var_abs_1="var_abs_1"
       :estados_1="estados_1"
       :isVisible="isVisible"
     />
