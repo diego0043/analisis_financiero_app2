@@ -102,34 +102,32 @@
       </button>
     </div>
 
-    <AnalisisHorizontalDescarga
-      id="element-to-convert"
+    <AnalisisVerticalDescarga
+    id="analisis-vertical-descarga"
       v-show="showBalance && showEstado === false"
       :balance1="balance1"
       :balance2="balance2"
       :var_rel_1="var_rel_1"
-      :var_rel_2="var_abs_1"
-      :estados_1="estados_1"
-      :isVisible="isVisible"
+      :var_rel_2="var_rel_2"
     />
 
-    <AnalisisHorizontalDescarga2
-      id="element-to-convert2"
+    <AnalisisVerticalDescarga2
+    id="analisis-vertical-descarga2"
       v-show="showEstado && showBalance === false"
       :estado1="estado1"
       :estado2="estado2"
-      :var_rel_2="var_rel_2"
+      :var_rel_2="var_abs_1"
       :var_abs_2="var_abs_2"
-      :estados_2="estados_2"
-      :isVisible="isVisible"
     />
+
+
   </div>
 </template>
 
 <script>
 import html2pdf from "html2pdf.js";
-import AnalisisHorizontalDescarga from "./AnalisisHorizontalDescarga";
-import AnalisisHorizontalDescarga2 from "./AnalisisHorizontalDescarga2";
+import AnalisisVerticalDescarga from "./AnalisisVerticalDescarga.vue";
+import AnalisisVerticalDescarga2 from "./AnalisisVerticalDescarga2.vue";
 
 export default {
   name: "TablaHorizontal",
@@ -143,8 +141,8 @@ export default {
     };
   },
   components: {
-    AnalisisHorizontalDescarga,
-    AnalisisHorizontalDescarga2,
+    AnalisisVerticalDescarga,
+    AnalisisVerticalDescarga2,
   },
   props: {
     balance1: { Object, default: {} },
@@ -155,8 +153,6 @@ export default {
     var_rel_2: { Object, default: {} },
     var_abs_1: { Object, default: {} },
     var_abs_2: { Object, default: {} },
-    estados_1: { Object, default: {} },
-    estados_2: { Object, default: {} },
   },
 
   methods: {
@@ -164,11 +160,11 @@ export default {
       if (this.showBalance && this.showEstado === false) {
         this.isVisible = false;
         let name =
-          "Analisis-horizontal-" +
+          "Analisis-vertical-" +
           this.balance1.anio +
           "-" +
           this.balance2.anio;
-        await html2pdf(document.getElementById("element-to-convert"), {
+        await html2pdf(document.getElementById("analisis-vertical-descarga"), {
           margin: 1,
           filename: name,
           margin: [1, 0, 1, 0], // [top, right, bottom, left]
@@ -192,11 +188,11 @@ export default {
       } else if (this.showEstado && this.showBalance === false) {
         this.isVisible = false;
         let name =
-          "Analisis-horizontal-" +
+          "Analisis-vertical-" +
           this.balance1.anio +
           "-" +
           this.balance2.anio;
-        await html2pdf(document.getElementById("element-to-convert2"), {
+        await html2pdf(document.getElementById("analisis-vertical-descarga2"), {
           margin: 1,
           filename: name,
           margin: [1, 0, 1, 0], // [top, right, bottom, left]
@@ -204,7 +200,6 @@ export default {
         });
 
         this.isVisible = true;
-
 
         await this.$swal.fire({
           icon: "success",
@@ -248,7 +243,6 @@ export default {
 </script>
 
 <style scoped>
-
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;

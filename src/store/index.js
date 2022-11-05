@@ -11,6 +11,8 @@ export default new Vuex.Store({
     indicadores: [],
     analisis_horizontales: [],
     analisis_horizontales_estados: [],
+    analisis_verticales: [],
+    analisis_verticales_estados: [],
   },
   getters: {
     BalanceGeneral: (state) => state.balance_general,
@@ -18,6 +20,8 @@ export default new Vuex.Store({
     Indicadores: (state) => state.indicadores,
     AnalisisHorizontales: (state) => state.analisis_horizontales,
     AnalisisHorizontalesEstados: (state) => state.analisis_horizontales_estados,
+    AnalisisVerticales: (state) => state.analisis_verticales,
+    AnalisisVerticalesEstados: (state) => state.analisis_verticales_estados,
   },
   mutations: {
     setBalanceGeneral(state, payload) {
@@ -35,6 +39,12 @@ export default new Vuex.Store({
     setAnalisisHorizontalesEstados(state, payload) {
       state.analisis_horizontales_estados = payload;
     },
+    setAnalisisVerticales(state, payload) {
+      state.analisis_verticales = payload;
+    },
+    setAnalisisVerticalesEstados(state, payload) {
+      state.analisis_verticales_estados = payload;
+    }
   },
   actions: {
     async getBalanceGeneral({ commit }) {
@@ -1077,7 +1087,8 @@ export default new Vuex.Store({
           variacion_absoluta.otros_ingreso_y_gastos.total_otros_ingresos_y_gastos =
             parseFloat(
               (
-                estado_uno.otros_ingreso_y_gastos.total_otros_ingresos_y_gastos -
+                estado_uno.otros_ingreso_y_gastos
+                  .total_otros_ingresos_y_gastos -
                 estado_dos.otros_ingreso_y_gastos.total_otros_ingresos_y_gastos
               ).toFixed(2)
             );
@@ -1096,11 +1107,13 @@ export default new Vuex.Store({
               ).toFixed(2)
             );
 
-            variacion_absoluta.utilidad_antes_impuestos.contribucion_especial_plan_de_seguridad_ciudada =
+          variacion_absoluta.utilidad_antes_impuestos.contribucion_especial_plan_de_seguridad_ciudada =
             parseFloat(
               (
-                estado_uno.utilidad_antes_impuestos.contribucion_especial_plan_de_seguridad_ciudada -
-                estado_dos.utilidad_antes_impuestos.contribucion_especial_plan_de_seguridad_ciudada
+                estado_uno.utilidad_antes_impuestos
+                  .contribucion_especial_plan_de_seguridad_ciudada -
+                estado_dos.utilidad_antes_impuestos
+                  .contribucion_especial_plan_de_seguridad_ciudada
               ).toFixed(2)
             );
           variacion_absoluta.impuesto_sobre_la_renta = parseFloat(
@@ -1300,7 +1313,8 @@ export default new Vuex.Store({
                     estado_dos.gastos_operacion.utilidad_operacional -
                     1) *
                   100
-                ).toFixed(2));
+                ).toFixed(2)
+          );
 
           variacion_relativa.gastos_operacion.dividendos =
             estado_dos.gastos_operacion.dividendos === 0
@@ -1704,6 +1718,336 @@ export default new Vuex.Store({
       });
 
       commit("setAnalisisHorizontalesEstados", periodos_estados);
+    },
+
+    async getAnalisisVerticalBalance({ commit, getters }) {
+      let balances = getters.BalanceGeneral;
+      let balance_uno = {};
+      let balance_dos = {};
+      let contador = 0;
+      let periodos_balance = [];
+      let doc = {
+        activos: {
+          activos_de_intermediacion: "",
+          caja_y_bancos: "",
+          cartera_de_prestamos: "",
+          inversiones_financieras: "",
+          operaciones_bursatiles: "",
+        },
+        activos_fijos: {
+          bienes_inmuebles: "",
+        },
+        otros_activos: {
+          diversos: "",
+        },
+        pasivos: {
+          diversos: "",
+          fondos_de_administracion: "",
+          otros_pasivos: "",
+          pasivos_de_intermediacion: "",
+          prestamo_bancos: "",
+          prestamos_del_banco: "",
+          provisiones: "",
+          titulos_de_emision_propia: "",
+        },
+        patrimonio: {
+          aportes_del_estado: "",
+          reservas_del_capital: "",
+        },
+        total_activos: "",
+        total_pasivos: "",
+        total_pasivos_patrimonio: "",
+        total_patrimonio: "",
+      };
+      let doc2 = {
+        activos: {
+          activos_de_intermediacion: "",
+          caja_y_bancos: "",
+          cartera_de_prestamos: "",
+          inversiones_financieras: "",
+          operaciones_bursatiles: "",
+        },
+        activos_fijos: {
+          bienes_inmuebles: "",
+        },
+        otros_activos: {
+          diversos: "",
+        },
+        pasivos: {
+          diversos: "",
+          fondos_de_administracion: "",
+          otros_pasivos: "",
+          pasivos_de_intermediacion: "",
+          prestamo_bancos: "",
+          prestamos_del_banco: "",
+          provisiones: "",
+          titulos_de_emision_propia: "",
+        },
+        patrimonio: {
+          aportes_del_estado: "",
+          reservas_del_capital: "",
+        },
+        total_activos: "",
+        total_pasivos: "",
+        total_pasivos_patrimonio: "",
+        total_patrimonio: "",
+      };
+      let variacion1 = { ...doc };
+      let variacion2 = { ...doc2 };
+      let total_activo = 0;
+      let total_activo2 = 0;
+      let total_pasivo = 0;
+      let total_pasivo2 = 0;
+      let total_patrimonio = 0;
+      let total_patrimonio2 = 0;
+
+
+      balances.map((item) => {
+        balance_uno = balances[contador];
+        balance_dos = balances[contador + 1];
+        
+        if (balance_dos && balance_dos) {
+
+          total_activo = balance_uno.total_activos;
+          total_activo2 = balance_dos.total_activos;
+          total_pasivo = balance_uno.total_pasivos; 
+          total_pasivo2 = balance_dos.total_pasivos;
+          total_patrimonio = balance_uno.total_pasivos_patrimonio;
+          total_patrimonio2 = balance_dos.total_pasivos_patrimonio;
+          
+          // *TODO iteramos activos
+          for (const pro in balance_uno.activos) {
+            variacion1.activos[pro] =  parseFloat(((balance_uno.activos[pro]/total_activo)*100).toFixed(2));
+            variacion2.activos[pro] =  parseFloat(((balance_dos.activos[pro]/total_activo2)*100).toFixed(2));
+          }
+
+           // *TODO iteramos activos fijos
+           for (const pro in balance_uno.activos_fijos) {
+            variacion1.activos_fijos[pro] =  parseFloat(((balance_uno.activos_fijos[pro]/total_activo)*100).toFixed(2));
+            variacion2.activos_fijos[pro] =  parseFloat(((balance_dos.activos_fijos[pro]/total_activo2)*100).toFixed(2));
+          }
+
+          // *TODO iteramos otros activos 
+          for (const pro in balance_uno.otros_activos) {
+            variacion1.otros_activos[pro] =  parseFloat(((balance_uno.otros_activos[pro]/total_activo)*100).toFixed(2));
+            variacion2.otros_activos[pro] =  parseFloat(((balance_dos.otros_activos[pro]/total_activo2)*100).toFixed(2));
+          }
+
+          // *TODO iteramos pasivos
+          for (const pro in balance_uno.pasivos) {
+            variacion1.pasivos[pro] =  parseFloat(((balance_uno.pasivos[pro]/total_patrimonio)*100).toFixed(2));
+            variacion2.pasivos[pro] =  parseFloat(((balance_dos.pasivos[pro]/total_patrimonio2)*100).toFixed(2));
+          }
+
+          // *TODO iteramos patrimonio
+          for (const pro in balance_uno.patrimonio) {
+            variacion1.patrimonio[pro] =  parseFloat(((balance_uno.patrimonio[pro]/total_patrimonio)*100).toFixed(2));
+            variacion2.patrimonio[pro] =  parseFloat(((balance_dos.patrimonio[pro]/total_patrimonio2)*100).toFixed(2));
+          }
+
+          variacion1.total_activos =  parseFloat(((balance_uno.total_activos/total_activo)*100).toFixed(2));
+          variacion2.total_activos =  parseFloat(((balance_dos.total_activos/total_activo2)*100).toFixed(2));
+
+          variacion1.total_pasivos =  parseFloat(((balance_uno.total_pasivos/total_pasivo)*100).toFixed(2));
+          variacion2.total_pasivos =  parseFloat(((balance_dos.total_pasivos/total_pasivo2)*100).toFixed(2));
+
+          variacion1.total_pasivos_patrimonio =  parseFloat(((balance_uno.total_pasivos_patrimonio/total_patrimonio)*100).toFixed(2));
+          variacion2.total_pasivos_patrimonio =  parseFloat(((balance_dos.total_pasivos_patrimonio/total_patrimonio2)*100).toFixed(2));
+
+          variacion1.total_patrimonio =  parseFloat(((balance_uno.total_patrimonio/total_patrimonio)*100).toFixed(2));
+          variacion2.total_patrimonio =  parseFloat(((balance_dos.total_patrimonio/total_patrimonio2)*100).toFixed(2));
+
+          let var1 = structuredClone(variacion1);
+          let var2 = structuredClone(variacion2);
+
+          periodos_balance.push([balance_uno, balance_dos, var1, var2]);
+        }
+        
+        contador = contador + 1;
+      
+      });
+
+      /*  // *TODO  BUCLE PARA RECORRER LOS OBJETOS DE LOS BALANCES
+      for (const pro in obj) {
+        console.log(obj[pro]);
+      }
+      setAnalisisVerticales
+      */
+
+      commit("setAnalisisVerticales", periodos_balance);
+
+    },
+
+    async getAnalisisVerticalEstado({ commit, getters }) {
+      let estados = getters.EstadoResultados;
+      let estado_uno = {};
+      let estado_dos = {};
+      let contador = 0;
+      let periodos_estados = [];
+      let doc = {
+        anio: "",
+        ingreso_de_operaciones: {
+          interes_prestamos: "",
+          comisiones_y_otros_ingresos: "",
+          intereses_inversiones: "",
+          intereses_depositos: "",
+          total_ingresos_operacion: "",
+        },
+        costos_operacion: {
+          intereses_sobre_prestamos: "",
+          comisiones_sobre_titulos: "",
+          comisiones_y_otros: "",
+          total_costos_operacion: "",
+          reservas_de_saneamiento: "",
+          utilidad_antes_gastos: "",
+        },
+        gastos_operacion: {
+          funcionarios_y_empleados: "",
+          generales: "",
+          depresiaciones_y_amortizaciones: "",
+          total_gastos_operacion: "",
+          utilidad_operacional: "",
+          dividendos: "",
+        },
+        otros_ingreso_y_gastos: {
+          otros_ingresos: "",
+          otros_gastos: "",
+          total_otros_ingresos_y_gastos: "",
+        },
+        utilidad_antes_impuestos: {
+          utilidad_antes_impuestos: "",
+          impuesto_sobre_la_renta: "",
+          contribucion_especial_plan_de_seguridad_ciudada: "",
+        },
+        utilidad_neta: "",
+        impuesto_sobre_la_renta: "",
+        efecto_fiscal: {
+          gastos_no_deducibles: "",
+          ingresos_no_gravables: "",
+          impuesto_sobre_la_renta: "",
+        },
+      };
+      let doc2 = {
+        anio: "",
+        ingreso_de_operaciones: {
+          interes_prestamos: "",
+          comisiones_y_otros_ingresos: "",
+          intereses_inversiones: "",
+          intereses_depositos: "",
+          total_ingresos_operacion: "",
+        },
+        costos_operacion: {
+          intereses_sobre_prestamos: "",
+          comisiones_sobre_titulos: "",
+          comisiones_y_otros: "",
+          total_costos_operacion: "",
+          reservas_de_saneamiento: "",
+          utilidad_antes_gastos: "",
+        },
+        gastos_operacion: {
+          funcionarios_y_empleados: "",
+          generales: "",
+          depresiaciones_y_amortizaciones: "",
+          total_gastos_operacion: "",
+          utilidad_operacional: "",
+          dividendos: "",
+        },
+        otros_ingreso_y_gastos: {
+          otros_ingresos: "",
+          otros_gastos: "",
+          total_otros_ingresos_y_gastos: "",
+        },
+        utilidad_antes_impuestos: {
+          utilidad_antes_impuestos: "",
+          impuesto_sobre_la_renta: "",
+          contribucion_especial_plan_de_seguridad_ciudada: "",
+        },
+        utilidad_neta: "",
+        impuesto_sobre_la_renta: "",
+        efecto_fiscal: {
+          gastos_no_deducibles: "",
+          ingresos_no_gravables: "",
+          impuesto_sobre_la_renta: "",
+        },
+      };
+
+      let variacion1 = { ...doc };
+      let variacion2 = { ...doc2 };
+      let total = 0;
+      let total2 = 0;
+
+
+      estados.map((item) => {
+        estado_uno = estados[contador];
+        estado_dos = estados[contador + 1];
+        
+        if (estado_uno && estado_dos) {
+
+          total = estado_uno.ingreso_de_operaciones.total_ingresos_operacion;
+          total2 = estado_dos.ingreso_de_operaciones.total_ingresos_operacion;
+          
+          
+          // *TODO iteramos ingreso operaciones
+          for (const pro in estado_uno.ingreso_de_operaciones) {
+            variacion1.ingreso_de_operaciones[pro] =  parseFloat(((estado_uno.ingreso_de_operaciones[pro]/total)*100).toFixed(2));
+            variacion2.ingreso_de_operaciones[pro] =  parseFloat(((estado_dos.ingreso_de_operaciones[pro]/total2)*100).toFixed(2));
+          }
+
+          // *TODO iteramos costos operacion
+          for (const pro in estado_uno.costos_operacion) {
+            variacion1.costos_operacion[pro] =  parseFloat(((estado_uno.costos_operacion[pro]/total)*100).toFixed(2));
+            variacion2.costos_operacion[pro] =  parseFloat(((estado_dos.costos_operacion[pro]/total2)*100).toFixed(2));
+          }
+
+          // *TODO iteramos gastos operacion
+          for (const pro in estado_uno.gastos_operacion) {
+            variacion1.gastos_operacion[pro] =  parseFloat(((estado_uno.gastos_operacion[pro]/total)*100).toFixed(2));
+            variacion2.gastos_operacion[pro] =  parseFloat(((estado_dos.gastos_operacion[pro]/total2)*100).toFixed(2));
+          }
+
+          // *TODO iteramos otros ingresos y gastos
+          for (const pro in estado_uno.otros_ingreso_y_gastos) {
+            variacion1.otros_ingreso_y_gastos[pro] =  parseFloat(((estado_uno.otros_ingreso_y_gastos[pro]/total)*100).toFixed(2));
+            variacion2.otros_ingreso_y_gastos[pro] =  parseFloat(((estado_dos.otros_ingreso_y_gastos[pro]/total2)*100).toFixed(2));
+          }
+
+          // *TODO iteramos utilidad antes impuestos
+          for (const pro in estado_uno.utilidad_antes_impuestos) {
+            variacion1.utilidad_antes_impuestos[pro] =  parseFloat(((estado_uno.utilidad_antes_impuestos[pro]/total)*100).toFixed(2));
+            variacion2.utilidad_antes_impuestos[pro] =  parseFloat(((estado_dos.utilidad_antes_impuestos[pro]/total2)*100).toFixed(2));
+          }
+
+          // *TODO iteramos efecto fiscal
+          for (const pro in estado_uno.efecto_fiscal) {
+            variacion1.efecto_fiscal[pro] =  parseFloat(((estado_uno.efecto_fiscal[pro]/total)*100).toFixed(2));
+            variacion2.efecto_fiscal[pro] =  parseFloat(((estado_dos.efecto_fiscal[pro]/total2)*100).toFixed(2));
+          }
+
+          variacion1.utilidad_neta =  parseFloat(((estado_uno.utilidad_neta/total)*100).toFixed(2));
+          variacion2.utilidad_neta =  parseFloat(((estado_dos.utilidad_neta/total2)*100).toFixed(2));
+
+          variacion1.impuesto_sobre_la_renta =  parseFloat(((estado_uno.impuesto_sobre_la_renta/total)*100).toFixed(2));
+          variacion2.impuesto_sobre_la_renta =  parseFloat(((estado_dos.impuesto_sobre_la_renta/total2)*100).toFixed(2));
+
+          let var1 = structuredClone(variacion1);
+          let var2 = structuredClone(variacion2);
+
+          periodos_estados.push([estado_uno, estado_dos, var1, var2]);
+        }
+        
+        contador = contador + 1;
+      
+      });
+
+      /*  // *TODO  BUCLE PARA RECORRER LOS OBJETOS DE LOS BALANCES
+      for (const pro in obj) {
+        console.log(obj[pro]);
+      }
+      setAnalisisVerticales
+      */
+
+      commit("setAnalisisVerticalesEstados", periodos_estados);
+
     },
   },
   modules: {},
