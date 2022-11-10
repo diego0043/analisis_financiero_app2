@@ -74,19 +74,34 @@
       </button>
     </div>
 
-    <div id="element-to-convert" class="container mb-3 mt-4"></div>
+    <div id="element-to-convert" class="container mb-3 mt-4">
+        <CardDupont 
+        :titulo = "'Balance General'"
+        :valor = "''"
+        />
+
+        <CardDupont 
+        :titulo = "'Estado de Resultados'"
+        :valor = "''"
+        />
+    </div>
   </div>
 </template>
 <script>
 import html2pdf from "html2pdf.js";
+import CardDupont from "./CardDupont.vue";
 
 export default {
   name: "TablaDupont",
   data: () => ({}),
-  props: {
+    components: {
+        CardDupont,
+    },
+  /*props: {
     Balance: { Object, default: {} },
     EstadoResultados: { Object, default: {} },
   },
+  */
   methods: {
     async exportToPDF() {
       let name = "Estado-resultados-" + this.report.anio;
