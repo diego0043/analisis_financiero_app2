@@ -24,66 +24,43 @@
           />
         </svg>
       </button>
-      <button
-        class="btn-edit"
-        @click="edit()"
-        data-bs-toggle="tooltip"
-        data-bs-placement="left"
-        title="Editar documento"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          fill="currentColor"
-          class="bi bi-pencil-square icon-edit"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
-          />
-          <path
-            fill-rule="evenodd"
-            d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
-          />
-        </svg>
-      </button>
-      <button
-        class="btn-del"
-        @click="edit()"
-        data-bs-toggle="tooltip"
-        data-bs-placement="left"
-        title="Eliminar documento"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="22"
-          height="22"
-          fill="currentColor"
-          class="bi bi-trash icon-del"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"
-          />
-          <path
-            fill-rule="evenodd"
-            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
-          />
-        </svg>
-      </button>
-    </div>
+          </div>
 
     <div id="element-to-convert" class="container mb-3 mt-4">
-        <CardDupont 
-        :titulo = "'Balance General'"
-        :valor = "''"
-        />
+      <br />
+      <div class="row rows-principal">ANALISIS DUPONT</div>
 
-        <CardDupont 
-        :titulo = "'Estado de Resultados'"
-        :valor = "''"
-        />
+      <div class="u1">
+
+      </div>
+
+      <div class="col1 ">
+        <CardDupont class="card-dp" :titulo="'Balance General'" :valor="''" :porcentaje="true"/>
+
+        <span class="msg"> </span>
+
+        <CardDupont class="card-dp" :titulo="'Estado de Resultados'" :valor="''" :porcentaje="true" />
+      </div>
+
+      <div class="col2">
+        <CardDupont class="card-dp" :titulo="'Margen de utilidad neta'" :valor="col1.margen_neta" />
+        <span class="msg">*</span>
+        <CardDupont class="card-dp" :titulo="'Rotación de activos totales'" :valor="col1.rotacion_activos" />
+        <span class="msg"> </span>
+        <CardDupont class="card-dp act-tot" :titulo="'Activos totales'" :valor="col1.activos_totales" />
+        <span class="msg">/</span>
+        <CardDupont class="card-dp" :titulo="'Capital de acciones comunes'" :valor="col1.capital_acciones_comunes" />
+      </div>
+
+      <div class="col3">
+        <CardDupont class="card-dp" :titulo="'ROA'" :valor="col2.roa"/>
+        <span class="msg">*</span>
+        <CardDupont class="card-dp" :titulo="'MFA'" :valor="col2.mfa" />
+      </div>
+
+      <div class="col4">
+        <CardDupont class="card-dp" :titulo="'ROE'" :valor="col3.roe" />
+      </div>
     </div>
   </div>
 </template>
@@ -94,17 +71,27 @@ import CardDupont from "./CardDupont.vue";
 export default {
   name: "TablaDupont",
   data: () => ({}),
-    components: {
-        CardDupont,
-    },
-  /*props: {
-    Balance: { Object, default: {} },
-    EstadoResultados: { Object, default: {} },
+  components: {
+    CardDupont,
   },
-  */
+  props: {
+    col1: {
+      type: Object,
+      default: {},
+    },
+    col2: {
+      type: Object,
+      default: {},
+    },
+    col3: {
+      type: Object,
+      default: {},
+    },
+  },
+
   methods: {
     async exportToPDF() {
-      let name = "Estado-resultados-" + this.report.anio;
+      let name = "Analisis-dupont";
       html2pdf(document.getElementById("element-to-convert"), {
         margin: 1,
         filename: name,
@@ -138,24 +125,11 @@ export default {
   text-align: center;
 }
 
-.rows-subtitulo {
-  display: block;
-  font-size: 17px;
-  font-weight: bold;
-  text-align: left;
-}
-
-.numeros {
-  display: block;
-  text-align: right;
-  font-size: 17px;
-  margin-right: 20px;
-}
-
 .container {
-  width: 85%;
+  width: 90%;
   background-color: white;
   margin-left: 35px;
+  height: 800px;
 }
 
 .ctn {
@@ -212,24 +186,6 @@ export default {
   margin-top: -3px;
 }
 
-.btn-del {
-  position: fixed;
-  top: 195px;
-  background-color: transparent;
-  border: none;
-  color: gray;
-  border-radius: 0px;
-  width: 55px;
-  height: 50px;
-}
-
-.btn-del:hover {
-  background-color: #f8f8f8;
-  color: black;
-}
-.icon-del {
-  margin-top: -3px;
-}
 
 .right-menu {
   position: fixed;
@@ -238,5 +194,47 @@ export default {
   background-color: white;
   width: 55px;
   height: 100vh;
+}
+
+.col1{
+  display: inline-block;
+  position: absolute;
+  top: 305px;
+  left: 8%;
+}
+.col2 {
+  display: inline-block;
+  position: absolute;
+  top: 120px;
+  left: 31%;
+}
+
+.col3 {
+  display: inline-block;
+  position: absolute;
+  top: 305px;
+  left: 53%;
+}
+
+.col4 {
+  display: inline-block;
+  position: absolute;
+  top: 400px;
+  left: 74%;
+}
+
+.card-dp {
+  margin-bottom: 30px;
+}
+
+.msg{
+  display: block;
+  font-size: 25px;
+  font-weight: bold;
+  color: gray;
+  width: 152px;
+  text-align: center;
+  margin-top: -5px;
+  height: 40px;
 }
 </style>

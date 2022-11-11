@@ -70,7 +70,11 @@
         </div>
       </div>
       <div class="bl" v-if="report === true">
-        <TablaDupont />
+        <TablaDupont 
+        :col1="col1"
+        :col2="col2"
+        :col3="col3"
+        />
       </div>
     </div>
   </div>
@@ -84,18 +88,41 @@ export default {
   data() {
     return {
       report: false,
+      col1: {
+        margen_neta: 0,
+        rotacion_activos: 0,
+        activos_totales: 0,
+        capital_acciones_comunes: 0,
+      },
+      col2: {
+        roa: 0,
+        mfa: 0,
+      },
+      col3: {
+        roe: 0,
+      },
     };
   },
 
   computed: {
-    ...mapGetters(["BalanceGeneral", "EstadoResultados"]),
+    ...mapGetters(["BalanceGeneral", "EstadoResultados", "Indicadores"]),
   },
   methods: {
-    ...mapActions(["getBalanceGeneral", "getEstadoResultados"]),
+    ...mapActions(["getBalanceGeneral", "getEstadoResultados", "getIndicadores"]),
     mostrarAnalisis(posicion) {
-    
+      
+      let indicadores = this.Indicadores[posicion];
 
-      //mos
+      console.log(indicadores);
+      this.col1.margen_neta = indicadores[0].analisis_dupong.margen_utilidad_neta ;
+      this.col1.rotacion_activos = indicadores[0].analisis_dupong.rotacion_activos_totales;
+      this.col1.activos_totales = "$ " + indicadores[1].total_activos;
+      this.col1.capital_acciones_comunes = "$ " + indicadores[1].total_patrimonio;
+
+      this.col2.roa = indicadores[0].indicadores_de_rentabilidad.roa + "%";
+      this.col2.mfa = indicadores[0].analisis_dupong.multiplicador_de_apalancamiento_financiero + "%";
+
+      this.col3.roe = indicadores[0].indicadores_de_rentabilidad.roe + "%";
       this.report = true;
     },
     info() {
@@ -109,10 +136,11 @@ export default {
   async created() {
     await this.getBalanceGeneral();
     await this.getEstadoResultados();
+    await this.getIndicadores(),
 
     setTimeout(() => {}, 1000);
   },
-  components: { TablaDupont  },
+  components: { TablaDupont },
 };
 </script>
 

@@ -1,15 +1,17 @@
 <template>
   <div>
     <div class="title-principal">
-        <span>{{msg}}</span>
+      <span>{{ msg }}</span>
     </div>
-    <div class="card-dp shadow-sm">
-      <div class="title">
+    <div class="card-dp shadow">
+      <div v-show="porcentaje === false" class="title">
+        {{ titulo }}
+      </div>
+      <div v-show="porcentaje" class="title mt-5">
         {{ titulo }}
       </div>
       <div>
-        <span v-show="dolar">$</span> <span class="payload">{{ valor }}</span>
-        <span v-show="porcentaje">%</span>
+          <span class="payload mt-2">{{ valor }}</span>
       </div>
     </div>
   </div>
@@ -48,16 +50,20 @@ export default {
 <style scoped>
 .card-dp {
   width: 150px;
-  height: 100px;
+  height: 120px;
   border: 1px solid white;
   border-radius: 10px;
+  color: gray;
 }
+
+
 
 .title {
   display: block;
   width: 100%;
   margin-top: 20%;
   text-align: center;
+  font-size: 13px;
 }
 
 .payload {
@@ -66,9 +72,14 @@ export default {
   text-align: center;
 }
 
-.title-principal{
-    width: 150px;
-    text-align: center;
-    margin-bottom: 10px;
+.title-principal {
+  width: 150px;
+  text-align: center;
+  margin-bottom: 2px;
+  font-size: 25px;
+  font-weight: bold;
+  color: gray;
 }
+
+
 </style>
