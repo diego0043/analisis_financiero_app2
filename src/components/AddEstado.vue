@@ -259,7 +259,7 @@ export default {
       doc: {
         anio: "",
         ingreso_de_operaciones: {
-          interes_prestamos: "",
+          interes_prestamos: "3434",
           comisiones_y_otros_ingresos: "",
           intereses_inversiones: "",
           intereses_depositos: "",
