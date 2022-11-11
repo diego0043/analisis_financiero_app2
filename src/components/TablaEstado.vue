@@ -26,7 +26,7 @@
     </button>
     <button
       class="btn-edit"
-      @click="edit()"
+      @click="editEstado()"
       data-bs-toggle="tooltip"
       data-bs-placement="left"
       title="Editar documento"
@@ -48,6 +48,7 @@
         />
       </svg>
     </button>
+    <!--
     <button
       class="btn-del"
       @click="edit()"
@@ -72,6 +73,8 @@
         />
       </svg>
     </button>
+      
+    -->
     </div>
     
     <div id="element-to-convert" class="container mb-3 mt-4">
@@ -302,6 +305,13 @@ export default {
           toast.addEventListener("mouseenter", Swal.stopTimer);
           toast.addEventListener("mouseleave", Swal.resumeTimer);
         },
+      });
+    },
+    editEstado() {
+      const anioEdit = this.report.anio;
+      this.$router.push({
+        path: "editar_estado",
+        query: {anio:anioEdit}
       });
     },
   },

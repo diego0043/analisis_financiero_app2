@@ -115,6 +115,34 @@ export default new Vuex.Store({
         return false;
       }
     },
+    async EditBalanceGeneral({ commit }, payload) {
+      try {
+        const collection = await db.collection("Estados de situacion financiera").get();
+        collection.forEach(doc => {
+          if (doc.data().anio === payload.anio) {
+            const docRef = db.collection("Estados de situacion financiera").doc(doc.id);
+            docRef.set(payload);
+          }
+        });
+        return true;
+      } catch (error) {
+        return false;
+      }
+    },
+    async EditEstadoResultados({ commit }, payload) {
+      try {
+        const collection = await db.collection("Estados de resultados").get();
+        collection.forEach(doc => {
+          if (doc.data().anio === payload.anio) {
+            const docRef = db.collection("Estados de resultados").doc(doc.id);
+            docRef.set(payload);
+          }
+        });
+        return true;
+      } catch (error) {
+        return false;
+      }
+    },
 
     async setEstadoResultados({ commit }, payload) {
       try {
