@@ -46,9 +46,7 @@
             <button @click="newEstado()" class="btn-add shadow-sm mt-4 mb-3">
               Agregar nuevo Estado Resultado
             </button>
-            <button class="btn-view-all shadow-sm mb-1">
-              Ver todos los Estados
-            </button>
+
           </div>
         </div>
       </div>

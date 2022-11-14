@@ -104,7 +104,11 @@ export default {
     ...mapGetters(["Indicadores"]),
   },
   methods: {
-    ...mapActions(["getIndicadores", "getBalanceGeneral", "getEstadoResultados"]),
+    ...mapActions([
+      "getIndicadores",
+      "getBalanceGeneral",
+      "getEstadoResultados",
+    ]),
     mostrarIndicadores(indicador) {
       this.indicadores = { ...indicador[0] };
       this.balance = { ...indicador[1] };
@@ -116,8 +120,8 @@ export default {
             "Razon corriente = Activo intermediación / Pasivo intermediación",
           labels: ["Activo intermediación", "Pasivo intermediación"],
           results: [
-            this.balance.activos.activos_de_intermediacion,
-            this.balance.pasivos.pasivos_de_intermediacion,
+            this.balance.activos.activos_de_intermediacion.toFixed(2),
+            this.balance.pasivos.pasivos_de_intermediacion.toFixed(2),
             this.indicadores.indicadores_liquidez.razon_corriente,
           ],
           anio: this.report.anio,
@@ -135,9 +139,11 @@ export default {
             "Pasivo intermediación",
           ],
           results: [
-            this.balance.activos.activos_de_intermediacion -
-              this.balance.activos.inversiones_financieras,
-            this.balance.pasivos.pasivos_de_intermediacion,
+            (
+              this.balance.activos.activos_de_intermediacion -
+              this.balance.activos.inversiones_financieras
+            ).toFixed(2),
+            this.balance.pasivos.pasivos_de_intermediacion.toFixed(2),
             this.indicadores.indicadores_liquidez.prueba_acida,
           ],
           anio: this.indicadores.anio,
@@ -152,8 +158,8 @@ export default {
             "Capital de trabajo = Activo intermediación - Pasivo intermediación",
           labels: ["Activo intermediación", "Pasivo intermediación"],
           results: [
-            this.balance.activos.activos_de_intermediacion,
-            this.balance.pasivos.pasivos_de_intermediacion,
+            this.balance.activos.activos_de_intermediacion.toFixed(2),
+            this.balance.pasivos.pasivos_de_intermediacion.toFixed(2),
             this.indicadores.indicadores_liquidez.capital_trabajo,
           ],
           anio: this.indicadores.anio,
@@ -171,8 +177,8 @@ export default {
             "Generadores de ingresos financieros = Activo promedio intermediación / Activos totales",
           labels: ["Activo promedio intermediación", "Activos totales"],
           results: [
-            this.balance.activos.activos_de_intermediacion / 4,
-            this.balance.total_activos,
+            (this.balance.activos.activos_de_intermediacion / 4).toFixed(2),
+            (parseFloat(this.balance.total_activos)).toFixed(2),
             this.indicadores.indicadores_de_actividad
               .generadores_de_ingresos_financieros,
           ],
@@ -190,9 +196,10 @@ export default {
           title: "Indice de endeudamiento = Total pasivos / Total activos",
           labels: ["Total pasivos", "Total activos"],
           results: [
-            this.balance.total_pasivos,
-            this.balance.total_activos,
-            this.indicadores.indicadores_de_endeudamiento.indice_de_endeudamiento,
+            (this.balance.total_pasivos).toFixed(2),
+            (parseFloat(this.balance.total_activos)).toFixed(2),
+            this.indicadores.indicadores_de_endeudamiento
+              .indice_de_endeudamiento,
           ],
           anio: this.indicadores.anio,
           interpretation: [
@@ -209,8 +216,8 @@ export default {
           title: "ROA = Utilidad neta / Total activos",
           labels: ["Utilidad neta", "Total activos"],
           results: [
-            this.estado.utilidad_neta,
-            this.balance.total_activos,
+            (parseFloat(this.estado.utilidad_neta)).toFixed(2),
+            (parseFloat(this.balance.total_activos)).toFixed(2),
             this.indicadores.indicadores_de_rentabilidad.roa,
           ],
           anio: this.indicadores.anio,
@@ -224,8 +231,8 @@ export default {
           title: "ROE = Utilidad neta / Total patrimonio",
           labels: ["Utilidad neta", "Total patrimonio"],
           results: [
-            this.estado.utilidad_neta,
-            this.balance.total_patrimonio,
+          (parseFloat(this.estado.utilidad_neta)).toFixed(2),
+            (this.balance.total_patrimonio).toFixed(2),
             this.indicadores.indicadores_de_rentabilidad.roe,
           ],
           anio: this.indicadores.anio,
@@ -243,8 +250,8 @@ export default {
             "Margen utilidad neta = Utilidad neta / Total ingreso de operación",
           labels: ["Utilidad neta", "Total ingreso de operación"],
           results: [
-            this.estado.utilidad_neta,
-            this.estado.ingreso_de_operaciones.total_ingresos_operacion,
+          (parseFloat(this.estado.utilidad_neta)).toFixed(2),
+            (this.estado.ingreso_de_operaciones.total_ingresos_operacion).toFixed(2),
             this.indicadores.analisis_dupong.margen_utilidad_neta,
           ],
           anio: this.indicadores.anio,
@@ -259,8 +266,8 @@ export default {
             "Rotación activos totales = Total ingresos de operación / Total activos",
           labels: ["Total ingresos de operación", "Total activos"],
           results: [
-            this.estado.ingreso_de_operaciones.total_ingresos_operacion,
-            this.balance.total_activos,
+            (this.estado.ingreso_de_operaciones.total_ingresos_operacion).toFixed(2),
+            (parseFloat(this.balance.total_activos)).toFixed(2),
             this.indicadores.analisis_dupong.rotacion_activos_totales,
           ],
           anio: this.indicadores.anio,
@@ -275,9 +282,10 @@ export default {
             "Rendimiento sobre activos totales = Utilidad neta / Total activos",
           labels: ["Total ingresos de operación", "Total activos"],
           results: [
-            this.estado.utilidad_neta,
-            this.balance.total_activos,
-            this.indicadores.analisis_dupong.rendimientos_sobre_los_activos_totales,
+          (parseFloat(this.estado.utilidad_neta)).toFixed(2),
+          (parseFloat(this.balance.total_activos)).toFixed(2),
+            this.indicadores.analisis_dupong
+              .rendimientos_sobre_los_activos_totales,
           ],
           anio: this.indicadores.anio,
           interpretation: [
@@ -285,20 +293,6 @@ export default {
             "El resultado nos indica qué la empresa esta ganando menos de 10 centavos por cada dólar invertido",
           ],
           conditions: [0.001, 0.001],
-        },
-        {
-          title:
-            "Multiplicador de apalancamiento financiero = Total activos / Total patriomonio",
-          labels: ["Total activos", "Total patriomonio"],
-          results: [
-            this.balance.total_activos,
-            this.balance.total_patrimonio,
-            this.indicadores.analisis_dupong
-              .multiplicador_de_apalancamiento_financiero,
-          ],
-          anio: this.indicadores.anio,
-          interpretation: ["Aca no se que poner", "Aca no se que poner"],
-          conditions: [5, 5],
         },
       ];
 
