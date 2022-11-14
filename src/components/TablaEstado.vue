@@ -214,7 +214,7 @@
       <div class="row sub-title rows-subtitulo mt-2">
         Utilidad antes de impuesto:
       </div>
-      <div class="row">
+      <div class="row mt-3">
         <div class="col cuenta">Utilidad antes de impuesto</div>
         <div class="col numeros">
           {{ report.utilidad_antes_impuestos.utilidad_antes_impuestos }}
@@ -226,7 +226,7 @@
           {{ report.utilidad_antes_impuestos.impuesto_sobre_la_renta }}
         </div>
       </div>
-      <div class="row continuacion mt-4">
+      <div class="row continuacion ">
         <div class="col cuenta">
           contribucion especial plan de seguridad ciudada
         </div>
@@ -243,14 +243,7 @@
           {{ report.utilidad_neta }}
         </div>
       </div>
-      <div class="row">
-        <div class="col-8 cuenta">
-          Impuesto sobre la renta ( si > 150 = 30%) sino 25%
-        </div>
-        <div class="col numeros">
-          {{ report.impuesto_sobre_la_renta }}
-        </div>
-      </div>
+
       <div class="row mt-2 sub-title rows-subtitulo">Efecto fiscal de:</div>
       <div class="row mt-2">
         <div class="col cuenta">Gastos no deducibles</div>
